@@ -1,0 +1,13 @@
+.search-container{
+    display: flex;
+   align-items: center;
+   gap: 10px;
+   background-color: #2e374a;
+   border-radius: 10px;
+  padding: 10px;
+}
+.search-input{
+background-color: transparent;
+    border: none;
+    color: var(--text);
+}

@@ -1,0 +1,18 @@
+.message{
+    color: black;
+}
+.message button {
+    width: 12vw; 
+    padding: 5px;
+    background-color: rgb(222, 202, 55);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 15px;
+    margin-right: 5.5vw;
+  
+} 

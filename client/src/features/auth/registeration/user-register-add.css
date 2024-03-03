@@ -1,0 +1,213 @@
+/* .add-user-register{
+    background-color: rgba(20, 21, 21, 0.749);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    
+}
+.add-user-register-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50vw;
+    height: 50vh;
+    background-color: white;
+}
+
+
+.add-user-register-form input {
+    padding: 30px;
+    color: white;
+    border: none; 
+    border-radius: 0; 
+    background-color: transparent; 
+    border-bottom: 2px solid black; 
+    margin-bottom: 30px;
+    width: 45%;
+}
+
+.add-user-register-form button{
+    width: 15vw;
+    height: 5vh;
+    padding: 30px;
+    background-color: rgb(222, 202, 55);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+} */
+/* 
+ .add-user-register {
+    background-color: rgba(0, 0, 0, 0.701); 
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100vh; 
+    font-size: 12px;
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+}
+
+
+.add-user-register-form {
+    width: 50vw;
+    height: auto; 
+    background-color: white;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30vh;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.add-user-register-h2{
+color: black;
+margin-bottom: 40px;
+}
+.add-user-register-h3{
+    color: black;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.add-user-register-form input {
+    padding: 10px; 
+    margin-bottom: 20px; 
+    width: calc(100% - 40px); 
+    border: none;
+    background-color: transparent;
+    display: flex;
+    border: none;
+    border-bottom: 2px solid rgba(31, 30, 30, 0.7); 
+    color: rgba(0, 0, 0, 0.7); 
+}
+
+
+
+.add-user-register-form button {
+    width: 15vw; 
+    padding: 10px;
+    background-color: rgb(222, 202, 55);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+} 
+.add-user-register-form-img{
+    width: 50px;
+    height: 50px;
+} */
+
+.add-user-register {
+    background-color: rgba(0, 0, 0, 0.509);
+    padding: 20px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100vh;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 3;
+}
+
+.add-user-register-form {
+    height: 30vw;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.div-register {
+    flex-direction: row;
+    display: flex;
+}
+
+.add-user-register-wraps {
+
+
+    display: flex;
+    flex-direction: row; 
+    background-color: white;
+    border-radius: 10px;
+    height: 67vh;
+    margin-bottom: 25vh;
+ position: relative;
+ 
+
+
+}
+
+.add-user-register-form input {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-column-gap: ; Add space between columns */
+    width: calc(100% - 20px);
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(31, 30, 30, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+    margin: 4px;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
+
+.add-user-register-form input:focus {
+    border-bottom-color: rgba(31, 30, 30, 0.7);
+}
+
+.add-user-register-h2 {
+    color: black;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.add-user-register-h3 {
+    color: black;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.add-user-register-form button {
+    width: 12vw;
+    padding: 5px;
+    background-color: rgb(222, 202, 55);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 4vh;
+    margin-right: 5.5vw;
+
+}
+
+.add-user-register-form-img {
+    height: 62vh;
+    padding-top: 2vh;
+    margin-top: 5vh;
+    border-radius: 10px;
+}

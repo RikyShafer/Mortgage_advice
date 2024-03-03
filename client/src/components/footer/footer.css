@@ -1,0 +1,18 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+color: var(--textSoft);
+}
+.footer-logo{
+    font-weight: bold;
+}
+.footer-contactus{
+font-size: 12px;
+margin-left: 40px;
+}
+.footer-address{
+    font-size: 12px;
+    margin-right: 40px;
+ }

@@ -1,0 +1,36 @@
+.navbar{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--bgSoft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.navbar-title{
+    color: var(--textSoft);
+    font-weight: bold;
+}
+.navbar-manu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar-search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #2e374a;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.navbar-input{
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+}
+.navbar-icons{
+    display: flex;
+    gap: 10px;
+}
