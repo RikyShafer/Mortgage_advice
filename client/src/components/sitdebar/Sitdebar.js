@@ -20,21 +20,15 @@ import { FaUsers } from "react-icons/fa6";
 import { useSendLogoutMutation } from "../../features/auth/authApiSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../hooks/useAuth";
 const SitdeBar = () => {
-  const [logout, { isSuccess }] = useSendLogoutMutation()
+  const [logout, { isSuccess }] = useSendLogoutMutation();
   const navigate = useNavigate();
-  // const {userName, fullName, company}=useAuth
-  const { firstName, email, roles, isUser } = useAuth()
+  const { firstName, email, roles, isAdmin, isUser } = useAuth();
+
+  console.log(firstName, email, roles, isAdmin, isUser);
 
 
-  console.log(firstName, email, roles);
- 
-
-  let userStatus = isUser; // Declare userStatus using let
-
-  if(roles === "")
-    userStatus = "not";
   const notMenuItems = [
     {
       title: "דפים",
@@ -134,7 +128,12 @@ const SitdeBar = () => {
         },
         {
           title: "העלת מסמכים ",
-          path: "add",
+          path: "questionnaire",
+          icon: <GiFiles />
+        },
+        {
+          title: "צפייה מסמכים ",
+          path: "questionnaireList",
           icon: <GiFiles />
         },
         {
@@ -207,14 +206,10 @@ const SitdeBar = () => {
         },
         {
           title: "העלת מסמכים ",
-          path: "add",
+          path: "/questionnaire",
           icon: <GiFiles />
         },
-        {
-          title: "צפייה בנרשמים  ",
-          path: "registerList",
-          icon: <FaUsers />
-        },
+
       ],
     },
     {
@@ -230,27 +225,33 @@ const SitdeBar = () => {
           path: "help",
           icon: <MdHelpCenter />
         },
+        {
+          title: "התחברות",
+          path: "login",
+          icon: <AiOutlineLogin />
+        },
+        {
+          title: "הרשמה",
+          path: "signup",
+          icon: <PiUserCirclePlusDuotone />
+        },
       ],
     },
   ];
 
-  let menuItems
-  // const menuItems = isUser ? userMenuItems : adminMenuItems;
-if(userStatus==="ADMIN")
-{
-  menuItems=adminMenuItems
-}
-else if (userStatus==="not")
-{
-  menuItems=notMenuItems
-}
-else {
-  menuItems=userMenuItems
-}
 
+  let menuItems;
 
+  if (isAdmin) {
+    menuItems = adminMenuItems;
+  } else if (isUser) {
+    menuItems = userMenuItems;
+  } else {
+    menuItems = notMenuItems;
+  }
 
-  // const menuItems = adminMenuItems;
+  console.log(menuItems, "menuItems");
+
   useEffect(() => {
     if (isSuccess) {
       navigate("/")
@@ -262,24 +263,22 @@ else {
   return (
     <div className="side-bar">
       <div className="side-bar-user">
-        {/* <img src={company.image?"http://localhost:1010/uploads/" +company.image :"/logo612.jpg"} */}
-
         <div className="side-bar-user-details">
-          <span className="side-car-user-username">{firstName} </span>
-          <span className="side-car-user-title">{email} </span>
-          <span className="side-car-user-title">{roles} </span>
+          <span className="side-car-user-username">שם משתמש: {firstName} </span>
+          <span className="side-car-user-title"> מייל: {email} </span>
+          <span className="side-car-user-title"> סוג: {roles} </span>
 
         </div>
 
       </div>
       <ul className="side-bar-menu-list">
-      <img className="side-bar-menu-img" src="./logo612.jpg" alt="User avatar" />
+        <img className="side-bar-menu-img" src="./logo612.jpg" alt="User avatar" />
 
         {menuItems.map(cat => (
           <li key={cat.title}>
             <span className="side-bar-menu-cat"> {cat.title} </span>
             {cat.list.map(itme => (
-              <NenuLink itme={itme} key={itme.title} />
+              <NenuLink itme={itme} key={itme.title} menuItems={isAdmin}/>
             ))}
           </li>
         ))}

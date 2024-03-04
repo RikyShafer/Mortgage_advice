@@ -102,7 +102,6 @@
 
 
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
-// import SiteLayout from "./components/layout/site/SiteLayout"
 import DashLayout from "./components/layout/dash/DashLayout";
 import RequiireAuth from "./features/auth/RequiireAuth";
 
@@ -110,7 +109,9 @@ import RequiireAuth from "./features/auth/RequiireAuth";
 import UserRegisterList from "./features/userRegister/list/UserRegisterList";
 import UserRegisterPut from "./features/userRegister/put/UserRegisterPut";
 import UserRegisterAdd from "./features/auth/registeration/UserRegisterAdd";
+import ProcessCompletionMessage from "./features/auth/registeration/ProcessCompletionMessage";
 import AddQuestionnaire from "./features/questionnaire/add/AddQuestionnaire";
+import QuestionnaireList from "./features/questionnaire/list/QuestionnaireList";
 
 function App() {
   return (
@@ -121,17 +122,19 @@ function App() {
             <Route index element={<h1> Dashboard</h1>} />
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<UserRegisterAdd />} />
+           <Route path="/message" element={<ProcessCompletionMessage />}/>
 
             <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
                 <Route path="registerList" element={<UserRegisterList />}>
                   <Route path=':id' element={<UserRegisterPut />} />
                 </Route>
-                <Route path="/add" element={<AddQuestionnaire />}/>
-              {/* <Route path="registerList" element={<UserRegisterList />}>
-                <Route path=':id' element={<UserRegisterPut />} />
-              </Route> */}
+                <Route path="/questionnaire" element={<AddQuestionnaire />}/>
+                <Route path="/questionnaireList" element={<QuestionnaireList />}/>
             </Route>
-
+            <Route element={<RequiireAuth allowRoles={"USER"} />} >
+                <Route path="questionnaire" element={<AddQuestionnaire />}/>
+             
+            </Route>
           </Route>
 
       </Routes>
@@ -140,66 +143,3 @@ function App() {
 }
 
 export default App;
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path='/' element={<SiteLayout />}>
-//           <Route index element={<h1> Sith</h1>} />
-
-//           <Route path='/dash' element={<DashLayout />}>
-//           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/signup" element={<UserRegisterAdd />}/>
-//               <Route index element={<h1> Dashboard</h1>} />
-//               <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
-//                 <Route path="registerList" element={<UserRegisterList />}>
-//                   {/* Relative route path */}
-//                   <Route path=':id' element={<UserRegisterPut />} />
-//                 </Route>
-
-//               </Route>
-//             </Route>
-//           <Route element={<RequiireAuth allowRoles={["ADMIN", "USER"]} />} >
-//             <Route path='/dash' element={<DashLayout />}>
-//               <Route index element={<h1> Dashboard</h1>} />
-//               <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
-//                 <Route path="registerList" element={<UserRegisterList />}>
-//                   {/* Relative route path */}
-//                   <Route path=':id' element={<UserRegisterPut />} />
-//                 </Route>
-//               </Route>
-//             </Route>
-//           </Route>
-//         </Route>
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-/* 
-// function App() {
-//   return (
-
-//     <Router>
-//       <Routes>
-
-//           <Route element={<RequiireAuth allowRoles={["ADMIN", "USER"]} />} >
-//             <Route path='/' element={<DashLayout />}>
-//               <Route index element={<h1> Dashboard</h1>} />
-//               <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
-//                         <Route path="/registerList" element={<UserRegisterList />}>
-//                         <Route path='/registerList/:id' element={<UserRegisterPut />} />
-  
-//                 </Route>
-//               </Route>
-//             </Route>
-//           </Route>
-//       </Routes>
-//     </Router>
-
-//   );
-// }
-
-// export default App; */

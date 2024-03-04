@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 // import { HiOutlineUser } from "react-icons/hi";
 // import { useNavigate } from 'react-router-dom';
 
-import "./user-questionnaire-list.css";
+import "./questionnaire-list.css";
 
-const UserQuestionnaireList = () => {
+const QuestionnaireList = () => {
     const { data: questionnaire, isLoading, isError, error, isSuccess } = useGetQueryQuery();
     const token = useSelector((state) => state.auth.token); // Get token from Redux store
     // const navigate = useNavigate()
@@ -38,8 +38,7 @@ const UserQuestionnaireList = () => {
     //         return null;
     //     }
     // };
-
-    const renderDocumentField = (fileUrl) => {
+    const renderDocumentField = (fileUrl, fileName) => {
         if (fileUrl) {
             if (fileUrl.endsWith('.pdf')) {
                 return <iframe src={fileUrl} width="100%" height="500px" title="PDF Document" />;
@@ -48,11 +47,16 @@ const UserQuestionnaireList = () => {
                 return (
                     <div>
                         <p>This is a Word document. Click below to download:</p>
-                        <a href={fileUrl} download>Download Word Document</a>
+                        <a href={fileUrl} download={`${fileName}.docx`}>Download Word Document</a>
                     </div>
                 );
             } else if (fileUrl.endsWith('.jpg') || fileUrl.endsWith('.jpeg') || fileUrl.endsWith('.png') || fileUrl.endsWith('.gif')) {
-                return <img src={fileUrl} alt="Document" />;
+                return (
+                    <div>
+                        <p>This is an image. Click below to download:</p>
+                        <a href={fileUrl} download={`${fileName}.jpg`}>Download Image</a>
+                    </div>
+                );
             } else {
                 // If the file format is not supported, display a message
                 return <p>Unsupported file format</p>;
@@ -120,5 +124,5 @@ const UserQuestionnaireList = () => {
     );
 };
 
-export default UserQuestionnaireList;
+export default QuestionnaireList;
 
