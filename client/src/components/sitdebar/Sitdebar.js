@@ -206,7 +206,7 @@ const SitdeBar = () => {
         },
         {
           title: "העלת מסמכים ",
-          path: "/questionnaire",
+          path: "questionnaireuser",
           icon: <GiFiles />
         },
 

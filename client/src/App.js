@@ -105,7 +105,7 @@ import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import DashLayout from "./components/layout/dash/DashLayout";
 import RequiireAuth from "./features/auth/RequiireAuth";
 
- import LoginPage from "./features/auth/login/LoginPage";
+import LoginPage from "./features/auth/login/LoginPage";
 import UserRegisterList from "./features/userRegister/list/UserRegisterList";
 import UserRegisterPut from "./features/userRegister/put/UserRegisterPut";
 import UserRegisterAdd from "./features/auth/registeration/UserRegisterAdd";
@@ -118,24 +118,25 @@ function App() {
     <Router>
       <Routes>
 
-          <Route path='/' element={<DashLayout />}>
-            <Route index element={<h1> Dashboard</h1>} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="signup" element={<UserRegisterAdd />} />
-           <Route path="/message" element={<ProcessCompletionMessage />}/>
+        <Route path='/' element={<DashLayout />}>
+          <Route index element={<h1> Dashboard</h1>} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<UserRegisterAdd />} />
+          <Route path="/message" element={<ProcessCompletionMessage />} />
 
-            <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
-                <Route path="registerList" element={<UserRegisterList />}>
-                  <Route path=':id' element={<UserRegisterPut />} />
-                </Route>
-                <Route path="/questionnaire" element={<AddQuestionnaire />}/>
-                <Route path="/questionnaireList" element={<QuestionnaireList />}/>
+          <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
+            <Route path="registerList" element={<UserRegisterList />}>
+              <Route path=':id' element={<UserRegisterPut />} />
             </Route>
-            <Route element={<RequiireAuth allowRoles={"USER"} />} >
-                <Route path="questionnaire" element={<AddQuestionnaire />}/>
-             
-            </Route>
+            <Route path="/questionnaire" element={<AddQuestionnaire />} />
+            <Route path="/questionnaireList" element={<QuestionnaireList />} />
           </Route>
+          <Route element={<RequiireAuth allowRoles={"USER"} />} >
+          <Route path="/questionnaireuser" element={<AddQuestionnaire />} />
+
+
+          </Route>
+        </Route>
 
       </Routes>
     </Router>

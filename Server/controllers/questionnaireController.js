@@ -5,12 +5,14 @@ const Questionnaire = require("../models/Questionnaire");
  // פונקציית אסינכרון ליצירת משתמש חדש
 const createQuestionnaire = async (req, res) => {
     // Parse date string into a Date object
-    const roCertificateIssueDteles = new Date(req.body.roCertificateIssueDteles);
-    const dateBirth = new Date(req.body.dateBirth);
-    const validityOfApprovalOfCPAFromPreviousYear = new Date(req.body.validityOfApprovalOfCPAFromPreviousYear);
+    const roCertificateIssueDteles = req.body.roCertificateIssueDteles?new Date(req.body.roCertificateIssueDteles) : new Date();
+    const dateBirth = req.body.dateBirth? new Date(req.body.dateBirth):new Date();
+    const validityOfApprovalOfCPAFromPreviousYear = req.body.validityOfApprovalOfCPAFromPreviousYear? new Date(req.body.validityOfApprovalOfCPAFromPreviousYear):new Date();
+    // const UserRegister="65e51abf4bdbd5dc80e75f8d"
 
     // פירוק נתוני משתמש מגוף הבקשה
     const {
+        UserRegister,
         ID,//: 'תעודת זהות',
         maritalStatus,//: 'מצב משפחתי',
         education,//: 'השכלה',
@@ -29,13 +31,14 @@ const createQuestionnaire = async (req, res) => {
         previousWorkplace,//: 'מקום עבודה קודם',
         averageIncome
     } = req.body;
-    const cpaApprovalForCurrentSub = (req.file?.filename ? req.file.filename : "")//: 'אישור רו"ח משנה נוכחית י',
-    const antecedentModifierMole = (req.file?.filename ? req.file.filename : "")//: 'אישור רו"ח משנה קודמת  ',
-    const adiposityPreviousVariables1 = (req.file?.filename ? req.file.filename : "")//: 'שמה משנה קודמת ',
-    const adiposityPreviousVariables2 = (req.file?.filename ? req.file.filename : "")//: 'שמה משתנים  קודמת ',
-    const firstNetSlip = (req.file?.filename ? req.file.filename : "")//: '  תלוש נטו ראשון ',
-    const secondNetSlip = (req.file?.filename ? req.file.filename : "")//: 'תלוש נטו שני ',
-    const thirdNetSlip = (req.file?.filename ? req.file.filename : "")//: 'הכנסה ממוצעת'
+    const cpaApprovalForCurrentSub = (req.files && req.files.cpaApprovalForCurrentSub && req.files.cpaApprovalForCurrentSub[0]?.filename) ? req.files.cpaApprovalForCurrentSub[0].filename : "";
+    const antecedentModifierMole = (req.files.antecedentModifierMole && req.files.antecedentModifierMole[0]?.filename) ? req.files.antecedentModifierMole[0].filename : "";
+    const adiposityPreviousVariables1 = (req.files.adiposityPreviousVariables1 && req.files.adiposityPreviousVariables1[0]?.filename) ? req.files.adiposityPreviousVariables1[0].filename : "";
+    const adiposityPreviousVariables2 = (req.files.adiposityPreviousVariables2 && req.files.adiposityPreviousVariables2[0]?.filename) ? req.files.adiposityPreviousVariables2[0].filename : "";
+    const firstNetSlip = (req.files.firstNetSlip && req.files.firstNetSlip[0]?.filename) ? req.files.firstNetSlip[0].filename : "";
+    const secondNetSlip = (req.files.secondNetSlip && req.files.secondNetSlip[0]?.filename) ? req.files.secondNetSlip[0].filename : "";
+    const thirdNetSlip = (req.files.thirdNetSlip && req.files.thirdNetSlip[0]?.filename) ? req.files.thirdNetSlip[0].filename : "";
+    
 
 
 
@@ -61,6 +64,7 @@ const createQuestionnaire = async (req, res) => {
     try {
         //         // צור משתמש חדש באמצעות מודל המשתמש והנתונים שסופקו
         const questionnaire = await Questionnaire.create({
+            UserRegister,//שייך לאיזה משתמש 
             ID,//: 'תעודת זהות',
             roCertificateIssueDteles,//תאריך הנ]פקת תעושה זהות 
             dateBirth,//תאירך לידה 
@@ -103,7 +107,7 @@ const createQuestionnaire = async (req, res) => {
 const getAllQuestionnaire = async (req, res) => {
     try {
         // מצא את כל המשתמשים במסד הנתונים רק את האלה שהם משתמשים - לקוחות והמר לאובייקטי JavaScript רגילים
-        const questionnaireList = await Questionnaire.find().lean();
+        const questionnaireList = await Questionnaire.find().populate("UserRegister").lean();
 
         // בדוק אם קיימים משתמשים; אם לא, החזר מערך ריק
         if (!questionnaireList || questionnaireList.length === 0) {
@@ -145,6 +149,7 @@ const updateQuestionnaire = async (req, res) => {
 
     // גוף הבקשה לפירוק
     const { _id,
+        UserRegister,//שייך לאיזה משתמש 
         ID,//: 'תעודת זהות',
         maritalStatus,//: 'מצב משפחתי',
         education,//: 'השכלה',
@@ -201,6 +206,7 @@ const updateQuestionnaire = async (req, res) => {
 
         // בנה את אובייקט העדכון
         const updateObj = {
+            UserRegister,//שייך לאיזה משתמש 
             ID,//: 'תעודת זהות',
             roCertificateIssueDteles,//תאריך הנ]פקת תעושה זהות 
             dateBirth,//תאירך לידה 

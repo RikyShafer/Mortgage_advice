@@ -9,18 +9,14 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
         cb(null, uniqueSuffix + "-" + file.originalname); // Corrected line
+
     }
 });
 
 const upload = multer({ storage: storage });
 const router = express.Router();
 const questionnaireController = require('../controllers/questionnaireController.js');
-// const { authorizeAdmin } = require('../controllers/authMiddleware.js');
 
-
-
-// Use the QuestionnaireController version
-// router.get("/",authorizeAdmin, questionnaireController.getAllQuestionnaire);
 
 const verifyJWT = require("../middleware/verifyJWT");
 const verifyAdmin = require("../middleware/verifyAdmin");

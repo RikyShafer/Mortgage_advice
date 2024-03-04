@@ -100,7 +100,11 @@
 const mongoose =require('mongoose');
 
 const QuestionnaireSchema = new mongoose.Schema({
-    
+    UserRegister:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"UserRegister"
+    },
     ID: {
         type: String,
         // תעודת זהות

@@ -9,6 +9,7 @@ import "./questionnaire-list.css";
 const QuestionnaireList = () => {
     const { data: questionnaire, isLoading, isError, error, isSuccess } = useGetQueryQuery();
     const token = useSelector((state) => state.auth.token); // Get token from Redux store
+
     // const navigate = useNavigate()
     useEffect(() => {
         if (token) {
@@ -78,18 +79,19 @@ const QuestionnaireList = () => {
         return <h2>Error: {error.message}</h2>;
     }
 
-    console.log("questionnaire:", questionnaire); 
+    console.log("questionnaire:", questionnaire);
 
-    let questionnaireData = questionnaire|| [];
-
+    let questionnaireData = questionnaire || [];
+    console.log("questionnaireData:",questionnaireData);
     return (
         <div  >
-        
+
             <div className="register-list-title" >תצוגה של אנשים שלחו טפסים </div>
             <div className="register-list">
                 {questionnaireData.map((questionnaire) => (
-                    <div className="registerMap" key={questionnaire._id} >
-                        <h1>תעודת זהות - {questionnaire.ID}</h1>
+    <div className="registerMap" key={questionnaire._id} >
+                        <h1>שם פרטי  - {questionnaire.UserRegister?.firstName}</h1>
+                        <p>תעודת זהות - {questionnaire.ID}</p>
                         <p>תאריך הנפקת תעודת זהות - {questionnaire.roCertificateIssueDteles}</p>
                         <p>תאריך לידה - {questionnaire.dateBirth}</p>
                         <p>מצב משפחתי - {questionnaire.maritalStatus}</p>

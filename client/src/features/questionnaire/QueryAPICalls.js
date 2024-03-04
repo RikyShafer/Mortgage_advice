@@ -10,12 +10,12 @@ const QueryAPICalls = apiSlice.injectEndpoints({
             providesTags:['questionnaires']
         }),
         addQuery: builder.mutation({
-            query: (questionnaire) => ({
+            query: (formData) => ({
                 url: 'api/Questionnaire',
                 method: 'POST',
-                body: questionnaire  // Sending the questionnaire object directly
+                body: formData // Sending formData object directly
             }),
-            invalidatesTags:['questionnaires']
+            invalidatesTags: ['questionnaires']
         })
     }),
 });
