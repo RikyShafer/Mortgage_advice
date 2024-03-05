@@ -310,7 +310,8 @@ const AddQuestionnaire = () => {
                                 <option value="3+">3+</option>
                                 <option value="5+">5+</option>
                                 <option value="7+">7+</option>
-                                <option value="10+">10+</option>
+                                <option value="10+">10+</option>    
+                                   <option value="10+">15+</option>
                                 <option value="אחר">אחר</option>
 
                             </select>
