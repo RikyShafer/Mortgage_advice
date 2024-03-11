@@ -1,8 +1,8 @@
 import "./sitdebar.css"
 import NenuLink from "./NenuLink"
 import {
-  MdOutlineSettings,
-  MdHelpCenter,
+  // MdOutlineSettings,
+  // MdHelpCenter,
   MdLogout
 } from "react-icons/md"
 import { RiHomeWifiLine } from "react-icons/ri";
@@ -12,11 +12,10 @@ import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 import { CiCalculator2 } from "react-icons/ci";
 import { SiWhatsapp } from "react-icons/si";
 import { GiFiles } from "react-icons/gi";
-import { AiOutlineLogin } from "react-icons/ai";
-import { PiUserCirclePlusDuotone } from "react-icons/pi";
+// import { AiOutlineLogin } from "react-icons/ai";
+// import { PiUserCirclePlusDuotone } from "react-icons/pi";
 import { FaUsers } from "react-icons/fa6";
-
-
+import { RiAccountPinCircleLine } from "react-icons/ri";
 import { useSendLogoutMutation } from "../../features/auth/authApiSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
@@ -25,10 +24,7 @@ const SitdeBar = () => {
   const [logout, { isSuccess }] = useSendLogoutMutation();
   const navigate = useNavigate();
   const { firstName, email, roles, isAdmin, isUser } = useAuth();
-
   console.log(firstName, email, roles, isAdmin, isUser);
-
-
   const notMenuItems = [
     {
       title: "דפים",
@@ -69,25 +65,11 @@ const SitdeBar = () => {
       title: "משתמש",
       list: [
         {
-          title: "הגדרות",
-          path: "/settings",
-          icon: <MdOutlineSettings />
-        },
-        {
-          title: "עזרה",
-          path: "/help",
-          icon: <MdHelpCenter />
-        },
-        {
-          title: "התחברות",
+          title: "אזור אישי",
           path: "login",
-          icon: <AiOutlineLogin />
+          icon: <RiAccountPinCircleLine />
         },
-        {
-          title: "הרשמה",
-          path: "signup",
-          icon: <PiUserCirclePlusDuotone />
-        },
+        
 
       ],
     },
@@ -143,33 +125,42 @@ const SitdeBar = () => {
         },
       ],
     },
-    {
-      title: "משתמש",
-      list: [
+    // {
+    //   title: "משתמש",
+    //   list: [
+        // {
+        //   title: "הגדרות",
+        //   path: "/settings",
+        //   icon: <MdOutlineSettings />
+        // },
+        // {
+        //   title: "עזרה",
+        //   path: "/help",
+        //   icon: <MdHelpCenter />
+        // },
+        // {
+        //   title: "התחברות",
+        //   path: "login",
+        //   icon: <AiOutlineLogin />
+        // },
+        // {
+        //   title: "הרשמה",
+        //   path: "signup",
+        //   icon: <PiUserCirclePlusDuotone />
+        // },
         {
-          title: "הגדרות",
-          path: "/settings",
-          icon: <MdOutlineSettings />
+          title: "משתמש",
+          list: [
+            {
+              title: "אזור אישי",
+              path: "login",
+              icon: <RiAccountPinCircleLine />
+            },
+            
+    
+          ],
         },
-        {
-          title: "עזרה",
-          path: "/help",
-          icon: <MdHelpCenter />
-        },
-        {
-          title: "התחברות",
-          path: "login",
-          icon: <AiOutlineLogin />
-        },
-        {
-          title: "הרשמה",
-          path: "signup",
-          icon: <PiUserCirclePlusDuotone />
-        },
-
-      ],
-    },
-  ];
+      ];
   const userMenuItems = [
     {
       title: "דפים",
@@ -212,33 +203,45 @@ const SitdeBar = () => {
 
       ],
     },
-    {
-      title: "משתמש",
-      list: [
-        {
-          title: "הגדרות",
-          path: "settings",
-          icon: <MdOutlineSettings />
-        },
-        {
-          title: "עזרה",
-          path: "help",
-          icon: <MdHelpCenter />
-        },
-        {
-          title: "התחברות",
-          path: "login",
-          icon: <AiOutlineLogin />
-        },
-        {
-          title: "הרשמה",
-          path: "signup",
-          icon: <PiUserCirclePlusDuotone />
-        },
-      ],
-    },
-  ];
+  //   {
+  //     title: "משתמש",
+  //     list: [
+  //       {
+  //         title: "הגדרות",
+  //         path: "settings",
+  //         icon: <MdOutlineSettings />
+  //       },
+  //       {
+  //         title: "עזרה",
+  //         path: "help",
+  //         icon: <MdHelpCenter />
+  //       },
+  //       {
+  //         title: "התחברות",
+  //         path: "login",
+  //         icon: <AiOutlineLogin />
+  //       },
+  //       {
+  //         title: "הרשמה",
+  //         path: "signup",
+  //         icon: <PiUserCirclePlusDuotone />
+  //       },
+  //     ],
+  //   },
+  // ];
+  {
+    title: "משתמש",
+    list: [
+      {
+        title: "אזור אישי",
+        path: "login",
+        icon: <RiAccountPinCircleLine />
+      },
+      
 
+    ],
+  },
+];
 
   let menuItems;
 
@@ -267,27 +270,27 @@ const SitdeBar = () => {
           <span className="side-car-user-username">שם משתמש: {firstName} </span>
           <span className="side-car-user-title"> מייל: {email} </span>
           <span className="side-car-user-title"> סוג: {roles} </span>
-
         </div>
-
       </div>
       <ul className="side-bar-menu-list">
         <img className="side-bar-menu-img" src="./logo612.jpg" alt="User avatar" />
 
         {menuItems.map(cat => (
           <li key={cat.title}>
-            <span className="side-bar-menu-cat"> {cat.title} </span>
+            { cat.title==="משתמש"? 
+             <span className="side-bar-menu-catM"> </span>:
+            <span className="side-bar-menu-cat">  </span>
+          }
             {cat.list.map(itme => (
               <NenuLink itme={itme} key={itme.title} menuItems={isAdmin}/>
             ))}
-          </li>
+           </li>
         ))}
       </ul>
       <button onClick={logOutClick} className="side-bar-logout">
         <MdLogout />
         יציאה
       </button>
-
     </div>
   )
 }

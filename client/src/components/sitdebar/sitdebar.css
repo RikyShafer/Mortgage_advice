@@ -5,8 +5,6 @@
 .side-bar-user{
 display: flex;
 align-items: center;
-
-
 }
 
 .side-bar-user-details{
@@ -25,8 +23,10 @@ align-items: center;
 .side-bar-menu-cat{
     color: var(--textSoft);
     font-weight: bold;
-  
     margin: 10px, 0px;
+}
+.side-bar-menu-catM{
+    margin-left: 35vw;
 }
 .side-bar-menu-link{
     padding: 10px;
@@ -45,22 +45,24 @@ align-items: center;
     margin: 5px 0px;
     border-radius: 10px;
     font-size: 10px; 
- 
-}
+ }
 .side-bar-menu-link:hover, .side-bar-menu-link:active{
-    background-color:#a7aab1;
+    color: rgb(43, 80, 245);
+  text-decoration: underline;
+  text-underline-offset: 20px; /* Set the offset of the underline */
 }
 .side-bar-logout{
     margin: 5px 0px;
     display: flex;
     align-items: center;
-
     cursor: pointer;
     border-radius: 10px;
    border: none;
     background: none;
-    color: white;
+    color: var(--textSoft);
     width: 100%;
+    margin-right: 95vw;
+    font-size: 14px;
 }
 
 

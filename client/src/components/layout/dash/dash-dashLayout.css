@@ -5,7 +5,7 @@
 
 .mane {
     flex: 1;
-    background-color: var(--bgSoft);
+    /* background-color: var(--bgSoft); */
     min-height: 3vh;
 
 }
