@@ -8,11 +8,11 @@ const createQuestionnaire = async (req, res) => {
     const roCertificateIssueDteles = req.body.roCertificateIssueDteles?new Date(req.body.roCertificateIssueDteles) : new Date();
     const dateBirth = req.body.dateBirth? new Date(req.body.dateBirth):new Date();
     const validityOfApprovalOfCPAFromPreviousYear = req.body.validityOfApprovalOfCPAFromPreviousYear? new Date(req.body.validityOfApprovalOfCPAFromPreviousYear):new Date();
-    const UserRegister="65e51abf4bdbd5dc80e75f8d"
+    // const UserRegister="65e51abf4bdbd5dc80e75f8d"
 
     // פירוק נתוני משתמש מגוף הבקשה
     const {
-        // UserRegister,
+        UserRegister,
         ID,//: 'תעודת זהות',
         maritalStatus,//: 'מצב משפחתי',
         education,//: 'השכלה',
