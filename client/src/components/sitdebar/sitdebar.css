@@ -1,6 +1,8 @@
-.side-bar{
-    position: sticky;
-    top: 40px;
+.side-bar {
+  position: sticky;
+  top: 40px;
+  padding: 0; /* Add this line to remove padding */
+  margin: 0; /* Add this line to remove margin */
 }
 .side-bar-user{
 display: flex;
@@ -26,7 +28,7 @@ align-items: center;
     margin: 10px, 0px;
 }
 .side-bar-menu-catM{
-    margin-left: 35vw;
+    margin-left: 38vw;
 }
 .side-bar-menu-link{
     padding: 10px;
@@ -35,7 +37,7 @@ align-items: center;
     gap: 10px;
     margin: 5px 0px;
     border-radius: 10px;
-    font-size: 14px; 
+    font-size: 11px; 
 }
 .side-bar-menu-link-ADMIN{
     padding: 6px;
@@ -44,7 +46,7 @@ align-items: center;
     gap: 10px;
     margin: 5px 0px;
     border-radius: 10px;
-    font-size: 10px; 
+    font-size: 8px; 
  }
 .side-bar-menu-link:hover, .side-bar-menu-link:active{
     color: rgb(43, 80, 245);

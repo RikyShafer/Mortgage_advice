@@ -87,7 +87,8 @@ const login = async (req, res) => {
         lastName: foundUser.lastName,
         email: foundUser.email,
         phone: foundUser.phone,
-        roles: foundUser.roles
+        roles: foundUser.roles,
+        image:foundUser.image
     }
     console.log(userInfo);
     const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
@@ -181,7 +182,9 @@ const refresh = async (req, res) => {
             lastName: foundUser.lastName,
             email: foundUser.email,
             phone: foundUser.phone,
-            roles: foundUser.roles
+            roles: foundUser.roles,
+            image:foundUser.image
+
         };
         
         const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
@@ -256,9 +259,9 @@ const logout=async (req,res)=>{
     )
 
 }
-
 const registeration = async (req, res) => {
-    // פירוק נתוני משתמש מגוף הבקשה
+    const image = req.file?.filename || ""; // Handle file upload
+
     const {
         firstName,
         lastName,
@@ -267,72 +270,75 @@ const registeration = async (req, res) => {
         phone,
         anotherQuestion
     } = req.body;
-    console.log( firstName,lastName,password,email,phone,anotherQuestion);
+
+    // Check if required fields are provided
     if (!firstName || !password || !lastName || !email || !phone) {
-        return res.status(401).json({
-            error: true,
-            message: 'firstName || password || lastName || email || phone  are required',
-            data: null
-        })
-    }
-  
-    // אימות: בדיקה אם המייל  כבר קיים במערכת
-    const existingUseremail = await User.findOne({ email: email });
-    if (existingUseremail) {
         return res.status(400).json({
             error: true,
-            message: ' email must be unique',
+            message: 'firstName, lastName, password, email, and phone are required',
             data: null
-        })
+        });
     }
-
-    const hashedPwd = await bcrypt.hash(password, 10);
-
+  
     try {
-        //  צור משתמש חדש באמצעות מודל המשתמש והנתונים שסופקו
-        const userRegister = await User.create({
+        // Check if email is already registered
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({
+                error: true,
+                message: 'Email must be unique',
+                data: null
+            });
+        }
+
+        // Hash the password
+        const hashedPwd = await bcrypt.hash(password, 10);
+
+        // Create the user
+        const user = await User.create({
             firstName,
             lastName,
             password: hashedPwd,
             email,
             phone,
+            image,
             anotherQuestion
         });
-        console.log(userRegister);
 
+        // Generate JWT tokens
+        const accessToken = jwt.sign(
+            {
+                _id: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                phone: user.phone,
+                image: user.image
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: '15m' }
+        );
+        const refreshToken = jwt.sign({ email: user.email }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
 
-        const userInfo = {
-            _id: userRegister._id,
-            firstName: userRegister.firstName,
-            lastName: userRegister.lastName,
-            email: userRegister.email,
-            phone: userRegister.phone,
-            userRegister
-        }
-        const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
-        const refreshToken = jwt.sign({ email: userRegister.email }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' })
+        // Set refresh token in cookie
         res.cookie("jwt", refreshToken, {
             httpOnly: true,
-            maxAge: 7 * 24 * 60 * 60 * 100
-        })
-        console.log(accessToken);
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        });
 
-        const useraccessToken = {
-            accessToken: accessToken,
-            userRegister: userRegister
-
-        }
-        res.json(useraccessToken)
-    }
-
-
-    catch (error) {
-        // החזר תגובת שגיאה אם יצירת המשתמש נכשלת
-        return res.status(400).json({
+        // Respond with access token and user data
+        res.json({
+            accessToken,
+            user
+        });
+    } catch (error) {
+        // Handle errors
+        console.error('Error during registration:', error);
+        res.status(500).json({
             error: true,
-            message: ' error',
+            message: 'Internal server error',
             data: null
-        })
+        });
     }
 };
 

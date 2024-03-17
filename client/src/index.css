@@ -21,11 +21,12 @@ html {
     text-align: right;
 }
 
-  body{
-  background-color: var(--bg);
-  color: var(--text);
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden; /* Add this line to hide horizontal overflow */
   }
-  
   a{
     color: inherit;
     text-decoration: none;

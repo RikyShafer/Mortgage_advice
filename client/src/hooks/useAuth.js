@@ -16,19 +16,19 @@ const useAuth = () => {
         try {
             decodedToken = jwtDecode(token);
             console.log("userDecoded", decodedToken);
-            const { _id, firstName, email, roles } = decodedToken;
-            console.log(_id, firstName, email, roles, "ffffff");
+            const { _id, firstName, email, roles,image,lastName ,phone} = decodedToken;
+            console.log(_id, firstName, email, roles,lastName, phone,"ffffff");
             isAdmin = String(roles).trim() === "ADMIN";
             isUser = String(roles).trim() === "USER";
             console.log("ADMIN:",isAdmin,"USER:", isUser );
-            return { _id, firstName, email, roles, isAdmin, isUser };
+            return { _id, firstName, email, roles, isAdmin, isUser, image,lastName ,phone};
         } catch (error) {
             console.error("Error decoding token:", error);
             // Handle invalid token
         }
     }
 
-    return { _id: "", email: "", isAdmin, isUser, firstName: "", roles: "" };
+    return { _id: "", email: "", isAdmin, isUser, firstName: "", roles: "", image:"",lastName:"" ,phone:""};
 };
 
 export default useAuth;

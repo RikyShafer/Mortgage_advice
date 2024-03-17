@@ -6,8 +6,9 @@ const jwt = require("jsonwebtoken")
 // פונקציית אסינכרון ליצירת משתמש חדש
 const addUserRegister = async (req, res) => {
 
-    // פירוק נתוני משתמש מגוף הבקשה
 
+
+    // פירוק נתוני משתמש מגוף הבקשה
     const {
         firstName,
         lastName,
@@ -15,7 +16,11 @@ const addUserRegister = async (req, res) => {
         email,
         phone,
         anotherQuestion
+
     } = req.body;
+
+    const image = (req.file?.filename ? req.file.filename : "")
+
     console.log(firstName,
         lastName,
         password,
@@ -60,7 +65,6 @@ const addUserRegister = async (req, res) => {
     const hashedPwd = await bcrypt.hash(password, 10);
 
 
-
     try {
         //  צור משתמש חדש באמצעות מודל המשתמש והנתונים שסופקו
         const userRegister = await UserRegister.create({
@@ -69,8 +73,12 @@ const addUserRegister = async (req, res) => {
             password: hashedPwd,
             email,
             phone,
-            anotherQuestion
+            image,
+            anotherQuestion,
+             
         });
+        console.log("userRegister",userRegister.image);
+
         console.log(userRegister);
 
 
@@ -187,7 +195,8 @@ const getUserRegisterById = async (req, res) => {
 // פונקציית אסינכרון לעדכון משתמש
 const updateUserRegister = async (req, res) => {
     // נתח מחרוזת תאריך לאובייקט Date
-
+    const image = (req.file?.filename ? req.file.filename : "")
+console.log(req.file);
 
     // גוף הבקשה לפירוק
     const { _id,
@@ -237,14 +246,7 @@ const updateUserRegister = async (req, res) => {
         userRegister.password = hashpwd
     }
 
-    // userRegister.firstName = firstName;
-    // userRegister.lastName = lastName;
-    // userRegister.email = email;
-    // userRegister.phone = phone;
-    // userRegister.anotherQuestion = anotherQuestion;
-    // userRegister.active=active
-    // const updateUser = await userRegister.save();
-    // Assuming userRegister is your Mongoose model instance
+
 
 // Set firstName if it's provided, otherwise keep the existing value
 userRegister.firstName = firstName ? firstName : userRegister.firstName;
@@ -263,7 +265,9 @@ userRegister.anotherQuestion = anotherQuestion ? anotherQuestion : userRegister.
 
 // Set active if it's provided, otherwise keep the existing value
 userRegister.active = active !== undefined ? active : userRegister.active;
-
+if (image) {
+    company.image = image;
+}
 // Save the updated userRegister
 const updateUser = await userRegister.save();
 

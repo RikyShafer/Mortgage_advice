@@ -91,6 +91,9 @@ const UserRegisterSchema = new mongoose.Schema({
         required:true,
         default:false
     },
+    image:{
+        type:String,
+    },
     deleted: {
         type: Boolean,
         required: false,

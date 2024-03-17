@@ -13,7 +13,7 @@ const LoginPage = () => {
     if (isSuccess) {
       console.log("token", data);
       
-      navigate("/")
+      navigate("/private area")
     }
   }, [isSuccess, data, navigate]);
   const handleSubmit = async (e) => {
