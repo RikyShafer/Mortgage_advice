@@ -1,0 +1,94 @@
+.homepage{
+    background-color: rgb(112, 173, 234);
+}
+
+.overture{
+    width: 30vw;
+    margin-right: 10vw;
+
+}
+.mumble-of-the-opening{
+    width: 30vw;
+    margin-right: 15vw;
+
+}
+.Homepage-button-mumble{
+    margin-top: 3vw;
+    width: 30vw;
+    margin-right: 15vw;
+}
+.Homepage-button{
+    width: 7vw; 
+    height: 5vh;
+    padding: 5px;
+    background-color: rgb(222, 202, 55);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 15px;
+    margin-right: 25vw;
+    text-align: center;
+}
+/* Vector 2 */
+/* .VectorImg{
+    position: absolute;
+    width: 320px;
+height: 121px;
+left: 0px;
+top: 0px;
+    box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
+    transform: rotate(-2.58deg);
+    margin-left: 15vw;
+
+} */
+
+.Vector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .VectorImg {
+    width: 50vw;
+    height: 50vh;
+    object-fit: cover; /* Maintain aspect ratio */
+    transform: skew(-20deg);
+  }
+  
+  .BlueBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: blue;
+
+    z-index: 0;
+  }
+  
+  .YellowBackground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: yellow;
+    z-index: 0;
+  }
+
+
+
+  /* Vector 4 */
+.div{
+position: absolute;
+width: 1917px;
+height: 865px;
+left: 3px;
+top: 1685px;
+
+/* כתום 40% */
+background: rgba(240, 185, 24, 0.4);
+}
