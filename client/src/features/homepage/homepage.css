@@ -17,11 +17,20 @@
     width: 30vw;
     margin-right: 15vw;
 }
+.Homepage-button-mumble{
+  width: 35vw;
+}
+
+
+
+
 .Homepage-button{
     width: 7vw; 
     height: 5vh;
     padding: 5px;
-    background-color: rgb(222, 202, 55);
+    /* כתום אלמנטים */
+    background-color:var(--button);
+    /* background-color: rgb(222, 202, 55); */
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
@@ -92,3 +101,4 @@ top: 1685px;
 /* כתום 40% */
 background: rgba(240, 185, 24, 0.4);
 }
+

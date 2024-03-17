@@ -4,7 +4,7 @@
 .message button {
     width: 12vw; 
     padding: 5px;
-    background-color: rgb(222, 202, 55);
+    background-color:var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;

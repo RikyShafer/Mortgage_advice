@@ -3,6 +3,7 @@
   top: 40px;
   padding: 0; /* Add this line to remove padding */
   margin: 0; /* Add this line to remove margin */
+
 }
 .side-bar-user{
 display: flex;
