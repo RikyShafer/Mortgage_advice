@@ -58,9 +58,7 @@ display: flex;
   width: 7vw;
   height: 5vh;
   padding: 5px;
-  /* כתום אלמנטים */
   background-color: var(--button);
-  /* background-color: rgb(222, 202, 55); */
   color: rgb(0, 0, 0);
   border: none;
   border-radius: 20px;
@@ -72,83 +70,18 @@ display: flex;
   margin-right: 25vw;
   text-align: center;
 }
-/* 
-.VectorOrange{
-position: absolute;
-width: 678.65px;
-height: 531.6px;
-left: 290.96px;
-top: 266.91px;
-background: #F0B918;
-box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
-transform: rotate(21.05deg);
-}
-.BlueBackground{
 
-
-position: absolute;
-width: 678.64px;
-height: 531.6px;
-left: 150.28px;
-top: 244px;
-
-background: #1A7D99;
-box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
-transform: rotate(48.36deg);
-}
-
-.VectorImg{
-position: absolute;
-width: 861px;
-height: 830px;
-left: -71.28px;
-top: 225.71px;
-
-box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
-transform: rotate(-2.58deg);
-} */
 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
   box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
 }
-/* 
-.VectorOrange {
-  width: 23.43vw;
-  height: 37.81vh;
-  left: 9.22vw;
-  top: 54vh;
 
-  background: #F0B918;
-  transform: rotate(46.05deg);
-}
-
-
-
-
-.BlueBackground {
-  width: 28vw;
-  height: 37.81vh;
-  left: 15.28px;
-  top: 54vh;
-
-  background: #1A7D99;
-  transform: rotate(39.36deg);
-}
-
-.VectorImg {
-  width: 29.43vw;
-  height: 37.81vh;
-  left: -15.28px;
-  top: 50vh;
-  transform: rotate(23.36deg);
-}
- */
  .VectorOrange {
   width: 27.43vw;
   height: 43.81vh;
   left: 11.22vw;
-  top: 57.6vh; /* Decreased by 5.4vh (10% of 54vh) */
+  top: 57.6vh; 
 
   background: #F0B918;
   transform: rotate(19.05deg);
@@ -158,7 +91,7 @@ transform: rotate(-2.58deg);
   width: 35vw;
   height: 43.81vh;
   left: 15.28px;
-  top: 57.6vh; /* Decreased by 5.4vh (10% of 54vh) */
+  top: 57.6vh; 
 
   background: #1A7D99;
   transform: rotate(32.36deg);
@@ -168,21 +101,9 @@ transform: rotate(-2.58deg);
   width: 35.43vw;
   height: 43.81vh;
   left: -15.28px;
-  top: 53vh; /* Decreased by 5vh (10% of 50vh) */
+  top: 53vh; 
   transform: rotate(21.36deg);
 }
-
-/* Vector 2 */
-/* */
-
-/* .Vector {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-} */
 
 
 .White-background {
