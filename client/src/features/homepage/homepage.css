@@ -1,104 +1,229 @@
-.homepage{
-    background-color: rgb(112, 173, 234);
+.blue-background {
+  background-color: rgba(26, 125, 153, 0.4);
+  width: 1920px;
+height: 521px;
+display: flex;
+}
+.from-blue-moment{
+  padding-top: 17vh;
 }
 
-.overture{
-    width: 30vw;
-    margin-right: 10vw;
+/* מתכננים לקחת משכנתא? אל תעשו את זה בלי ייעוץ מקצועי! */
+.overture1 {
+  width: 45vw;
+  margin-right: 10vw;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 38px;
+  text-align: right;
+  margin-top: 10px;
+  color: black;
+
 
 }
-.mumble-of-the-opening{
-    width: 30vw;
-    margin-right: 15vw;
 
+/* המשכנתא היא השקעה גדולה, ולכן חשוב לקחת את ההחלטה בצורה מושכלת. אנחנו כאן כדי לעזור לכם להבין את האפשרויות, להתמקד בצרכים שלכם, ולמצוא את המשכנתא המתאימה ביותר. */
+.mumble-of-the-opening {
+  width: 30vw;
+  margin-right: 15vw;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: right;
+  margin-top: 15px;
+  color: black;
 }
-.Homepage-button-mumble{
-    margin-top: 3vw;
-    width: 30vw;
-    margin-right: 15vw;
+
+/* אל תתלבט! לחץ עכשו על הכפתור הייעוץ ואנו נחזור אליך . */
+.Homepage-button-mumble {
+  margin-top: 3vw;
+  margin-right: 15vw;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 21px;
+
+  text-align: right;
+
+  color: #000000;
 }
-.Homepage-button-mumble{
-  width: 35vw;
+
+.Homepage-button-mumble {
+  width: 42vw;
 }
 
 
 
 
-.Homepage-button{
-    width: 7vw; 
-    height: 5vh;
-    padding: 5px;
-    /* כתום אלמנטים */
-    background-color:var(--button);
-    /* background-color: rgb(222, 202, 55); */
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
-    margin-top: 15px;
-    margin-right: 25vw;
-    text-align: center;
+.Homepage-button {
+  width: 7vw;
+  height: 5vh;
+  padding: 5px;
+  /* כתום אלמנטים */
+  background-color: var(--button);
+  /* background-color: rgb(222, 202, 55); */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 25vw;
+  text-align: center;
 }
-/* Vector 2 */
-/* .VectorImg{
-    position: absolute;
-    width: 320px;
-height: 121px;
-left: 0px;
-top: 0px;
-    box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
-    transform: rotate(-2.58deg);
-    margin-left: 15vw;
+/* 
+.VectorOrange{
+position: absolute;
+width: 678.65px;
+height: 531.6px;
+left: 290.96px;
+top: 266.91px;
+background: #F0B918;
+box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
+transform: rotate(21.05deg);
+}
+.BlueBackground{
 
+
+position: absolute;
+width: 678.64px;
+height: 531.6px;
+left: 150.28px;
+top: 244px;
+
+background: #1A7D99;
+box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
+transform: rotate(48.36deg);
+}
+
+.VectorImg{
+position: absolute;
+width: 861px;
+height: 830px;
+left: -71.28px;
+top: 225.71px;
+
+box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
+transform: rotate(-2.58deg);
 } */
 
-.Vector {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  
-  .VectorImg {
-    width: 50vw;
-    height: 50vh;
-    object-fit: cover; /* Maintain aspect ratio */
-    transform: skew(-20deg);
-  }
-  
-  .BlueBackground {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: blue;
+.VectorOrange, .BlueBackground, .VectorImg {
+  position: absolute;
+  box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
+}
+/* 
+.VectorOrange {
+  width: 23.43vw;
+  height: 37.81vh;
+  left: 9.22vw;
+  top: 54vh;
 
-    z-index: 0;
-  }
-  
-  .YellowBackground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: yellow;
-    z-index: 0;
-  }
+  background: #F0B918;
+  transform: rotate(46.05deg);
+}
 
 
 
-  /* Vector 4 */
-.div{
+
+.BlueBackground {
+  width: 28vw;
+  height: 37.81vh;
+  left: 15.28px;
+  top: 54vh;
+
+  background: #1A7D99;
+  transform: rotate(39.36deg);
+}
+
+.VectorImg {
+  width: 29.43vw;
+  height: 37.81vh;
+  left: -15.28px;
+  top: 50vh;
+  transform: rotate(23.36deg);
+}
+ */
+ .VectorOrange {
+  width: 27.43vw;
+  height: 43.81vh;
+  left: 11.22vw;
+  top: 57.6vh; /* Decreased by 5.4vh (10% of 54vh) */
+
+  background: #F0B918;
+  transform: rotate(19.05deg);
+}
+
+.BlueBackground {
+  width: 35vw;
+  height: 43.81vh;
+  left: 15.28px;
+  top: 57.6vh; /* Decreased by 5.4vh (10% of 54vh) */
+
+  background: #1A7D99;
+  transform: rotate(32.36deg);
+}
+
+.VectorImg {
+  width: 35.43vw;
+  height: 43.81vh;
+  left: -15.28px;
+  top: 53vh; /* Decreased by 5vh (10% of 50vh) */
+  transform: rotate(21.36deg);
+}
+
+/* Vector 2 */
+/* */
+
+/* .Vector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+} */
+
+
+.White-background {
+  display: flex;
+}
+
+.from-white-moment {
+  margin-right: -10vw;
+  margin-top: 15vh;
+
+}
+
+/* מהו תהליך ייעוץ משכנתא? */
+
+.overture2 {
+  width: 20vw;
+  margin-right: 10vw;
+
+  margin-top: 40vh;
+  color: #1A7D99;
+
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  text-align: right;
+}
+
+.o-background{
+/* Vector 4 */
+
 position: absolute;
 width: 1917px;
-height: 865px;
+height: 858px;
 left: 3px;
-top: 1685px;
+top: 1681px;
 
 /* כתום 40% */
 background: rgba(240, 185, 24, 0.4);
+
+
 }
+
 
