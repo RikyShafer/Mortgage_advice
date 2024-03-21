@@ -1,9 +1,7 @@
 .side-bar {
   position: sticky;
-  top: 40px;
   padding: 0; /* Add this line to remove padding */
   margin: 0; /* Add this line to remove margin */
-
 }
 .side-bar-user{
 display: flex;
@@ -28,9 +26,24 @@ align-items: center;
     font-weight: bold;
     margin: 10px, 0px;
 }
-.side-bar-menu-catM{
-    margin-left: 38vw;
+
+.side-bar-menu-list {
+  display: flex; 
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.side-bar-menu-item {
+  display: flex;
+  align-items: center;
+}
+
+.side-bar-menu-catM {
+  text-align: left; 
+  margin-left: 30vw;
+}
+
 .side-bar-menu-link{
     padding: 10px;
     display: flex;
@@ -38,7 +51,7 @@ align-items: center;
     gap: 10px;
     margin: 5px 0px;
     border-radius: 10px;
-    font-size: 11px; 
+    font-size: 12px; 
 }
 .side-bar-menu-link-ADMIN{
     padding: 6px;
@@ -62,19 +75,20 @@ align-items: center;
     border-radius: 10px;
    border: none;
     background: none;
-    color: var(--textSoft);
-    width: 100%;
+    color: var(--text);
+        width: 100%;
     margin-right: 95vw;
     font-size: 14px;
 }
 
 
-.side-bar-menu-list {
-    display: flex; /* or grid */
+/* .side-bar-menu-list {
+    display: flex; 
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+
+  } */
   
   .side-bar-menu-cat {
     margin-right: 10px; /* Optional: Adjust spacing between categories */
@@ -84,7 +98,13 @@ align-items: center;
     display: flex; /* or grid */
   }
   .side-bar-menu-img{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 50px;
     margin: 20px;
+  }
+
+  .side-bar-menuItems {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
   }

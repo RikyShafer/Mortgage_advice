@@ -10,16 +10,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
+body {
   font-family: "Noto Sans Hebrew", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-      
-    direction: rtl;
-    text-align: right;
+  font-variation-settings: "wdth" 100;
+  direction: rtl;
+  text-align: right;
 }
 
 
@@ -27,6 +25,7 @@ html {
     background-color: var(--bg);
     color: var(--text);
     overflow-x: hidden; /* Add this line to hide horizontal overflow */
+    
   }
   a{
     color: inherit;

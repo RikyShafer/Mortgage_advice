@@ -74,51 +74,54 @@ display: flex;
 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
-  box-shadow: 6px 17px 50px rgba(0, 0, 0, 0.25);
 }
 
  .VectorOrange {
-  width: 27.43vw;
-  height: 43.81vh;
+  width: 24.43vw;
+  height: 44.81vh;
   left: 11.22vw;
-  top: 57.6vh; 
+  top: 55.6vh; 
 
   background: #F0B918;
-  transform: rotate(19.05deg);
+  transform: rotate(12.05deg);
 }
 
+
+
 .BlueBackground {
-  width: 35vw;
-  height: 43.81vh;
+  width: 32vw;
+  height: 41.81vh;
   left: 15.28px;
   top: 57.6vh; 
 
   background: #1A7D99;
-  transform: rotate(32.36deg);
+  transform: rotate(33.36deg);
 }
 
 .VectorImg {
-  width: 35.43vw;
-  height: 43.81vh;
+  width: 32.43vw;
+  height: 41.81vh;
   left: -15.28px;
-  top: 53vh; 
-  transform: rotate(21.36deg);
+  top: 51vh; 
+  transform: rotate(20.36deg);
 }
 
 
 .White-background {
   display: flex;
+  margin-bottom: -15vh;
 }
 
 .from-white-moment {
   margin-right: -10vw;
   margin-top: 15vh;
+  width: 50vw;
 
 }
 
 /* מהו תהליך ייעוץ משכנתא? */
 
-.overture2 {
+.overture-white {
   width: 20vw;
   margin-right: 10vw;
 
@@ -130,21 +133,175 @@ display: flex;
   font-size: 36px;
   line-height: 38px;
   text-align: right;
+  margin-left: 5vw;
 }
 
-.o-background{
-/* Vector 4 */
+.Homepage-button-mumble-White{
+  
+  margin-top: 1vw;
+  margin-right: 15vw;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 21px;
+
+  text-align: right;
+
+  color: #000000
+}
+.FaHandshakeAngle{
+/* 027-Purpose 2 */
 
 position: absolute;
-width: 1917px;
-height: 858px;
-left: 3px;
-top: 1681px;
-
-/* כתום 40% */
-background: rgba(240, 185, 24, 0.4);
-
+width: 30px;
+height: 30px;
+color: #1A7D99;
+margin-right: 10vw;
 
 }
+.Homepage-button-White{
+  width: 10vw;
+  height: 5vh;
+  padding: 5px;
+  background-color: var(--button);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 25vw;
+  text-align: center;
+}
+.overture-background{
+  margin-top: -138vh;
+  display: flex;
+}
+.overture3{
+  width: 25vw;
+  margin-right: 10vw;
+  margin-top: 40vh;
+  color: #1A7D99;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  text-align: right;
+  margin-left: 5vw;
+}
+.from-overture-moment{
+  margin-top: 40vh;
+    width: 38vw;
+}
+.Homepage-button-mumble-overture{
+margin-bottom: 9px;
+}
+.Homepage-mumble-overture{
+  color: #1A7D99;
+}
+.from-white-squares{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 
+}
+.squares-White-1{
 
+width: 26vw;
+height: 43vh;
+background: rgba(26, 125, 153, 0.4);
+box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+border-radius: 25px;
+margin-bottom: 10vh;
+margin-right: 2.5vw;
+}
+.Iconswhite{
+  position: absolute;
+width: 65px;
+height: 65px;
+color: #1A7D99;
+margin-right: 10vw;
+margin-top: 30px;
+}
+.Homepage-squares-White{
+position: absolute;
+margin-top: 25vh;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+color: #000000;
+width: 25vw;
+}
+.overture-white-squares{
+  width: 40vw;
+  margin-right: 40vw;
+  color: #1A7D99;
+margin-top: 18vh;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  text-align: right;
+
+  margin-bottom: 15vh;
+}
+
+.Homepage-button-squares{
+  width: 10vw;
+  height: 5vh;
+  padding: 5px;
+  background-color: var(--button);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 45vw;
+  text-align: center;
+}
+
+.overture-white-customers{
+  width: 30vw;
+  margin-right: 10vw;
+  margin-top: 20vh;
+  color: #1A7D99;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 38px;
+  text-align: right;
+  margin-left: 5vw;
+}
+.from-white-customers{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px; 
+}
+.customers-White-1{
+  margin-top: 7vh;
+  width: 20vw;
+  margin-right: 2vw;
+}
+.Homepage-customers-White{
+
+font-weight: 400;
+font-size: 16px;
+line-height:20px;
+text-align: right;
+/* שחור טקסט */
+color: #000000;
+}
+.Homepage-customers-White-name{
+width: 20vw;
+
+margin-top: 5vh;
+font-weight: 700;
+font-size: 20px;
+line-height: 21px;
+text-align: right;
+color: #000000;
+text-align: left; 
+
+}

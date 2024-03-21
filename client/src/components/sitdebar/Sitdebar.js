@@ -273,8 +273,9 @@ const SitdeBar = () => {
           <span className="side-car-user-title"> סוג: {roles} </span>
         </div>
       </div>
+      <div className="side-bar-menuItems"> 
       <ul className="side-bar-menu-list">
-        <img className="side-bar-menu-img" src="./logo612.jpg" alt="User avatar" />
+        <img className="side-bar-menu-img" src="./Rectangle.png" alt="User avatar" />
 
         {menuItems.map(cat => (
           <li key={cat.title}>
@@ -288,6 +289,7 @@ const SitdeBar = () => {
            </li>
         ))}
       </ul>
+      </div>
       <button onClick={logOutClick} className="side-bar-logout">
         <MdLogout />
         יציאה

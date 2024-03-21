@@ -9,6 +9,13 @@
     min-height: 3vh;
 
 }
+  .mane.final-page {
+    flex: 1;
+    /* background-color: var(--bgSoft); */
+    min-height: 3vh;
+    background-color: rgba(26, 125, 153, 0.4);
+
+  }
 .contemt {
     flex: 4;
 }
