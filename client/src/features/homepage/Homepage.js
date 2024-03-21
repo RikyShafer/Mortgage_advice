@@ -7,7 +7,7 @@ const Homepage = () => {
     const navigate = useNavigate();
 
     const goToYouMadeContact = () => {
-        navigate(`/signup`);
+        navigate(`/contact`);
     };
 
     return (

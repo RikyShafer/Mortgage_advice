@@ -104,7 +104,8 @@
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import DashLayout from "./components/layout/dash/DashLayout";
 import RequiireAuth from "./features/auth/RequiireAuth";
-
+import ContactAdd from "./features/contact/registeration/ContactAdd";
+import ContactMessage from "./features/contact/registeration/ContactMessage";
 import LoginPage from "./features/auth/login/LoginPage";
 import UserRegisterList from "./features/userRegister/list/UserRegisterList";
 import UserRegisterPut from "./features/userRegister/put/UserRegisterPut";
@@ -123,6 +124,9 @@ function App() {
 
         <Route path='/' element={<DashLayout />}>
           <Route index element={<Homepage/>} />
+          <Route path="contact" element={<ContactAdd />} />
+          <Route path="messageContact" element={<ContactMessage />} />
+
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<UserRegisterAdd />} />
           <Route path="/message" element={<ProcessCompletionMessage />} />
