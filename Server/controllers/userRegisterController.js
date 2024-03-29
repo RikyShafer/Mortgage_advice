@@ -5,9 +5,6 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 // פונקציית אסינכרון ליצירת משתמש חדש
 const addUserRegister = async (req, res) => {
-
-
-
     // פירוק נתוני משתמש מגוף הבקשה
     const {
         firstName,
@@ -266,7 +263,7 @@ userRegister.anotherQuestion = anotherQuestion ? anotherQuestion : userRegister.
 // Set active if it's provided, otherwise keep the existing value
 userRegister.active = active !== undefined ? active : userRegister.active;
 if (image) {
-    company.image = image;
+    userRegister.image = image;
 }
 // Save the updated userRegister
 const updateUser = await userRegister.save();

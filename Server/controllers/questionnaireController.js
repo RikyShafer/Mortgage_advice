@@ -4,10 +4,7 @@ const Questionnaire = require("../models/Questionnaire");
 
  // פונקציית אסינכרון ליצירת משתמש חדש
 const createQuestionnaire = async (req, res) => {
-    // Parse date string into a Date object
-    const roCertificateIssueDteles = req.body.roCertificateIssueDteles?new Date(req.body.roCertificateIssueDteles) : new Date();
-    const dateBirth = req.body.dateBirth? new Date(req.body.dateBirth):new Date();
-    const validityOfApprovalOfCPAFromPreviousYear = req.body.validityOfApprovalOfCPAFromPreviousYear? new Date(req.body.validityOfApprovalOfCPAFromPreviousYear):new Date();
+    
     // const UserRegister="65e51abf4bdbd5dc80e75f8d"
 
     // פירוק נתוני משתמש מגוף הבקשה
@@ -31,46 +28,28 @@ const createQuestionnaire = async (req, res) => {
         previousWorkplace,//: 'מקום עבודה קודם',
         averageIncome
     } = req.body;
-    // Extract file names from uploaded files
- // Extract file names from uploaded files
-  // Check for uploaded files and extract their filenames
-  const cpaApprovalForCurrentSub = (req.files && req.files.cpaApprovalForCurrentSub && req.files.cpaApprovalForCurrentSub[0]?.filename) ? req.files.cpaApprovalForCurrentSub[0].filename : "";
-  const antecedentModifierMole = (req.files.antecedentModifierMole && req.files.antecedentModifierMole[0]?.filename) ? req.files.antecedentModifierMole[0].filename : "";
-  const adiposityPreviousVariables1 = (req.files.adiposityPreviousVariables1 && req.files.adiposityPreviousVariables1[0]?.filename) ? req.files.adiposityPreviousVariables1[0].filename : "";
-  const adiposityPreviousVariables2 = (req.files.adiposityPreviousVariables2 && req.files.adiposityPreviousVariables2[0]?.filename) ? req.files.adiposityPreviousVariables2[0].filename : "";
-  const firstNetSlip = (req.files.firstNetSlip && req.files.firstNetSlip[0]?.filename) ? req.files.firstNetSlip[0].filename : "";
-  const secondNetSlip = (req.files.secondNetSlip && req.files.secondNetSlip[0]?.filename) ? req.files.secondNetSlip[0].filename : "";
-  const thirdNetSlip = (req.files.thirdNetSlip && req.files.thirdNetSlip[0]?.filename) ? req.files.thirdNetSlip[0].filename : "";
-console.log(req.files);
-
-// const cpaApprovalForCurrentSub =  (req.File?.filename ? req.File.filename : "")
-// const antecedentModifierMole =  (req.File?.filename ? req.File.filename : "")
-// const adiposityPreviousVariables1 =  (req.File?.filename ? req.File.filename : "")
-// const adiposityPreviousVariables2 =  (req.File?.filename ? req.File.filename : "")
-// const firstNetSlip =  (req.File?.filename ? req.File.filename : "")
-// const secondNetSlip =  (req.File?.filename ? req.File.filename : "")
-// const thirdNetSlip = (req.File?.filename ? req.File.filename : "")
 
 
-    // Check if the parsed date is valid
-    if (isNaN(roCertificateIssueDteles.getTime())) {
-        console.log('Invalid date format');
-        return res.status(400).json({ message: 'Invalid date format' });
+    const roCertificateIssueDteles = req.body.roCertificateIssueDteles ? new Date(req.body.roCertificateIssueDteles) : new Date();
+    const dateBirth = req.body.dateBirth ? new Date(req.body.dateBirth) : new Date();
+    const validityOfApprovalOfCPAFromPreviousYear = req.body.validityOfApprovalOfCPAFromPreviousYear ? new Date(req.body.validityOfApprovalOfCPAFromPreviousYear) : new Date();
 
-    }
-        
-   
-    if (isNaN(dateBirth.getTime())) {
-        console.log('Invalid date format');
+
+        // Extract file names from uploaded files
+   const cpaApprovalForCurrentSub = (req.files && req.files.cpaApprovalForCurrentSub && req.files.cpaApprovalForCurrentSub[0]?.filename) ? req.files.cpaApprovalForCurrentSub[0].filename : "";
+   const antecedentModifierMole = (req.files.antecedentModifierMole && req.files.antecedentModifierMole[0]?.filename) ? req.files.antecedentModifierMole[0].filename : "";
+   const adiposityPreviousVariables1 = (req.files.adiposityPreviousVariables1 && req.files.adiposityPreviousVariables1[0]?.filename) ? req.files.adiposityPreviousVariables1[0].filename : "";
+   const adiposityPreviousVariables2 = (req.files.adiposityPreviousVariables2 && req.files.adiposityPreviousVariables2[0]?.filename) ? req.files.adiposityPreviousVariables2[0].filename : "";
+   const firstNetSlip = (req.files.firstNetSlip && req.files.firstNetSlip[0]?.filename) ? req.files.firstNetSlip[0].filename : "";
+   const secondNetSlip = (req.files.secondNetSlip && req.files.secondNetSlip[0]?.filename) ? req.files.secondNetSlip[0].filename : "";
+   const thirdNetSlip = (req.files.thirdNetSlip && req.files.thirdNetSlip[0]?.filename) ? req.files.thirdNetSlip[0].filename : "";
+ console.log(req.files);
+
+    // // Check if the parsed date is valid
+    if (isNaN(roCertificateIssueDteles.getTime()) || isNaN(dateBirth.getTime()) || isNaN(validityOfApprovalOfCPAFromPreviousYear.getTime())) {
         return res.status(400).json({ message: 'Invalid date format' });
     }
-      
-       
-    if (isNaN(validityOfApprovalOfCPAFromPreviousYear.getTime())) {
-        console.log('Invalid date format')
-        return res.status(400).json({ message: 'Invalid date format' });
-       
-    }
+
     try {
         //         // צור משתמש חדש באמצעות מודל המשתמש והנתונים שסופקו
         const questionnaire = await Questionnaire.create({

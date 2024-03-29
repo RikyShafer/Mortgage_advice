@@ -7,58 +7,58 @@ const UsersApiSlice = apiSlice.injectEndpoints({
         getAllUsers: build.query({
             query: () => ({
                 url: "api/UserRegister",
-                method:"GET",
+                method: "GET",
             }),
-              providesTags:["UserRegister"]
+            providesTags: ["UserRegister"]
+        }),
+        getUserById: build.query({
+            query: (userId) => ({
+                url: `api/UserRegister/${userId}`, // Use the provided ID in the URL
+                method: "GET",
             }),
-            getUserById: build.query({
-                query: (userId) => ({
-                    url: `api/UserRegister/${userId}`, // Use the provided ID in the URL
-                    method: "GET",
-                }),
-                providesTags: (result, error, userId) => [{ type: 'UserRegister', _id: userId }], // Tag with specific ID
-            }),
-        addUser:build.mutation({
+            providesTags: (result, error, userId) => [{ type: 'UserRegister', _id: userId }], // Tag with specific ID
+        }),
+        addUser: build.mutation({
             query: (userRegister) => ({
                 url: "api/UserRegister",
-                method:"POST",
-                body:userRegister
+                method: "POST",
+                body: userRegister
             }),
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
                 try {
-                  const { data } = await queryFulfilled;
-                  console.log("login:", data);
-                  // Check if the accessToken is available in the response
-                  console.log("login:", data);
-                  if (data) {
-                    // Dispatch the setToken action with the received token
-                    dispatch(setToken({accessToken: data})); // Pass the accessToken directly to setToken
-                  }
+                    const { data } = await queryFulfilled;
+                    console.log("login:", data);
+                    // Check if the accessToken is available in the response
+                    console.log("login:", data);
+                    if (data) {
+                        // Dispatch the setToken action with the received token
+                        dispatch(setToken({ accessToken: data })); // Pass the accessToken directly to setToken
+                    }
                 } catch (err) {
-                  console.error('Error during login:', err);
+                    console.error('Error during login:', err);
                 }
-              },
-            invalidatesTags:["UserRegister"]
+            },
+            invalidatesTags: ["UserRegister"]
         }),
-       updateUser:build.mutation({
+        updateUser: build.mutation({
             query: (userRegister) => ({
                 url: "api/UserRegister",
-                method:"PUT",
-                body:userRegister
+                method: "PUT",
+                body: userRegister
             }),
-            invalidatesTags:["UserRegister"]
+            invalidatesTags: ["UserRegister"]
         }),
-        deleteUser:build.mutation({
-            query: ({_id}) => ({
+        deleteUser: build.mutation({
+            query: ({ _id }) => ({
                 url: "api/UserRegister",
-                method:"Delete",
-                body:{_id}
+                method: "Delete",
+                body: { _id }
             }),
-            invalidatesTags:["UserRegister"]
+            invalidatesTags: ["UserRegister"]
         }),
     })
 })
 export const {
-    useGetAllUsersQuery, useGetUserByIdQuery, useAddUserMutation, 
-    useUpdateUserMutation, useDeleteUserMutation}=UsersApiSlice;
+    useGetAllUsersQuery, useGetUserByIdQuery, useAddUserMutation,
+    useUpdateUserMutation, useDeleteUserMutation } = UsersApiSlice;
 

@@ -36,7 +36,7 @@ const Display = () => {
             <div className="display-user-details">
 
                 <img
-                    src={image ? "http://localhost:3297/uploads/image" + image : "/noavatar.png"}
+                    src={image ? "http://localhost:3297/image/" + image : "/noavatar.png"}
                     alt=''
                     className='display-imag'
                 />

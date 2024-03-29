@@ -10,7 +10,58 @@ const AddQuestionnaire = () => {
     const [selectedCity, setSelectedCity] = useState("");
     const [incompleteFields, setIncompleteFields] = useState(false);
     const { _id, firstName, email, roles } = useAuth();
+    
+    const [CpaApprovalForCurrentSube, setCpaApprovalForCurrentSube] = useState(null)
+    const [antecedentModifierMole, setAntecedentModifierMole] = useState(null)
+    const [adiposityPreviousVariables1, setAdiposityPreviousVariables1] = useState(null)
+    const [adiposityPreviousVariables2, setAdiposityPreviousVariables2] = useState(null)
+    const [firstNetSlip, setFirstNetSlip] = useState(null)
+    const [secondNetSlip, setSecondNetSlip] = useState(null)
+    const [thirdNetSlip, setThirdNetSlip] = useState(null)
 
+    const updateCpaApprovalForCurrentSube = (e) => {
+        if (e.target.files)
+            setCpaApprovalForCurrentSube(e.target.files[0])
+        else
+            setCpaApprovalForCurrentSube(null)
+    }
+    const updateAntecedentModifierMole = (e) => {
+        if (e.target.files)
+            setAntecedentModifierMole(e.target.files[0])
+        else
+            setAntecedentModifierMole(null)
+    }
+    const updateAdiposityPreviousVariables1 = (e) => {
+        if (e.target.files)
+            setAdiposityPreviousVariables1(e.target.files[0])
+        else
+            setAdiposityPreviousVariables1(null)
+    }
+    const updateAdiposityPreviousVariables2 = (e) => {
+        if (e.target.files)
+            setAdiposityPreviousVariables2(e.target.files[0])
+        else
+            setAdiposityPreviousVariables2(null)
+    }
+
+    const updateFirstNetSlip = (e) => {
+        if (e.target.files)
+            setFirstNetSlip(e.target.files[0])
+        else
+            setFirstNetSlip(null)
+    }
+    const updateSecondNetSlip = (e) => {
+        if (e.target.files)
+            setSecondNetSlip(e.target.files[0])
+        else
+            setSecondNetSlip(null)
+    }
+    const updateThirdNetSlip = (e) => {
+        if (e.target.files)
+            setThirdNetSlip(e.target.files[0])
+        else
+            setThirdNetSlip(null)
+    }
     console.log(_id, firstName, email, roles);
     const predefinedCities = [
         "ירושלים",
@@ -33,13 +84,6 @@ const AddQuestionnaire = () => {
         <option key={index} value={city}>{city}</option>
     ));
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.target); // Use FormData to handle file uploads
-    //     addQuery(formData);
-    //     navigate(`/`);
-    // };
-
     const messageeSubmit = (e) => {
         e.preventDefault();
         console.log("הצליח לצאת מהודעה ");
@@ -48,75 +92,52 @@ const AddQuestionnaire = () => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
     
-        // Append file inputs to formData
-        const fileInputs = e.target.querySelectorAll('input[type="file"]');
-        fileInputs.forEach(input => {
-            const files = input.files;
-            if (files.length > 0) {
-                formData.append(input.name, files[0]); // Assuming single file uploads
-            }
-        });
+        const formData = new FormData();
     
-        const formValues = Object.fromEntries(formData.entries());
-        console.log(formValues);
+        formData.append('UserRegister', _id);
+        formData.append('ID', e.target.ID?.value ?? '');
+        formData.append('roCertificateIssueDteles', e.target.roCertificateIssueDteles?.value ?? '');
+        formData.append('dateBirth', e.target.dateBirth?.value ?? '');
+        formData.append('maritalStatus', e.target.maritalStatus?.value ?? '');
+        formData.append('education', e.target.education?.value ?? '');
     
-        const hasIncompleteFields = Object.values(formValues).some((value) => !value);
-        setIncompleteFields(hasIncompleteFields);
+        formData.append('hometown', selectedCity);
+        formData.append('address', e.target.address?.value ?? '');
+        formData.append('postalCode', e.target.postalCode?.value ?? '');
     
-        if (!hasIncompleteFields) {
-            try {
-                await addQuery(formData); // Pass formData directly for correct file upload
-                navigate(`/`);
-            } catch (error) {
-                console.error("Error submitting form:", error);
-            }
+        formData.append('age', e.target.age?.value ?? '');
+        formData.append('theirNativeNumber', e.target.theirNativeNumber?.value ?? '');
+        formData.append('passport', e.target.passport?.value ?? '');
+    
+        formData.append('foreignCitizenship', e.target.foreignCitizenship?.value ?? '');
+        formData.append('proximityPublicFigure', e.target.proximityPublicFigure?.value ?? '');
+        formData.append('employment', e.target.employment?.value ?? '');
+    
+        formData.append('job', e.target.job?.value ?? '');
+        formData.append('jobTitle', e.target.jobTitle?.value ?? '');
+        formData.append('seniority', e.target.seniority?.value ?? '');
+    
+        formData.append('previousWorkplace', e.target.previousWorkplace?.value ?? '');
+        formData.append('validityOfApprovalOfCPAFromPreviousYear', e.target.validityOfApprovalOfCPAFromPreviousYear?.value ?? '');
+        formData.append('averageIncome', e.target.averageIncome?.value ?? '');
+    
+        formData.append('cpaApprovalForCurrentSub', CpaApprovalForCurrentSube);
+        formData.append('antecedentModifierMole', antecedentModifierMole);
+        formData.append('adiposityPreviousVariables1', adiposityPreviousVariables1);
+        formData.append('adiposityPreviousVariables2', adiposityPreviousVariables2);
+        formData.append('firstNetSlip', firstNetSlip);
+        formData.append('secondNetSlip', secondNetSlip);
+        formData.append('thirdNetSlip', thirdNetSlip);
+    
+        try {
+            await addQuery(formData);
+            navigate(`/`);
+        } catch (error) {
+            console.error("Error submitting form:", error);
         }
     };
-    
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.target);
-    //     const formValues = Object.fromEntries(formData.entries());
-    //     console.log(formValues);
-
-    //     const hasIncompleteFields = Object.values(formValues).some((value) => !value);
-    //     setIncompleteFields(hasIncompleteFields);
-
-    //     if (!hasIncompleteFields) {
-    //         addQuery(formValues);
-    //         navigate(`/`);
-    //     }
-    // };
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData(e.target);
-
-    //     // Append file inputs to formData
-    //     const fileInputs = e.target.querySelectorAll('input[type="file"]');
-    //     fileInputs.forEach(input => {
-    //         const files = input.files;
-    //         if (files.length > 0) {
-    //             formData.append(input.name, files[0]); // Assuming single file uploads
-    //         }
-    //     });
-
-    //     const formValues = Object.fromEntries(formData.entries());
-    //     console.log(formValues);
-
-    //     const hasIncompleteFields = Object.values(formValues).some((value) => !value);
-    //     setIncompleteFields(hasIncompleteFields);
-
-    //     if (!hasIncompleteFields) {
-    //         try {
-    //             await addQuery(formValues);
-    //             navigate(`/`);
-    //         } catch (error) {
-    //             console.error("Error submitting form:", error);
-    //         }
-    //     }
-    // };
+ 
     if (isLoading) return <h1>Loading...</h1>;
 
     if (isError) {
@@ -144,14 +165,14 @@ const AddQuestionnaire = () => {
             <div className="Questionnaire-add">
 
                 <form onSubmit={handleSubmit} className="Registration-for-the-process-form" >
-                <input
-                           type='hidden'
-                            name="UserRegister"
-                            value={_id} // Set the value to the user's ID obtained from useAuth
-                            readOnly // Make the input field readonly
-                        />
+                    <input
+                        type='hidden'
+                        name="UserRegister"
+                        value={_id} // Set the value to the user's ID obtained from useAuth
+                        readOnly // Make the input field readonly
+                    />
                     <div className="Registration-for-the-process-input">
-                       
+
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' >תעודת זהות  </h3>
                             <input
@@ -310,8 +331,8 @@ const AddQuestionnaire = () => {
                                 <option value="3+">3+</option>
                                 <option value="5+">5+</option>
                                 <option value="7+">7+</option>
-                                <option value="10+">10+</option>    
-                                   <option value="10+">15+</option>
+                                <option value="10+">10+</option>
+                                <option value="10+">15+</option>
                                 <option value="אחר">אחר</option>
 
                             </select>
@@ -329,16 +350,15 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' > אישור רו"ח משנה נוכחית </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="cpaApprovalForCurrentSub"
+
+                                <input onChange={updateCpaApprovalForCurrentSube}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-CpaApprovalForCurrentSube-input" />
+                                <label htmlFor="file-CpaApprovalForCurrentSube-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-CpaApprovalForCurrentSube-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -355,16 +375,16 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' >אישור רו"ח משנה קודמת </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="antecedentModifierMole"
+
+
+                                <input onChange={updateAntecedentModifierMole}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-AntecedentModifierMole-input" />
+                                <label htmlFor="file-AntecedentModifierMole-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-AntecedentModifierMole-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -372,16 +392,15 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' > שומה משנה קודמת </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="adiposityPreviousVariables1"
+
+                                <input onChange={updateAdiposityPreviousVariables1}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-AdiposityPreviousVariables1-input" />
+                                <label htmlFor="file-AdiposityPreviousVariables1-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-AdiposityPreviousVariables1-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -389,16 +408,14 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' > שומה משתנים קודמות </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="adiposityPreviousVariables2"
+                                <input onChange={updateAdiposityPreviousVariables2}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-AdiposityPreviousVariables2-input" />
+                                <label htmlFor="file-AdiposityPreviousVariables2-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-AdiposityPreviousVariables2-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -406,16 +423,14 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' > תלוש נטו ראשון </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="firstNetSlip"
+                                <input onChange={updateFirstNetSlip}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-FirstNetSlip-input" />
+                                <label htmlFor="file-FirstNetSlip-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-FirstNetSlip-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -423,16 +438,16 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3' > תלוש נטו שני </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="secondNetSlip"
+
+
+                                <input onChange={updateSecondNetSlip}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-SecondNetSlip-input" />
+                                <label htmlFor="file-SecondNetSlip-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-SecondNetSlip-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>
@@ -440,16 +455,16 @@ const AddQuestionnaire = () => {
                         <div className='Registration-for-the-process-title'>
                             <h3 className='Registration-for-the-process-form-h3'> תלוש נטו שלישי </h3>
                             <div className="Registration-for-the-process-form-file">
-                                <input
-                                    type="file"
-                                    name="thirdNetSlip"
+
+
+                                <input onChange={updateThirdNetSlip}
+                                    type='file'
                                     style={{ display: 'none' }}
-                                    id="file-upload-input"
-                                />
-                                <label htmlFor="file-upload-input">
+                                    id="file-ThirdNetSlip-input" />
+                                <label htmlFor="file-ThirdNetSlip-input">
                                     העלה...
                                 </label>
-                                <label htmlFor="file-upload-input" className="file-upload-span">
+                                <label htmlFor="file-ThirdNetSlip-input" className="file-upload-span">
                                     <FaArrowUpFromBracket />
                                 </label>
                             </div>

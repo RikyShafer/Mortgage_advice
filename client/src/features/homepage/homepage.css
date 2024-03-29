@@ -71,10 +71,16 @@ display: flex;
   text-align: center;
 }
 
+@keyframes spin {
+  0% { transform: rotateY(0deg); }
+}
 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
+  animation: spin 6s linear forwards; /* Animation occurs once */
 }
+
+
 
  .VectorOrange {
   width: 24.43vw;

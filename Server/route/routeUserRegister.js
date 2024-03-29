@@ -1,10 +1,13 @@
 
+
+
 const express = require("express");
 const multer = require("multer");
+const path = require("path")
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./public/image");
+        cb(null, path.join(__dirname, "..", "public", "image") );
     },
     filename: function (req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -23,7 +26,7 @@ const verifyAdmin = require("../middleware/verifyAdmin");
 router.get("/", verifyJWT,verifyAdmin,userRegisterController.getAllUserRegister);
 router.get("/:id", verifyJWT,verifyAdmin,userRegisterController.getUserRegisterById);
 router.post("/" , upload.single('image') , userRegisterController.addUserRegister);
-router.put("/" , upload.single('image') ,verifyJWT, userRegisterController.updateUserRegister);
+router.put("/" , [verifyJWT, upload.single('image')], userRegisterController.updateUserRegister);
 router.delete("/",verifyJWT,verifyAdmin, userRegisterController.deleteUserRegister);
 
 // Export the router

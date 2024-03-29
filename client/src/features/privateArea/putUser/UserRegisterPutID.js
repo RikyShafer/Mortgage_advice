@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useAuth from "../../../hooks//useAuth";
 
 import { useUpdateUserMutation } from '../../userRegister/UserRegisterApiSlice';
@@ -7,7 +7,7 @@ import { WiDirectionLeft } from 'react-icons/wi';
 import "./user-register-put.css";
 const UserRegisterPutID = () => {
    const { _id, firstName, email ,phone,lastName } = useAuth();
-
+    const [imgBuffer, setImageBuffer]  = useState(null)
     
     const [putUser, { isError: putIsError, error: putError, isSuccess: putIsSuccess, isLoading: putIsLoading }] = useUpdateUserMutation();
 
@@ -17,7 +17,12 @@ const UserRegisterPutID = () => {
             navigate("/private area");
         }
     }, [putIsSuccess, navigate]);
-
+    const updateImage = (e)=>{
+        if(e.target.files)
+            setImageBuffer(e.target.files[0])
+        else
+            setImageBuffer(null)
+    }
     const formSubmit = (e) => {
         // // e.preventDefault();
         // // const formData = new FormData(e.target);
@@ -32,10 +37,11 @@ const UserRegisterPutID = () => {
     const formData = new FormData(e.target);
 
     // Handle file separately
-    const imageFile = e.target.image.files[0]; // Assuming 'image' is the name of your file input
-    formData.append('image', imageFile);
+    //const imageFile = e.target.file.files[0]; // Assuming 'image' is the name of your file input
+    formData.append('image', imgBuffer);
+    formData.append('_id', _id)
 
-    putUser({ _id: _id, ...formData });
+    putUser(formData);
     };
     if ( putIsLoading)
         return <h1>Loading...</h1>;
@@ -90,7 +96,7 @@ const UserRegisterPutID = () => {
                         </div>
                         <div className='div-register'>
                         <div className='dd-user-register-form-image'>
-                        <input type='file' name='image' />
+                        <input onChange={updateImage} type='file' />
                         </div>
                         </div>
                     <button type='submit'>  אני רוצה לעדכן {<WiDirectionLeft />}</button>
@@ -100,5 +106,3 @@ const UserRegisterPutID = () => {
 }
 
 export default UserRegisterPutID
-
-
