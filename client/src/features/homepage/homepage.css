@@ -77,7 +77,7 @@ display: flex;
 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
-  animation: spin 6s linear forwards; /* Animation occurs once */
+  animation: spin 2s linear forwards; /* Animation occurs once */
 }
 
 
@@ -184,6 +184,17 @@ margin-right: 10vw;
   margin-top: -138vh;
   display: flex;
 }
+.overture-background1{
+  margin-top: -1520vh;
+  display: flex;
+}
+/* .overture-background1 {
+  transform: translateY(-1520vh);
+  display: flex;
+} */
+.svg-container{
+  margin-top: 20vh;
+}
 .overture3{
   width: 25vw;
   margin-right: 10vw;
@@ -226,7 +237,7 @@ margin-right: 2.5vw;
 width: 65px;
 height: 65px;
 color: #1A7D99;
-margin-right: 10vw;
+margin-right: 10.5vw;
 margin-top: 30px;
 }
 .Homepage-squares-White{
@@ -310,4 +321,19 @@ text-align: right;
 color: #000000;
 text-align: left; 
 
+}
+.Homepage-mumble-overture-h3{
+font-size: 20px;
+color: #000000;
+}
+
+.read-more{
+  width: 38vw;
+  margin-top: 5vh;
+  text-align: right;
+  color: #000000;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
