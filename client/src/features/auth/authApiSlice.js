@@ -80,30 +80,31 @@ const authApiSlice = apiSlice.injectEndpoints({
             console.error('Error during registeration:', err);
           }
         },
-      // invalidatesTags:["UserRegister"]
+      invalidatesTags:["UserRegister"]
   }),
-    refresh:build.mutation({
-      query: () => ({
-        url: 'api/auth/refresh',
-        method: 'GET',
-      }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          console.log("refresh:", data);
-          // Check if the accessToken is available in the response
-          console.log("refresh:", data);
-          if (data) {
-            // Dispatch the setToken action with the received token
-            dispatch(setToken({ accessToken: data })); // Pass the accessToken directly to setToken
-          }
-        } catch (err) {
-          console.error('Error during refresh:', err);
-        }
-      },
+
+  refresh: build.mutation({
+    query: () =>({
+        url: "/api/auth/refresh",
+        method: "GET"
     }),
-  }),
-});
+    async onQueryStarted( arg,  { dispatch,   queryFulfilled }) {
+        try {
+            const { data } =  await queryFulfilled
+            if(data.accessToken){
+                dispatch(setToken({accessToken: data.accessToken}))
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    },
+
+}),
+
+})
+})
+
+
 
 export const { useLoginMutation, useSendLogoutMutation, useRefreshMutation, useAddUserMutation } = authApiSlice;
 

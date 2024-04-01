@@ -24,20 +24,11 @@ const UserRegisterPutID = () => {
             setImageBuffer(null)
     }
     const formSubmit = (e) => {
-        // // e.preventDefault();
-        // // const formData = new FormData(e.target);
-        // // const userObject = Object.fromEntries(formData.entries());
-        // e.preventDefault();
-        // const formData = new FormData(e.target);
-        // console.log(formData);
-        // putUser({ _id: _id, ...formData }); // Make sure to include the user ID when updating
+
 
         e.preventDefault();
     
     const formData = new FormData(e.target);
-
-    // Handle file separately
-    //const imageFile = e.target.file.files[0]; // Assuming 'image' is the name of your file input
     formData.append('image', imgBuffer);
     formData.append('_id', _id)
 

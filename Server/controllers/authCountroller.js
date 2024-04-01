@@ -88,7 +88,7 @@ const login = async (req, res) => {
         email: foundUser.email,
         phone: foundUser.phone,
         roles: foundUser.roles,
-        image:foundUser.image
+        image: foundUser.image
     }
     console.log(userInfo);
     const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
@@ -102,7 +102,7 @@ const login = async (req, res) => {
 }
 // const refresh = async (req, res) => {
 //     const refreshToken = req.cookies.jwt;
-    
+
 //     if (!refreshToken) {
 //         return res.status(401).json({
 //             error: true,
@@ -110,7 +110,7 @@ const login = async (req, res) => {
 //             data: null
 //         });
 //     }
-    
+
 //     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, decode) => {
 //         if (err) {
 //             return res.status(403).json({
@@ -119,9 +119,9 @@ const login = async (req, res) => {
 //                 data: null
 //             });
 //         }
-        
+
 //         const foundUser = await User.findOne({ firstName: firstName, deleted: false, email:email}).lean()
-        
+
 //         if (!foundUser) {
 //             return res.status(401).json({
 //                 error: true,
@@ -129,7 +129,7 @@ const login = async (req, res) => {
 //                 data: null
 //             });
 //         }
-        
+
 //         const userInfo = {
 //             _id: userRegister._id,
 //             firstName: userRegister.firstName,
@@ -139,63 +139,68 @@ const login = async (req, res) => {
 //             roles: userRegister.roles
 
 //         }
-        
+
 //         const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
 //         res.json(accessToken);
 //     });
 // };
+
 const refresh = async (req, res) => {
-    const refreshToken = req.cookies && req.cookies.jwt; // Check if req.cookies is defined before accessing jwt
-    
-    if (!refreshToken) {
+    const cookies = req.cookies
+    if (!cookies?.jwt) {
         return res.status(401).json({
             error: true,
             message: "Unauthorized: No refreshToken",
             data: null
-        });
+        })
     }
-    
-    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, decode) => {
-        if (err) {
-            return res.status(403).json({
-                error: true,
-                message: "Forbidden: Invalid refresh token",
-                data: null
-            });
-        }
-        
-        const { email } = decode; // Retrieve email from decoded token
-        
-        const foundUser = await User.findOne({ email: email, deleted: false }).lean(); // Find user by email
-        
-        if (!foundUser) {
-            return res.status(401).json({
-                error: true,
-                message: "Unauthorized: User not found",
-                data: null
-            });
-        }
-        
-        const userInfo = {
-            _id: foundUser._id,
-            firstName: foundUser.firstName,
-            lastName: foundUser.lastName,
-            email: foundUser.email,
-            phone: foundUser.phone,
-            roles: foundUser.roles,
-            image:foundUser.image
+    const refreshToken = cookies.jwt
 
-        };
-        
-        const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
-        res.json(accessToken);
-    });
-};
+    jwt.verify(refreshToken,
+        process.env.REFRESH_TOKEN_SECRET,
+        async (err, decode) => {
+            if (err) {
+                return res.status(403).json({
+                    error: true,
+                    message: "Forbidden: Invalid refresh token",
+                    data: null
+                })
+            }
+
+
+
+            const foundUser = await User.findOne({ email: decode.email, deleted: false } ).lean(); // Find user by email
+
+            if (!foundUser) {
+                return res.status(401).json({
+                    error: true,
+                    message: "Unauthorized: User not found",
+                    data: null
+                });
+            }
+            const userInfo = {
+                _id: foundUser._id,
+                firstName: foundUser.firstName,
+                lastName: foundUser.lastName,
+                email: foundUser.email,
+                phone: foundUser.phone,
+                roles: foundUser.roles,
+                image: foundUser.image
+
+            };
+
+
+            const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
+
+            res.json({ accessToken })
+        })
+
+}
 
 
 // const refresh = async (req, res) => {
 //     const refreshToken = req.cookies && req.cookies.jwt; // Check if req.cookies is defined before accessing jwt
-    
+
 //     if (!refreshToken) {
 //         return res.status(401).json({
 //             error: true,
@@ -203,7 +208,7 @@ const refresh = async (req, res) => {
 //             data: null
 //         });
 //     }
-    
+
 //     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (err, decode) => {
 //         if (err) {
 //             return res.status(403).json({
@@ -212,9 +217,9 @@ const refresh = async (req, res) => {
 //                 data: null
 //             });
 //         }
-        
+
 //         const foundUser = await User.findOne({ firstName: firstName, deleted: false, email:email}).lean()
-        
+
 //         if (!foundUser) {
 //             return res.status(401).json({
 //                 error: true,
@@ -222,7 +227,7 @@ const refresh = async (req, res) => {
 //                 data: null
 //             });
 //         }
-        
+
 //         const userInfo = {
 //             _id: userRegister._id,
 //             firstName: userRegister.firstName,
@@ -232,32 +237,28 @@ const refresh = async (req, res) => {
 //             roles: userRegister.roles
 
 //         }
-        
+
 //         const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
 //         res.json(accessToken);
 //     });
 // };
-const logout=async (req,res)=>{
-    const cookies = req.cookies;
-    if (!cookies) {
-        return res.status(401).json({
+const logout = async(req, res) =>{
+    const cookies = req.cookies
+    if(!cookies?.jwt){
+        return res.status(204).json({
             error: true,
-            message: "Unauthorized: cookies",
+            message: "No Content",
             data: null
-        });
+        })
     }
-
-    res.clearCookie("jwt", {
-        httpOnly:true
+    res.clearCookie("jwt",  {
+        httpOnly: true
     })
-
     res.json({
         error: false,
-        message: "Cookie clear",
+        message: "Cookie Cleard",
         data: null
-    }
-    )
-
+    })
 }
 const registeration = async (req, res) => {
     const image = req.file?.filename || ""; // Handle file upload
@@ -279,7 +280,7 @@ const registeration = async (req, res) => {
             data: null
         });
     }
-  
+
     try {
         // Check if email is already registered
         const existingUser = await User.findOne({ email });
@@ -342,5 +343,5 @@ const registeration = async (req, res) => {
     }
 };
 
-module.exports = { login , refresh, logout, registeration}
+module.exports = { login, refresh, logout, registeration }
 
