@@ -40,28 +40,18 @@ const QuestionnaireList = () => {
     //     }
     // };
     const renderDocumentField = (fileUrl, fileName) => {
+        const baseUrl = 'http://localhost:3297/uploads'; // Base URL of the uploads folder on port 2937
+    
         if (fileUrl) {
-            if (fileUrl.endsWith('.pdf')) {
-                return <iframe src={fileUrl} width="100%" height="500px" title="PDF Document" />;
-            } else if (fileUrl.endsWith('.docx')) {
-                // For Word document, provide a download link
-                return (
-                    <div>
-                        <p>This is a Word document. Click below to download:</p>
-                        <a href={fileUrl} download={`${fileName}.docx`}>Download Word Document</a>
-                    </div>
-                );
-            } else if (fileUrl.endsWith('.jpg') || fileUrl.endsWith('.jpeg') || fileUrl.endsWith('.png') || fileUrl.endsWith('.gif')) {
-                return (
-                    <div>
-                        <p>This is an image. Click below to download:</p>
-                        <a href={fileUrl} download={`${fileName}.jpg`}>Download Image</a>
-                    </div>
-                );
-            } else {
-                // If the file format is not supported, display a message
-                return <p>Unsupported file format</p>;
-            }
+            // Construct the complete URL by appending the fileUrl to the base URL
+            const fullUrl = `${baseUrl}/${fileUrl}`;
+    
+            return (
+                <div>
+                    <p>Click below to open the file:</p>
+                    <a href={fullUrl} target="_blank" rel="noopener noreferrer">Open File</a>
+                </div>
+            );
         } else {
             // If file URL is empty, display a placeholder or nothing
             return null;

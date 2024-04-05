@@ -1,0 +1,99 @@
+/* .display-imag{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+} */
+.display-user-details{
+    padding: 5px;
+    margin-right: 60px;
+}
+
+/* .display-user-put-details{
+    margin-left: 30px;
+} */
+
+.display-imag {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: relative; /* Add this line */
+}
+
+.display-user-put-details {
+    position: absolute; /* Add this line */
+    top: 43vh; 
+    left: 86vw;
+    background-color: transparent; /* Add other styles as needed */
+    border: none;
+    cursor: pointer;
+}
+.display-user-put{
+    width: 20vw; 
+    height: 5vh;
+    padding: 5px;
+    background-color:var(--button);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 15px;
+    margin-right: 5.5vw;
+    text-align: center;
+}
+
+
+.buttonUserCorrespondence{
+    display: flex;
+}
+.correspondence {
+    margin-right: 30vw; 
+    border: 2px solid rgb(189, 189, 189); 
+    padding: 10px; 
+    border-radius: 10px;
+    width: 35vw;
+    margin-top: -5vw;
+
+}
+.iconBsEnvelope{
+    margin-right: 1vw; 
+
+}
+.director{
+    border: 1px solid rgb(44, 43, 43); 
+    padding: 10px; 
+    border-radius: 10px;
+    width: 30vw;
+    margin-bottom: 10px;
+
+}
+.client{
+    border: 1px solid rgb(189, 189, 189); 
+    padding: 10px; 
+    border-radius: 10px;
+    width: 30vw; 
+    margin-bottom: 10px;
+
+}
+.directorDiv{
+    margin-right: 3.5vw; 
+
+}
+.correspondence-button{
+    width: 13vw; 
+    height: 5vh;
+    padding: 5px;
+    background-color:var(--button);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 15px;
+    margin-right: 9.5vw;
+    text-align: center;
+}

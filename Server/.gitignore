@@ -1,4 +1,8 @@
 node_modules
 .env
 /node_modules
-poblic
+/poblic
+image
+/image
+uploads
+/uploads

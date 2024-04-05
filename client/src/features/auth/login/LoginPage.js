@@ -1,37 +1,39 @@
-
-import "./login-page.css"
-import { useLoginMutation } from '../authApiSlice'
-import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { WiDirectionLeft } from "react-icons/wi"
+import "./login-page.css";
+import { useLoginMutation } from '../authApiSlice';
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { WiDirectionLeft } from "react-icons/wi";
+import useAuth from "../../../hooks/useAuth";
 
 const LoginPage = () => {
-  const [login, { error, data, isSuccess }] = useLoginMutation()
-  const navigate = useNavigate()
+  const [login, { error, data, isSuccess }] = useLoginMutation();
+  const navigate = useNavigate();
+  const {  isAdmin, isUser} = useAuth();
 
   useEffect(() => {
     if (isSuccess) {
-      console.log("token", data);
-      
-      navigate("/private area")
+      if (isUser) {
+        navigate("/private-area");
+      } else if (isAdmin) {
+        navigate("/aprivate-area");
+      } else {
+        navigate("/");
+      }
     }
-  }, [isSuccess, data, navigate]);
+  }, [isSuccess,data, isAdmin, isUser, navigate]);
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = new FormData(e.target)
-    const userObject = Object.fromEntries(data.entries())
-    console.log(userObject);
-
-    login(userObject)
-  }
-
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const userObject = Object.fromEntries(data.entries());
+    login(userObject);
+  };
 
   return (
     <div className="login-page">
       <div className="login-page-form-img">
         <form onSubmit={handleSubmit} className="login-page-form">
           <h2 className='login-page-form-h2'> להתחברות אנה הכנס את הפרטים שלך...</h2>
-
           <div className='login-page-form-firstName'>
             <h3 className='login-page-form-h3' >שם פרטי</h3>
             <input
@@ -40,9 +42,6 @@ const LoginPage = () => {
               name='firstName'
               placeholder='הקלידו כאן... ' />
           </div>
-
-
-
           <div className='login-page-form-email'>
             <h3 className='login-page-form-h3'> כתובת מייל </h3>
             <input
@@ -50,7 +49,6 @@ const LoginPage = () => {
               name='email'
               placeholder='הקלידו כאן...' />
           </div>
-
           <div className='login-page-form-password'>
             <h3 className='login-page-form-h3'>  סיסמא</h3>
             <input
@@ -67,7 +65,9 @@ const LoginPage = () => {
         </form>
         <img className='login-page-img' src='./user.png' alt='' />
       </div>
-    </div>)
-}
+    </div>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
+

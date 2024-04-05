@@ -66,15 +66,14 @@ const SitdeBar = () => {
       title: "משתמש",
       list: [
         {
-          title: "אזור אישי",
-          path: "login",
+          title:  "אזור אישי" ,
+          path: isUser || isAdmin ? "private-area" : "login",
           icon: <RiAccountPinCircleLine />
         },
-        
-
       ],
     },
   ];
+
   const adminMenuItems = [
     {
       title: "דפים",
@@ -153,12 +152,10 @@ const SitdeBar = () => {
           title: "משתמש",
           list: [
             {
-              title: "אזור אישי",
-              path: "login",
+              title:  "אזור אישי" ,
+              path: isUser || isAdmin ? "aprivate-area" : "login",
               icon: <RiAccountPinCircleLine />
             },
-            
-    
           ],
         },
       ];
@@ -234,12 +231,10 @@ const SitdeBar = () => {
     title: "משתמש",
     list: [
       {
-        title: "אזור אישי",
-        path: "login",
+        title:  "אזור אישי" ,
+        path: isUser || isAdmin ? "private-area" : "login",
         icon: <RiAccountPinCircleLine />
       },
-      
-
     ],
   },
 ];

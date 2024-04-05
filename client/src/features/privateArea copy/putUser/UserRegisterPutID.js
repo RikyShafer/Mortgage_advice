@@ -14,7 +14,7 @@ const UserRegisterPutID = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (putIsSuccess) {
-            navigate("/private-area");
+            navigate("/private area");
         }
     }, [putIsSuccess, navigate]);
     const updateImage = (e)=>{

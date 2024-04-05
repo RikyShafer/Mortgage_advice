@@ -99,10 +99,9 @@
 // // }
 
 // // export default App;
-
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashLayout from "./components/layout/dash/DashLayout";
-import RequiireAuth from "./features/auth/RequiireAuth";
 import ContactAdd from "./features/contact/registeration/ContactAdd";
 import ContactMessage from "./features/contact/registeration/ContactMessage";
 import LoginPage from "./features/auth/login/LoginPage";
@@ -116,6 +115,8 @@ import Display from "./features/privateArea/list/Display";
 import UserRegisterPutID from "./features/privateArea/putUser/UserRegisterPutID";
 import Homepage from "./features/homepage/Homepage";
 import PersistLogin from "./features/auth/PersistLogin";
+import RequireAuth from "./features/auth/RequireAuth";
+import DisplayAdmin from './features/privateArea copy/list/DisplayAdmin';
 
 function App() {
   return (
@@ -126,22 +127,23 @@ function App() {
           <Route path="contact" element={<ContactAdd />} />
           <Route path="messageContact" element={<ContactMessage />} />
           <Route path="signup" element={<UserRegisterAdd />} />
+          <Route path="/message" element={<ProcessCompletionMessage />} />
           <Route path="login" element={<LoginPage />} />
           <Route element={<PersistLogin />} >
-            <Route path="/message" element={<ProcessCompletionMessage />} />
-            <Route path="/private area" element={<Display />} />
-            <Route path="/userPut" element={<UserRegisterPutID />} />
-            <Route element={<RequiireAuth allowRoles={"ADMIN"} />} >
-              <Route path="registerList" element={<UserRegisterList />}>
-                <Route path=':id' element={<UserRegisterPut />} />
+            <Route element={<RequireAuth />} >
+              <Route element={<RequireAuth allowRoles={["USER"]} />} >
+                <Route path="/private-area" element={<Display />} />
+                <Route path="/questionnaireuser" element={<AddQuestionnaire />} />
+                <Route path="/userPut" element={<UserRegisterPutID />} />
               </Route>
-              <Route path="/questionnaire" element={<AddQuestionnaire />} />
-              <Route path="/questionnaireList" element={<QuestionnaireList />} />
-              <Route path="/private area" element={<Display />} />
-            </Route>
-            <Route element={<RequiireAuth allowRoles={"USER"} />} >
-              <Route path="/questionnaireuser" element={<AddQuestionnaire />} />
-              <Route path="/private area" element={<Display />} />
+              <Route element={<RequireAuth allowRoles={["ADMIN"]} />} >
+                <Route path="/aprivate-area" element={<DisplayAdmin />} />
+                <Route path="/registerList" element={<UserRegisterList />}>
+                  <Route path="/registerList/:userId" element={<UserRegisterPut />} />
+                </Route>
+                <Route path="/questionnaire" element={<AddQuestionnaire />} />
+                <Route path="/questionnaireList" element={<QuestionnaireList />} />
+              </Route>
             </Route>
           </Route>
         </Route>
@@ -151,6 +153,63 @@ function App() {
 }
 
 export default App;
+
+
+//הגרסה האחורנה לתאיריך כו אשר ב
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import DashLayout from "./components/layout/dash/DashLayout";
+// import ContactAdd from "./features/contact/registeration/ContactAdd";
+// import ContactMessage from "./features/contact/registeration/ContactMessage";
+// import LoginPage from "./features/auth/login/LoginPage";
+// import UserRegisterList from "./features/userRegister/list/UserRegisterList";
+// import UserRegisterPut from "./features/userRegister/put/UserRegisterPut";
+// import UserRegisterAdd from "./features/auth/registeration/UserRegisterAdd";
+// import ProcessCompletionMessage from "./features/auth/registeration/ProcessCompletionMessage";
+// import AddQuestionnaire from "./features/questionnaire/add/AddQuestionnaire";
+// import QuestionnaireList from "./features/questionnaire/list/QuestionnaireList";
+// import Display from "./features/privateArea/list/Display";
+// import UserRegisterPutID from "./features/privateArea/putUser/UserRegisterPutID";
+// import Homepage from "./features/homepage/Homepage";
+// import PersistLogin from "./features/auth/PersistLogin";
+// import RequireAuth from "./features/auth/RequiireAuth";
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path='/' element={<DashLayout />}>
+//           <Route index element={<Homepage />} />
+//           <Route path="contact" element={<ContactAdd />} />
+//           <Route path="messageContact" element={<ContactMessage />} />
+//           <Route path="signup" element={<UserRegisterAdd />} />
+//           <Route path="login" element={<LoginPage />} />
+//           <Route element={<PersistLogin />} >
+//             <Route element={<RequireAuth allowRoles={["ADMIN", "USER"]} />} >
+//               <Route path="/message" element={<ProcessCompletionMessage />} />
+//               <Route path="/private area" element={<Display />} />
+//               <Route path="/userPut" element={<UserRegisterPutID />} />
+//               <Route element={<RequireAuth allowRoles={"ADMIN"} />} >
+//                 <Route path="registerList" element={<UserRegisterList />}>
+//                   <Route path=':id' element={<UserRegisterPut />} />
+//                 </Route>
+//                 <Route path="/questionnaire" element={<AddQuestionnaire />} />
+//                 <Route path="/questionnaireList" element={<QuestionnaireList />} />
+//                 <Route path="/private area" element={<Display />} />
+//               </Route>
+//               <Route element={<RequireAuth allowRoles={"USER"} />} >
+//                 <Route path="/questionnaireuser" element={<AddQuestionnaire />} />
+//                 <Route path="/private area" element={<Display />} />
+//               </Route>
+//             </Route>
+
+//           </Route>
+//         </Route>
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
 
 // import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 // import DashLayout from "./components/layout/dash/DashLayout";

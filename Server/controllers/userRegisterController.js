@@ -193,7 +193,7 @@ const getUserRegisterById = async (req, res) => {
 const updateUserRegister = async (req, res) => {
     // נתח מחרוזת תאריך לאובייקט Date
     const image = (req.file?.filename ? req.file.filename : "")
-console.log(req.file);
+console.log(req.file,);
 
     // גוף הבקשה לפירוק
     const { _id,
