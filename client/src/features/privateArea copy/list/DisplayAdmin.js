@@ -20,6 +20,11 @@ const DisplayAdmin = () => {
 
     }
 
+    const goToUploadeDocuments = () => {
+        //ללכת למלוי טוםס שאלון 
+        navigate(`/questionnaireuser`);
+
+    }
     const goToViewingDocuments = () => {
         //צפפיה במסמכים   
         navigate(`/questionnaireList`);
@@ -55,6 +60,9 @@ const DisplayAdmin = () => {
                         <HiOutlinePencil />
                     </button>
                     <button className='display-user-put' onClick={goToViewingRegistrants}>  צפייה בנרשמים
+                        <HiOutlinePencil />
+                    </button>
+                    <button className='display-user-put' onClick={goToUploadeDocuments}>   פרטי משכנתא
                         <HiOutlinePencil />
                     </button>
                 </div>

@@ -6,17 +6,21 @@ import {
   // MdHelpCenter,
   MdLogout
 } from "react-icons/md"
-import { RiHomeWifiLine } from "react-icons/ri";
-import { HiOutlineInformationCircle } from "react-icons/hi";
-import { FaHandsHelping } from "react-icons/fa";
-import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
-import { CiCalculator2 } from "react-icons/ci";
-import { SiWhatsapp } from "react-icons/si";
-import { GiFiles } from "react-icons/gi";
+//האיקונים שבתפריט
+// import { RiHomeWifiLine } from "react-icons/ri";
+// import { HiOutlineInformationCircle } from "react-icons/hi";
+// import { FaHandsHelping } from "react-icons/fa";
+// import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
+// import { CiCalculator2 } from "react-icons/ci";
+// import { SiWhatsapp } from "react-icons/si";
+// import { GiFiles } from "react-icons/gi";
+
+// import { FaUsers } from "react-icons/fa6";
+// import { RiAccountPinCircleLine } from "react-icons/ri";
+
 // import { AiOutlineLogin } from "react-icons/ai";
 // import { PiUserCirclePlusDuotone } from "react-icons/pi";
-import { FaUsers } from "react-icons/fa6";
-import { RiAccountPinCircleLine } from "react-icons/ri";
+
 import { useSendLogoutMutation } from "../../features/auth/authApiSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
@@ -33,32 +37,32 @@ const SitdeBar = () => {
         {
           title: "עמוד הבית",
           path: "/",
-          icon: <RiHomeWifiLine />
+          // icon: <RiHomeWifiLine />
         },
         {
           title: "קצת עלינו",
           path: "/about",
-          icon: <HiOutlineInformationCircle />
+          // icon: <HiOutlineInformationCircle />
         },
         {
           title: "השירותים שלנו",
           path: "/our-services",
-          icon: <FaHandsHelping />
+          // icon: <FaHandsHelping />
         },
         {
           title: "מספרים עלינו ",
           path: "/they-tell-us",
-          icon: <HiOutlineChatBubbleOvalLeftEllipsis />
+          // icon: <HiOutlineChatBubbleOvalLeftEllipsis />
         },
         {
           title: "מחשבון משכנתא ",
           path: "/mortgagecalculator",
-          icon: <CiCalculator2 />
+          // icon: <CiCalculator2 />
         },
         {
           title: "צור קשר ",
           path: "/contact-us",
-          icon: <SiWhatsapp />
+          // icon: <SiWhatsapp />
         },
       ],
     },
@@ -68,187 +72,187 @@ const SitdeBar = () => {
         {
           title:  "אזור אישי" ,
           path: isUser || isAdmin ? "private-area" : "login",
-          icon: <RiAccountPinCircleLine />
+          // icon: <RiAccountPinCircleLine />
         },
       ],
     },
   ];
 
-  const adminMenuItems = [
-    {
-      title: "דפים",
-      list: [
-        {
-          title: "עמוד הבית",
-          path: "/",
-          icon: <RiHomeWifiLine />
-        },
-        {
-          title: "קצת עלינו",
-          path: "/about",
-          icon: <HiOutlineInformationCircle />
-        },
-        {
-          title: "השירותים שלנו",
-          path: "/our-services",
-          icon: <FaHandsHelping />
-        },
-        {
-          title: "מספרים עלינו ",
-          path: "/they-tell-us",
-          icon: <HiOutlineChatBubbleOvalLeftEllipsis />
-        },
-        {
-          title: "מחשבון משכנתא ",
-          path: "/mortgagecalculator",
-          icon: <CiCalculator2 />
-        },
-        {
-          title: "צור קשר ",
-          path: "/contact-us",
-          icon: <SiWhatsapp />
-        },
-        {
-          title: "העלת מסמכים ",
-          path: "questionnaire",
-          icon: <GiFiles />
-        },
-        {
-          title: "צפייה מסמכים ",
-          path: "questionnaireList",
-          icon: <GiFiles />
-        },
-        {
-          title: "צפייה בנרשמים  ",
-          path: "registerList",
-          icon: <FaUsers />
-        },
-      ],
-    },
-    // {
-    //   title: "משתמש",
-    //   list: [
-        // {
-        //   title: "הגדרות",
-        //   path: "/settings",
-        //   icon: <MdOutlineSettings />
-        // },
-        // {
-        //   title: "עזרה",
-        //   path: "/help",
-        //   icon: <MdHelpCenter />
-        // },
-        // {
-        //   title: "התחברות",
-        //   path: "login",
-        //   icon: <AiOutlineLogin />
-        // },
-        // {
-        //   title: "הרשמה",
-        //   path: "signup",
-        //   icon: <PiUserCirclePlusDuotone />
-        // },
-        {
-          title: "משתמש",
-          list: [
-            {
-              title:  "אזור אישי" ,
-              path: isUser || isAdmin ? "aprivate-area" : "login",
-              icon: <RiAccountPinCircleLine />
-            },
-          ],
-        },
-      ];
-  const userMenuItems = [
-    {
-      title: "דפים",
-      list: [
-        {
-          title: "עמוד הבית",
-          path: "/",
-          icon: <RiHomeWifiLine />
-        },
-        {
-          title: "קצת עלינו",
-          path: "/about",
-          icon: <HiOutlineInformationCircle />
-        },
-        {
-          title: "השירותים שלנו",
-          path: "/our-services",
-          icon: <FaHandsHelping />
-        },
-        {
-          title: "מספרים עלינו ",
-          path: "/they-tell-us",
-          icon: <HiOutlineChatBubbleOvalLeftEllipsis />
-        },
-        {
-          title: "מחשבון משכנתא ",
-          path: "/mortgagecalculator",
-          icon: <CiCalculator2 />
-        },
-        {
-          title: "צור קשר ",
-          path: "/contact-us",
-          icon: <SiWhatsapp />
-        },
-        {
-          title: "העלת מסמכים ",
-          path: "questionnaireuser",
-          icon: <GiFiles />
-        },
+//   const adminMenuItems = [
+//     {
+//       title: "דפים",
+//       list: [
+//         {
+//           title: "עמוד הבית",
+//           path: "/",
+//           // icon: <RiHomeWifiLine />
+//         },
+//         {
+//           title: "קצת עלינו",
+//           path: "/about",
+//           // icon: <HiOutlineInformationCircle />
+//         },
+//         {
+//           title: "השירותים שלנו",
+//           path: "/our-services",
+//           // icon: <FaHandsHelping />
+//         },
+//         {
+//           title: "מספרים עלינו ",
+//           path: "/they-tell-us",
+//           // icon: <HiOutlineChatBubbleOvalLeftEllipsis />
+//         },
+//         {
+//           title: "מחשבון משכנתא ",
+//           path: "/mortgagecalculator",
+//           // icon: <CiCalculator2 />
+//         },
+//         {
+//           title: "צור קשר ",
+//           path: "/contact-us",
+//           // icon: <SiWhatsapp />
+//         },
+//         {
+//           title: "העלת מסמכים ",
+//           path: "questionnaire",
+//           // icon: <GiFiles />
+//         },
+//         {
+//           title: "צפייה מסמכים ",
+//           path: "questionnaireList",
+//           // icon: <GiFiles />
+//         },
+//         {
+//           title: "צפייה בנרשמים  ",
+//           path: "registerList",
+//           // icon: <FaUsers />
+//         },
+//       ],
+//     },
+//     // {
+//     //   title: "משתמש",
+//     //   list: [
+//         // {
+//         //   title: "הגדרות",
+//         //   path: "/settings",
+//         //   icon: <MdOutlineSettings />
+//         // },
+//         // {
+//         //   title: "עזרה",
+//         //   path: "/help",
+//         //   icon: <MdHelpCenter />
+//         // },
+//         // {
+//         //   title: "התחברות",
+//         //   path: "login",
+//         //   icon: <AiOutlineLogin />
+//         // },
+//         // {
+//         //   title: "הרשמה",
+//         //   path: "signup",
+//         //   icon: <PiUserCirclePlusDuotone />
+//         // },
+//         {
+//           title: "משתמש",
+//           list: [
+//             {
+//               title:  "אזור אישי" ,
+//               path: isUser || isAdmin ? "aprivate-area" : "login",
+//               // icon: <RiAccountPinCircleLine />
+//             },
+//           ],
+//         },
+//       ];
+//   const userMenuItems = [
+//     {
+//       title: "דפים",
+//       list: [
+//         {
+//           title: "עמוד הבית",
+//           path: "/",
+//           // icon: <RiHomeWifiLine />
+//         },
+//         {
+//           title: "קצת עלינו",
+//           path: "/about",
+//           // icon: <HiOutlineInformationCircle />
+//         },
+//         {
+//           title: "השירותים שלנו",
+//           path: "/our-services",
+//           // icon: <FaHandsHelping />
+//         },
+//         {
+//           title: "מספרים עלינו ",
+//           path: "/they-tell-us",
+//           // icon: <HiOutlineChatBubbleOvalLeftEllipsis />
+//         },
+//         {
+//           title: "מחשבון משכנתא ",
+//           path: "/mortgagecalculator",
+//           // icon: <CiCalculator2 />
+//         },
+//         {
+//           title: "צור קשר ",
+//           path: "/contact-us",
+//           // icon: <SiWhatsapp />
+//         },
+//         {
+//           title: "העלת מסמכים ",
+//           path: "questionnaireuser",
+//           // icon: <GiFiles />
+//         },
 
-      ],
-    },
-  //   {
-  //     title: "משתמש",
-  //     list: [
-  //       {
-  //         title: "הגדרות",
-  //         path: "settings",
-  //         icon: <MdOutlineSettings />
-  //       },
-  //       {
-  //         title: "עזרה",
-  //         path: "help",
-  //         icon: <MdHelpCenter />
-  //       },
-  //       {
-  //         title: "התחברות",
-  //         path: "login",
-  //         icon: <AiOutlineLogin />
-  //       },
-  //       {
-  //         title: "הרשמה",
-  //         path: "signup",
-  //         icon: <PiUserCirclePlusDuotone />
-  //       },
-  //     ],
-  //   },
-  // ];
-  {
-    title: "משתמש",
-    list: [
-      {
-        title:  "אזור אישי" ,
-        path: isUser || isAdmin ? "private-area" : "login",
-        icon: <RiAccountPinCircleLine />
-      },
-    ],
-  },
-];
+//       ],
+//     },
+//   //   {
+//   //     title: "משתמש",
+//   //     list: [
+//   //       {
+//   //         title: "הגדרות",
+//   //         path: "settings",
+//   //         icon: <MdOutlineSettings />
+//   //       },
+//   //       {
+//   //         title: "עזרה",
+//   //         path: "help",
+//   //         icon: <MdHelpCenter />
+//   //       },
+//   //       {
+//   //         title: "התחברות",
+//   //         path: "login",
+//   //         icon: <AiOutlineLogin />
+//   //       },
+//   //       {
+//   //         title: "הרשמה",
+//   //         path: "signup",
+//   //         icon: <PiUserCirclePlusDuotone />
+//   //       },
+//   //     ],
+//   //   },
+//   // ];
+//   {
+//     title: "משתמש",
+//     list: [
+//       {
+//         title:  "אזור אישי" ,
+//         path: isUser || isAdmin ? "private-area" : "login",
+//         // icon: <RiAccountPinCircleLine />
+//       },
+//     ],
+//   },
+// ];
 
   let menuItems;
 
-  if (isAdmin) {
-    menuItems = adminMenuItems;
-  } else if (isUser) {
-    menuItems = userMenuItems;
-  } else {
-    menuItems = notMenuItems;
-  }
-
+  // if (isAdmin) {
+  //   menuItems = adminMenuItems;
+  // } else if (isUser) {
+  //   menuItems = userMenuItems;
+  // } else {
+  //   menuItems = notMenuItems;
+  // }
+  menuItems = notMenuItems;
   console.log(menuItems, "menuItems");
 
   useEffect(() => {

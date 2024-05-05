@@ -14,6 +14,7 @@ const Footer = () => {
       <div className='footer-text'> @ All Rikights reserved.</div> */}
      
       <h1 className='footer-address'>  <BiMap /> כתבתינו: מסילת יוסף 9  </h1>
+      <h1 className='studio'>  אפיון ועיצוב אתר | סטודיו מוריה| כל הזכויות שמורות </h1>
       <h1 className='footer-contactus'>  <BiLogoFacebook /> </h1>
       <h1 className='footer-contactus'>  <BiLogoInstagram /> </h1>
       <h1 className='footer-contactus'>  <BiLogoWhatsapp /> </h1>

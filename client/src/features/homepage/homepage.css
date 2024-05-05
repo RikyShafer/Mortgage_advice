@@ -1,10 +1,11 @@
 .blue-background {
-  background-color: rgba(26, 125, 153, 0.4);
+  /* background-color: rgba(26, 125, 153, 0.4); */
   width: 1920px;
-height: 521px;
-display: flex;
+  height: 521px;
+  display: flex;
 }
-.from-blue-moment{
+
+.from-blue-moment {
   padding-top: 17vh;
 }
 
@@ -13,46 +14,48 @@ display: flex;
   width: 45vw;
   margin-right: 10vw;
   font-size: 36px;
-  font-weight: 700;
   line-height: 38px;
   text-align: right;
   margin-top: 10px;
   color: black;
-
-
 }
 
 /* המשכנתא היא השקעה גדולה, ולכן חשוב לקחת את ההחלטה בצורה מושכלת. אנחנו כאן כדי לעזור לכם להבין את האפשרויות, להתמקד בצרכים שלכם, ולמצוא את המשכנתא המתאימה ביותר. */
-.mumble-of-the-opening {
-  width: 30vw;
-  margin-right: 15vw;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 21px;
+.mumble-of-the-opening-div {
+  margin-right: 22vw;
+  margin-top: 28px;
+}
+
+
+
+.mumble-of-the-opening1 {
+  width: 27vw;
+  font-size: 14px;
+  line-height: 18px;
   text-align: right;
-  margin-top: 15px;
   color: black;
+
+}
+
+.mumble-of-the-opening2 {
+  width: 30vw;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: right;
+  color: black;
+
 }
 
 /* אל תתלבט! לחץ עכשו על הכפתור הייעוץ ואנו נחזור אליך . */
 .Homepage-button-mumble {
   margin-top: 3vw;
-  margin-right: 15vw;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 21px;
-
+  margin-right: 22vw;
+  font-size: 14px;
+  line-height: 18px;
   text-align: right;
-
-  color: #000000;
-}
-
-.Homepage-button-mumble {
   width: 42vw;
+  color: #1A7D99;
 }
-
-
-
 
 .Homepage-button {
   width: 7vw;
@@ -67,42 +70,222 @@ display: flex;
   justify-content: center;
   margin: 0 auto;
   margin-top: 15px;
-  margin-right: 25vw;
+  margin-right: 31vw;
   text-align: center;
 }
 
-@keyframes spin {
-  0% { transform: rotateY(0deg); }
+.Vector {
+  margin-top: 15vh;
+  position: relative; /* Ensure positioning context */
 }
 
+.VectorImg {
+  width: 570px;
+  height: 438px;
+  margin-right: -85px;
+  margin-top: -20vh;
+}
+
+.VectorOrange1 {
+  width: 112.01px;
+  height: 105.34px;
+  background: #F0B918;
+  overflow: hidden;
+  border-radius: 22px;
+  transform: rotate(48.12deg);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  margin-right: 27vw;
+}
+
+.VectorOrange2 {
+  width: 52px;
+  height: 52px;
+  background-color: #F0B918;
+  border-radius: 8px;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(48.122deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: -80vh;
+  margin-right: 15vw;
+  z-index: -1;
+}
+
+.BlueBackground1 {
+  width: 109px;
+  height: 109px;
+  background-color: #1A7D99;
+  border-radius: 17px;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(48.122deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: -79vh;
+  margin-right: 5vw;
+  z-index: -1; /* Ensure this is behind the image */
+}
+
+.BlueBackground2 {
+  width: 61px;
+  height: 61px;
+  background-color: #1A7D99;
+  border-radius: 12px;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(48.122deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: -14vh;
+  margin-right: 23vw;
+  
+}
+
+.VectorOrange3 {
+  width: 82px;
+  height: 82px;
+  background-color: #F0B918;
+  border-radius: 8px;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(48.122deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: -19vh;
+  margin-right: 2vw;
+  z-index: -1;
+}
+.Who-we-are {
+  /* background-color: rgba(26, 125, 153, 0.4); */
+  width: 1920px;
+  height: 521px;
+  display: flex;
+  margin-top: 17vh;
+}
+
+.Who-we-areImg {
+  width: 570px;
+  height: 438px;
+  margin-right: 5vw;
+
+}
+
+.Who-we-areOrange1 {
+  width: 114px;
+  height: 112px;
+  position: relative;
+  background-color: #F0B918;
+  transform: rotate(-30deg);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+  margin-top: -70vh;
+  margin-right: 6vw;
+
+}
+
+.Who-we-areOrange2 {
+  width: 49px;
+  height: 49px;
+  position: relative;
+  background-color: #F0B918;
+  border-radius: 12px;
+  transform: rotate(-31deg);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-right: 38vw;
+  margin-top: -2vh;
+}
+
+.Who-we-are-Blue1 {
+  width: 81px;
+  height: 81px;
+  background-color: #1A7D99;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-31.36deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 32vw;
+  margin-top: -24vh;
+}
+
+.Who-we-are-Blue2 {
+  width: 54.61px;
+  height: 54.61px;
+  background-color: #1A7D99;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-31.36deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 9vw;
+  margin-top: 32vh;
+}
+
+.Who-we-areOrange3 {
+  width: 93.21px;
+  height: 93.21px;
+  position: relative;
+  background-color: #F0B918;
+  border-radius: 12px;
+  transform: rotate(-31deg);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-right: 36vw;
+  margin-top: -15vh;
+}
+
+.Who-we-are-Melal1 {
+  /* נעים להכיר, יהודה שפר */
+  font-size: 36px;
+  line-height: 38px;
+  text-align: right;
+  color: #000000;
+}
+
+.Who-we-are-Melal2 {
+  font-size: 16px;
+  line-height: 16px;
+  text-align: right;
+  color: #000000;
+  width: 22vw;
+  margin-top: 5vh;
+
+}
+
+.Who-we-are-Melal3 {
+  font-size: 20px;
+  line-height: 21px;
+  text-align: right;
+  color: #F0B918;
+  margin-top: 5vh;
+}
+
+.Who-we-are-Homepage-button {
+  width: 7vw;
+  height: 5vh;
+  padding: 5px;
+  background-color: var(--button);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 6vw;
+  text-align: center;
+}
+
+/* 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
-  animation: spin 2s linear forwards; /* Animation occurs once */
+  animation: spin 2s linear forwards; 
 }
 
 
 
- .VectorOrange {
-  width: 24.43vw;
-  height: 44.81vh;
-  left: 11.22vw;
-  top: 55.6vh; 
-
-  background: #F0B918;
-  transform: rotate(12.05deg);
-}
 
 
 
-.BlueBackground {
-  width: 32vw;
-  height: 41.81vh;
-  left: 15.28px;
-  top: 57.6vh; 
 
-  background: #1A7D99;
-  transform: rotate(33.36deg);
-}
+
 
 .VectorImg {
   width: 32.43vw;
@@ -110,12 +293,48 @@ display: flex;
   left: -15.28px;
   top: 51vh; 
   transform: rotate(20.36deg);
+} */
+.Wrapping-squareImg {
+  width: 100%;
+  height: 1580px;
+  left: 0px;
+  margin-top: 30vh;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
 }
 
+.Wrapping-squareImg1 {
+  width: 100%;
+  height: 1080px;
+  left: 0px;
+  margin-top: 30vh;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
+}
+
+.Wrapping-square {
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+  background-color: rgb(255, 255, 255);
+  width: 70vw;
+  margin-right: 13vw;
+  border-radius: 22px;
+  margin-top: -200vh;
+
+}
+
+.Wrapping-square1 {
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.25));
+  background-color: rgb(255, 255, 255);
+  width: 70vw;
+  margin-right: 13vw;
+  border-radius: 22px;
+  margin-top: -290vh;
+  ;
+}
 
 .White-background {
-  display: flex;
-  margin-bottom: -15vh;
+  margin-top: 5vh;
+  margin-bottom: -12vh;
 }
 
 .from-white-moment {
@@ -128,43 +347,49 @@ display: flex;
 /* מהו תהליך ייעוץ משכנתא? */
 
 .overture-white {
-  width: 20vw;
-  margin-right: 10vw;
-
-  margin-top: 40vh;
-  color: #1A7D99;
-
-
-  font-weight: 700;
   font-size: 36px;
   line-height: 38px;
   text-align: right;
-  margin-left: 5vw;
+  color: #000000;
+  margin-right: 7vw;
+
 }
 
-.Homepage-button-mumble-White{
-  
+.Homepage-button-mumble-White {
+
   margin-top: 1vw;
-  margin-right: 15vw;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 21px;
-
+  margin-right: 30vw;
+  font-size: 16px;
+  line-height: 16px;
   text-align: right;
+  width: 40vw;
+  color: #000000;
 
-  color: #000000
+  font-weight: 400;
 }
-.FaHandshakeAngle{
-/* 027-Purpose 2 */
 
-position: absolute;
-width: 30px;
-height: 30px;
-color: #1A7D99;
-margin-right: 10vw;
+.mumble-of-the-openingWhite {
+  margin-top: 1vw;
+  margin-right: 30vw;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: right;
+  width: 40vw;
+  color: #1A7D99;
+}
+
+.FaHandshakeAngle {
+  /* 027-Purpose 2 */
+
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: #000000;
+  margin-right: 23vw;
 
 }
-.Homepage-button-White{
+
+.Homepage-button-White {
   width: 10vw;
   height: 5vh;
   padding: 5px;
@@ -180,82 +405,89 @@ margin-right: 10vw;
   margin-right: 25vw;
   text-align: center;
 }
-.overture-background{
-  margin-top: -138vh;
-  display: flex;
-}
-.overture-background1{
-  margin-top: -1520vh;
-  display: flex;
-}
-/* .overture-background1 {
-  transform: translateY(-1520vh);
-  display: flex;
-} */
-.svg-container{
+
+
+.svg-container {
   margin-top: 20vh;
 }
-.overture3{
-  width: 25vw;
-  margin-right: 10vw;
-  margin-top: 40vh;
-  color: #1A7D99;
-  font-weight: 700;
-  font-size: 36px;
+
+.Why-important-hire-consultant-overture {
+  font-size: 26px;
   line-height: 38px;
   text-align: right;
-  margin-left: 5vw;
+  color: #000000;
+  margin-top: 22vh;
+  margin-right: 13vw;
 }
-.from-overture-moment{
-  margin-top: 40vh;
-    width: 38vw;
+
+.from-overture-moment {
+  margin-top: 9vh;
+  width: 38vw;
+  margin-right: 7vw
 }
-.Homepage-button-mumble-overture{
-margin-bottom: 9px;
+
+.Homepage-button-mumble-overture {
+  margin-bottom: 9px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: right;
+  color: #000000;
+margin-right: 6vw;
+width: 40vw;
+font-weight: 400;
 }
-.Homepage-mumble-overture{
+
+.Homepage-mumble-overture {
   color: #1A7D99;
+  margin-right: 6vw;
+  width: 40vw;
+  font-weight: 400;
 }
-.from-white-squares{
+
+
+
+.from-white-squares {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 
 }
-.squares-White-1{
 
-width: 26vw;
-height: 43vh;
-background: rgba(26, 125, 153, 0.4);
-box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
-border-radius: 25px;
-margin-bottom: 10vh;
-margin-right: 2.5vw;
+.squares-White-1 {
+
+  width: 26vw;
+  height: 43vh;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-bottom: 10vh;
+  margin-right: 2.5vw;
 }
-.Iconswhite{
+
+.Iconswhite {
   position: absolute;
-width: 65px;
-height: 65px;
-color: #1A7D99;
-margin-right: 10.5vw;
-margin-top: 30px;
+  width: 65px;
+  height: 65px;
+  color: #000000;
+  margin-right: 10.5vw;
+  margin-top: 30px;
 }
-.Homepage-squares-White{
-position: absolute;
-margin-top: 25vh;
-font-weight: 700;
-font-size: 18px;
-line-height: 21px;
-text-align: center;
-color: #000000;
-width: 25vw;
+
+.Homepage-squares-White {
+  position: absolute;
+  margin-top: 25vh;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+  width: 25vw;
 }
-.overture-white-squares{
+
+.overture-white-squares {
   width: 40vw;
-  margin-right: 40vw;
-  color: #1A7D99;
-margin-top: 18vh;
-  font-weight: 700;
+  margin-right: 5vw;
+  color: rgb(0, 0, 0);
+  margin-top: 60vh;
   font-size: 36px;
   line-height: 38px;
   text-align: right;
@@ -263,7 +495,7 @@ margin-top: 18vh;
   margin-bottom: 15vh;
 }
 
-.Homepage-button-squares{
+.Homepage-button-squares1 {
   width: 10vw;
   height: 5vh;
   padding: 5px;
@@ -276,58 +508,86 @@ margin-top: 18vh;
   justify-content: center;
   margin: 0 auto;
   margin-top: 15px;
-  margin-right: 45vw;
+  margin-right: 44vw;
   text-align: center;
 }
-
-.overture-white-customers{
+.Homepage-button-squares2 {
+  width: 10vw;
+  height: 5vh;
+  padding: 5px;
+  background-color: var(--button);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 39vw;
+  text-align: center;
+}
+.White-background3{
+  margin-right: 5vw;
+}
+/* המלצות עלינו */
+.overture-white-customers {
   width: 30vw;
-  margin-right: 10vw;
-  margin-top: 20vh;
-  color: #1A7D99;
-  font-weight: 700;
+  margin-right: -1vw;
+  margin-top: 25vh;
+  color: #000000;
   font-size: 36px;
   line-height: 38px;
   text-align: right;
   margin-left: 5vw;
 }
-.from-white-customers{
+
+.from-white-customers {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px; 
+  gap: 10px;
 }
-.customers-White-1{
-  margin-top: 7vh;
+
+.customers-White-1 {
+  margin-top: -23vh;
   width: 20vw;
-  margin-right: 2vw;
+  margin-right: 8vw;
 }
-.Homepage-customers-White{
 
+.Homepage-customers-White {
+margin-top: -2vh;
+font-size: 14px;
+line-height: 16px;
+text-align: right;
+color: #000000;
 font-weight: 400;
-font-size: 16px;
-line-height:20px;
-text-align: right;
-/* שחור טקסט */
-color: #000000;
-}
-.Homepage-customers-White-name{
-width: 20vw;
-
-margin-top: 5vh;
-font-weight: 700;
-font-size: 20px;
-line-height: 21px;
-text-align: right;
-color: #000000;
-text-align: left; 
 
 }
-.Homepage-mumble-overture-h3{
-font-size: 20px;
-color: #000000;
+
+.Homepage-customers-White-name {
+  width: 20vw;
+
+  margin-top: 5vh;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: right;
+  color: #000000;
+  text-align: left;
+
 }
 
-.read-more{
+.Homepage-mumble-overture-h3 {
+  font-size: 20px;
+  line-height: 21px;
+  text-align: right;
+  margin-bottom: 5vh;
+  color: #F0B918;
+margin-right: 6vw;
+width: 40vw;
+
+}
+
+.read-more {
   width: 38vw;
   margin-top: 5vh;
   text-align: right;
@@ -336,4 +596,5 @@ color: #000000;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin-bottom: 5vh;
 }

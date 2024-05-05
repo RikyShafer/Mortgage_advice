@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 const NenuLink = ({itme, menuItems}) => {
   if(menuItems)
   return(
-  <NavLink  to={itme.path} className={"side-bar-menu-link-ADMIN"}>
+  <NavLink  to={itme.path} className={"side-bar-menu-link"}>
   {itme.icon}
   {  itme.title}
    </NavLink>

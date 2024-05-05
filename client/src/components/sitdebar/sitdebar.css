@@ -1,7 +1,7 @@
 .side-bar {
   position: sticky;
-  padding: 0; /* Add this line to remove padding */
-  margin: 0; /* Add this line to remove margin */
+  padding: 0; 
+  margin: 0; 
 }
 .side-bar-user{
 display: flex;
@@ -52,6 +52,7 @@ align-items: center;
     margin: 5px 0px;
     border-radius: 10px;
     font-size: 12px; 
+    font-weight: 500;
 }
 .side-bar-menu-link-ADMIN{
     padding: 6px;
@@ -63,9 +64,9 @@ align-items: center;
     font-size: 8px; 
  }
 .side-bar-menu-link:hover, .side-bar-menu-link:active{
-    color: rgb(43, 80, 245);
+    color: #1A7D99;
   text-decoration: underline;
-  text-underline-offset: 20px; /* Set the offset of the underline */
+  text-underline-offset: 20px; 
 }
 .side-bar-logout{
     margin: 5px 0px;
@@ -82,20 +83,14 @@ align-items: center;
 }
 
 
-/* .side-bar-menu-list {
-    display: flex; 
-    list-style: none;
-    padding: 0;
-    margin: 0;
 
-  } */
   
   .side-bar-menu-cat {
-    margin-right: 10px; /* Optional: Adjust spacing between categories */
+    margin-right: 90px; 
   }
   
   .side-bar-menu-list li {
-    display: flex; /* or grid */
+    display: flex;
   }
   .side-bar-menu-img{
     width: 70px;
@@ -106,5 +101,5 @@ align-items: center;
   .side-bar-menuItems {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start; 
   }
