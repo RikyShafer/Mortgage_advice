@@ -76,7 +76,8 @@
 
 .Vector {
   margin-top: 15vh;
-  position: relative; /* Ensure positioning context */
+  position: relative;
+  /* Ensure positioning context */
 }
 
 .VectorImg {
@@ -122,7 +123,8 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   margin-top: -79vh;
   margin-right: 5vw;
-  z-index: -1; /* Ensure this is behind the image */
+  z-index: -1;
+  /* Ensure this is behind the image */
 }
 
 .BlueBackground2 {
@@ -136,7 +138,7 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   margin-top: -14vh;
   margin-right: 23vw;
-  
+
 }
 
 .VectorOrange3 {
@@ -152,6 +154,7 @@
   margin-right: 2vw;
   z-index: -1;
 }
+
 .Who-we-are {
   /* background-color: rgba(26, 125, 153, 0.4); */
   width: 1920px;
@@ -432,9 +435,9 @@
   line-height: 16px;
   text-align: right;
   color: #000000;
-margin-right: 6vw;
-width: 40vw;
-font-weight: 400;
+  margin-right: 6vw;
+  width: 40vw;
+  font-weight: 400;
 }
 
 .Homepage-mumble-overture {
@@ -511,6 +514,7 @@ font-weight: 400;
   margin-right: 44vw;
   text-align: center;
 }
+
 .Homepage-button-squares2 {
   width: 10vw;
   height: 5vh;
@@ -527,9 +531,11 @@ font-weight: 400;
   margin-right: 39vw;
   text-align: center;
 }
-.White-background3{
+
+.White-background3 {
   margin-right: 5vw;
 }
+
 /* המלצות עלינו */
 .overture-white-customers {
   width: 30vw;
@@ -555,12 +561,12 @@ font-weight: 400;
 }
 
 .Homepage-customers-White {
-margin-top: -2vh;
-font-size: 14px;
-line-height: 16px;
-text-align: right;
-color: #000000;
-font-weight: 400;
+  margin-top: -2vh;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  color: #000000;
+  font-weight: 400;
 
 }
 
@@ -582,8 +588,8 @@ font-weight: 400;
   text-align: right;
   margin-bottom: 5vh;
   color: #F0B918;
-margin-right: 6vw;
-width: 40vw;
+  margin-right: 6vw;
+  width: 40vw;
 
 }
 

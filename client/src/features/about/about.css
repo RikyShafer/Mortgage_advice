@@ -1,0 +1,166 @@
+.businesspersonImgContainer {
+    width: 100%;
+    position: absolute;
+    margin-top: -25vh;
+    overflow: hidden;
+    height: 92.133vh;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    z-index: -1;
+    margin-bottom: -20vh;
+}
+
+.about {
+    margin-bottom: 80vh;
+}
+
+.triangleMask {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    text-align: right;
+    margin-right: 42vw;
+    color: #000000;
+}
+
+.businesspersonImg {
+    width: 100%;
+    filter: blur(1px);
+    opacity: 0.4;
+
+}
+
+.read-more {
+    margin-right: 14vw;
+    /* margin-top: 45vh; */
+}
+
+.Our-story {
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    margin-right: 8vw;
+    margin-top: 20vh;
+}
+
+.Our-story1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    text-align: right;
+
+    color: #000000;
+}
+
+.Our-story2 {
+    width: 20vw;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    text-align: right;
+
+    color: #000000;
+}
+
+.Our-story3 {
+    width: 20vw;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    text-align: right;
+    color: #000000;
+}
+
+.Why-choose-us {
+    display: flex;
+    flex-direction: row;
+    gap: 8vw;
+    margin-right: 3vw;
+    margin-top: 20vh;
+}
+
+.Why-choose-us1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: right;
+    color: #000000;
+}
+
+.Why-choose-us2 {
+    width: 43vw;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: right;
+    color: #000000;
+    margin-top: 4vh;
+}
+
+.Why-choose-us2 p {
+    margin-bottom: 3vh;
+}
+
+.Why-choose-us2 h1 {
+    margin-bottom: 3vh;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: right;
+    color: #1A7D99;
+}
+
+.Satisfied-customers {
+    background-color: #F0B918;
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    color: #000000;
+    margin-top: 10vh;
+}
+
+.we-are-working {
+    margin-top: 10vh;
+    margin-bottom: -70vh;
+}
+
+.we-are-working h1 {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    color: #000000;
+}
+
+.we-are-workingImg {
+    width: 10vw;
+    height: 5vh;
+    margin-top: 5vh;
+    margin-right: 5vw;
+}
+
+.Homepage-button-White {
+    width: 10vw;
+    height: 5vh;
+    padding: 5px;
+    background-color: var(--button);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 15vh;
+    margin-right: 45vw;
+    text-align: center;
+}

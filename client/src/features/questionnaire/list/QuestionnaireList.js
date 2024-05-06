@@ -1,10 +1,48 @@
 import React, { useEffect } from 'react';
 import { useGetQueryQuery } from '../QueryAPICalls';
 import { useSelector } from 'react-redux';
+import { HiOutlineDownload } from "react-icons/hi";
+import { AiFillPrinter } from "react-icons/ai";
+
+
 // import { HiOutlineUser } from "react-icons/hi";
 // import { useNavigate } from 'react-router-dom';
 
 import "./questionnaire-list.css";
+
+const printList = (questionnaireDetails) => {
+    const printContents = document.getElementById(`print-content-${questionnaireDetails._id}`).innerHTML;
+    const popupWin = window.open('', '_blank', 'width=600,height=600');
+    popupWin.document.open();
+    popupWin.document.write(`
+        <html>
+        <head>
+            <title>Print</title>
+            <style>
+                /* Add your styles for printing here */
+                body {
+                    padding: 20px;
+                    border: 3px solid #1A7D99; /* Blue border */
+                    border-radius: 10px;
+                    font-family: "Noto Sans Hebrew", sans-serif;
+                    font-optical-sizing: auto;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-variation-settings: "wdth" 100;
+                    direction: rtl;
+                    text-align: right;
+                    line-height: 1.5; 
+                }
+                /* Add any other styles you need for printing */
+            </style>
+        </head>
+        <body onload="window.print();window.close()">
+            ${printContents}
+        </body>
+        </html>
+    `);
+    popupWin.document.close();
+};
 
 const QuestionnaireList = () => {
     const { data: questionnaire, isLoading, isError, error, isSuccess } = useGetQueryQuery();
@@ -41,15 +79,15 @@ const QuestionnaireList = () => {
     // };
     const renderDocumentField = (fileUrl, fileName) => {
         const baseUrl = 'http://localhost:3297/uploads'; // Base URL of the uploads folder on port 2937
-    
+
         if (fileUrl) {
             // Construct the complete URL by appending the fileUrl to the base URL
             const fullUrl = `${baseUrl}/${fileUrl}`;
-    
+
             return (
                 <div>
-                    <p>Click below to open the file:</p>
-                    <a href={fullUrl} target="_blank" rel="noopener noreferrer">Open File</a>
+                    לחץ בשביל לראות או להוריד
+                    <a href={fullUrl} target="_blank" rel="noopener noreferrer">  <HiOutlineDownload style={{ color: '#1A7D99' }} /> </a>
                 </div>
             );
         } else {
@@ -60,7 +98,18 @@ const QuestionnaireList = () => {
     // const goToPut = (userId) => {
     //     console.log("User ID:", userId);
     //     navigate(`/registerList/${userId}`);
-    // };
+    // };\\\
+    const format = (ID) => {
+        const date = new Date(ID);
+
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1
+        const day = String(date.getDate()).padStart(2, '0');
+
+        // Format the date as "YYYY-MM-DD"
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate
+    }
     if (isLoading || !isSuccess) {
         return <h1>Loading...</h1>;
     }
@@ -72,43 +121,49 @@ const QuestionnaireList = () => {
     console.log("questionnaire:", questionnaire);
 
     let questionnaireData = questionnaire || [];
-    console.log("questionnaireData:",questionnaireData);
+    console.log("questionnaireData:", questionnaireData);
     return (
         <div  >
 
             <div className="register-list-title" >תצוגה של אנשים שלחו טפסים </div>
             <div className="register-list">
                 {questionnaireData.map((questionnaire) => (
-    <div className="registerMap" key={questionnaire._id} >
-                        <h1>שם פרטי  - {questionnaire.UserRegister?.firstName}</h1>
-                        <p>תעודת זהות - {questionnaire.ID}</p>
-                        <p>תאריך הנפקת תעודת זהות - {questionnaire.roCertificateIssueDteles}</p>
-                        <p>תאריך לידה - {questionnaire.dateBirth}</p>
-                        <p>מצב משפחתי - {questionnaire.maritalStatus}</p>
-                        <p>השכלה - {questionnaire.education}</p>
-                        <p>עיר מגורים - {questionnaire.city}</p>
-                        <p>כתובת מגורים - {questionnaire.address}</p>
-                        <p>מיקוד - {questionnaire.postalCode}</p>
-                        <p>גיל - {questionnaire.age}</p>
-                        <p>מספר ילדים מתחת לגיל 18 - {questionnaire.theirNativeNumber}</p>
-                        <p>מספר דרכון - {questionnaire.passport}</p>
-                        <p>אזרחות זרה - {questionnaire.foreignCitizenship}</p>
-                        <p>קירבה לאיש ציבור - {questionnaire.proximityPublicFigure}</p>
-                        <p>תעסוקה - {questionnaire.employment}</p>
-                        <p>מקום עובדה - {questionnaire.job}</p>
-                        <p>תפקיד בעבודה - {questionnaire.jobTitle}</p>
-                        <p>וותק - {questionnaire.seniority}</p>
-                        <p>מקום עבודה קודם - {questionnaire.previousWorkplace}</p>
-                        <p>תוקף האישור - {questionnaire.validityOfApprovalOfCPAFromPreviousYear}</p>
-                        <p>אישור רו"ח משנה נוכחית - {renderDocumentField(questionnaire.cpaApprovalForCurrentSub)}</p>
-                        <p>תוקף האישור - {questionnaire.validityOfApprovalOfCPAFromPreviousYear}</p>
-                        <p>אישור רו"ח משנה קודמת - {renderDocumentField(questionnaire.antecedentModifierMole)}</p>
-                        <p>שומה משנה קודמת - {renderDocumentField(questionnaire.adiposityPreviousVariables1)}</p>
-                        <p>שומה משתנים קודמות - {renderDocumentField(questionnaire.adiposityPreviousVariables2)}</p>
-                        <p>תלוש נטו ראשון - {renderDocumentField(questionnaire.firstNetSlip)}</p>
-                        <p>תלוש נטו שני - {renderDocumentField(questionnaire.secondNetSlip)}</p>
-                        <p>תלוש נטו שלישי - {renderDocumentField(questionnaire.thirdNetSlip)}</p>
-                        <p>הכנסה ממוצעת - {questionnaire.averageIncome}</p>
+                    <div className="registerMap" id={`print-content-${questionnaire._id}`} key={questionnaire._id}>
+                        <button onClick={() => printList(questionnaire)} className="print-button">
+                            <AiFillPrinter />
+                        </button>
+                        <div className="customer-info">
+                            <img className="side-bar-menu-img" src="./Rectangle.png" alt="User avatar" />
+                            <h1 className='customer_name' style={{ color: '#1A7D99' }}>שם הלקוח -  {questionnaire.UserRegister?.firstName}</h1>
+                        </div>
+                        <p className='details'>תעודת זהות -  {format(questionnaire.ID)}</p>
+                        <p className='details'>תאריך הנפקת תעודת זהות -  {format(questionnaire.roCertificateIssueDteles)}</p>
+                        <p className='details'>תאריך לידה - {format(questionnaire.dateBirth)}</p>
+                        <p className='details'>מצב משפחתי - {questionnaire.maritalStatus}</p>
+                        <p className='details'>השכלה -  {questionnaire.education}</p>
+                        <p className='details'>עיר מגורים - {questionnaire.city}</p>
+                        <p className='details'>כתובת מגורים - {questionnaire.address}</p>
+                        <p className='details'>מיקוד -  {questionnaire.postalCode}</p>
+                        <p className='details'>גיל -  {questionnaire.age}</p>
+                        <p className='details'>מספר ילדים מתחת לגיל 18 -  {questionnaire.theirNativeNumber}</p>
+                        <p className='details'>מספר דרכון -  {questionnaire.passport}</p>
+                        <p className='details'>אזרחות זרה -  {questionnaire.foreignCitizenship}</p>
+                        <p className='details'>קירבה לאיש ציבור -  {questionnaire.proximityPublicFigure}</p>
+                        <p className='details'>תעסוקה -  {questionnaire.employment}</p>
+                        <p className='details'>מקום עובדה -  {questionnaire.job}</p>
+                        <p className='details'>תפקיד בעבודה - {questionnaire.jobTitle}</p>
+                        <p className='details'>וותק -  {questionnaire.seniority}</p>
+                        <p className='details'>מקום עבודה קודם -  {questionnaire.previousWorkplace}</p>
+                        <p className='details'>תוקף האישור -  {format(questionnaire.validityOfApprovalOfCPAFromPreviousYear)}</p>
+                        <p className='details'>אישור רו"ח משנה נוכחית -  {renderDocumentField(questionnaire.cpaApprovalForCurrentSub)}</p>
+                        <p className='details'>תוקף האישור - {format(questionnaire.validityOfApprovalOfCPAFromPreviousYear)}</p>
+                        <p className='details'>אישור רו"ח משנה קודמת -  {renderDocumentField(questionnaire.antecedentModifierMole)}</p>
+                        <p className='details'>שומה משנה קודמת -  {renderDocumentField(questionnaire.adiposityPreviousVariables1)}</p>
+                        <p className='details'>שומה משתנים קודמות -  {renderDocumentField(questionnaire.adiposityPreviousVariables2)}</p>
+                        <p className='details'>תלוש נטו ראשון - {renderDocumentField(questionnaire.firstNetSlip)}</p>
+                        <p className='details'>תלוש נטו שני -  {renderDocumentField(questionnaire.secondNetSlip)}</p>
+                        <p className='details'>תלוש נטו שלישי -  {renderDocumentField(questionnaire.thirdNetSlip)}</p>
+                        <p className='details'>הכנסה ממוצעת -  {questionnaire.averageIncome}</p>
                     </div>
                 ))}
             </div>

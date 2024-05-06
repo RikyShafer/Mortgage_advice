@@ -117,6 +117,8 @@ import Homepage from "./features/homepage/Homepage";
 import PersistLogin from "./features/auth/PersistLogin";
 import RequireAuth from "./features/auth/RequireAuth";
 import DisplayAdmin from './features/privateArea copy/list/DisplayAdmin';
+import About from './features/about/About';
+import OurServices from './features/ourServices/OurServices';
 
 function App() {
   return (
@@ -124,6 +126,8 @@ function App() {
       <Routes>
         <Route path='/' element={<DashLayout />}>
           <Route index element={<Homepage />} />
+          <Route path="about" element={<About />} />
+          <Route path="our-services" element={<OurServices />} />
           <Route path="contact" element={<ContactAdd />} />
           <Route path="messageContact" element={<ContactMessage />} />
           <Route path="signup" element={<UserRegisterAdd />} />

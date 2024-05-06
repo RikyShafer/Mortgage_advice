@@ -71,7 +71,7 @@ const SitdeBar = () => {
       list: [
         {
           title:  "אזור אישי" ,
-          path: isUser || isAdmin ? "private-area" : "login",
+          path: isUser ? "private-area" : isAdmin ? "aprivate-area" : "login",
           // icon: <RiAccountPinCircleLine />
         },
       ],
