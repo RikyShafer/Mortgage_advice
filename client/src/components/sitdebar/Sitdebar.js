@@ -56,7 +56,7 @@ const SitdeBar = () => {
         },
         {
           title: "מחשבון משכנתא ",
-          path: "/mortgagecalculator",
+          path: "/mortgage-calculator",
           // icon: <CiCalculator2 />
         },
         {

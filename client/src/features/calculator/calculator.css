@@ -1,0 +1,10 @@
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  iframe {
+    border: 0; /* Remove border */
+  }

@@ -20,6 +20,8 @@
     text-align: right;
     margin-right: 42vw;
     color: #000000;
+    
+    
 }
 
 .businesspersonImg {
@@ -31,7 +33,7 @@
 
 .read-more {
     margin-right: 14vw;
-    /* margin-top: 45vh; */
+    margin-top: 45vh;
 }
 
 .Our-story {

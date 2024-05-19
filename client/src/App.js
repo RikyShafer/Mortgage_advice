@@ -119,6 +119,8 @@ import RequireAuth from "./features/auth/RequireAuth";
 import DisplayAdmin from './features/privateArea copy/list/DisplayAdmin';
 import About from './features/about/About';
 import OurServices from './features/ourServices/OurServices';
+import Calculator from './features/calculator/Calculator';
+
 
 function App() {
   return (
@@ -128,6 +130,8 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="about" element={<About />} />
           <Route path="our-services" element={<OurServices />} />
+          <Route path="mortgage-calculator" element={<Calculator />} />
+
           <Route path="contact" element={<ContactAdd />} />
           <Route path="messageContact" element={<ContactMessage />} />
           <Route path="signup" element={<UserRegisterAdd />} />
