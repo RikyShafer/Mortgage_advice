@@ -1,0 +1,75 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.messages-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.messages-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.messagesMap {
+    width: 40vw;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    margin-left: 5vw;
+}
+
+.messages-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.sender-message {
+    background-color: #EAEAEA;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    max-width: 20vw;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.receiver-message {
+    background-color: #e4f2f7;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    margin-right: auto;
+    max-width: 20vw;
+    align-self: flex-start;
+    text-align: left;
+}
+.receiver-Timestamp{
+    align-self: flex-start;
+    text-align: left; 
+    margin-left: 1vw;
+
+}
+.sender-Timestamp{
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 1vw;
+}

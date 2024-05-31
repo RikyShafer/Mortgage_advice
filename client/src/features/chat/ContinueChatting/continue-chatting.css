@@ -1,0 +1,72 @@
+.continue-chatting-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the container takes full viewport height */
+    background-color: #f9f9f9; /* Optional: to distinguish the background */
+}
+
+.continue-chatting-wrap {
+    background-color: white; /* Changed to white for better contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.continue-chatting-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the elements inside the form */
+}
+
+.continue-chatting-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.continue-chatting-fields {
+    margin-bottom: 20px;
+}
+
+.continue-chatting-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure the field takes full width of the form */
+}
+
+.continue-chatting-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.continue-chatting-input {
+    width: 30vw;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-right: 2vw;
+}
+
+.button {
+    padding: 10px 20px;
+    color: rgba(45, 70, 196, 0.808);
+
+    background-color: #f9f9f9;
+        border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: rotate(180deg);
+
+}
+
+.button.disabled {
+    background-color: #f9f9f9;
+    color: gray; /* Disabled text/icon color */
+    cursor: not-allowed;
+}
+
+button:disabled {
+    background-color: #f9f9f9;
+    color: gray;
+}

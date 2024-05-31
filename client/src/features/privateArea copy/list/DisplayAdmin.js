@@ -36,6 +36,11 @@ const DisplayAdmin = () => {
         navigate(`/registerList`);
 
     }
+    const goToViewChatList  = () => {
+        ///צפייה בנרשמים 
+        navigate(`/ChatList`);
+
+    }
     return (
         <div className="display-user">
             <div className="display-user-details">
@@ -63,6 +68,9 @@ const DisplayAdmin = () => {
                         <HiOutlinePencil />
                     </button>
                     <button className='display-user-put' onClick={goToUploadeDocuments}>   פרטי משכנתא
+                        <HiOutlinePencil />
+                    </button>
+                    <button className='display-user-put' onClick={goToViewChatList}>   Chat List 
                         <HiOutlinePencil />
                     </button>
                 </div>

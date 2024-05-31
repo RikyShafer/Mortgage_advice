@@ -60,6 +60,11 @@ const Display = () => {
         navigate(`/userPut`);
 
     }
+    const goToViewInChat = () => {
+        ///צפייה ועדכון 
+        navigate(`/ViewInChat`);
+
+    }
     if ( putIsLoading)
         return <h1>Loading...</h1>;
     if ( putIsError)
@@ -89,6 +94,9 @@ const Display = () => {
                         <HiOutlinePencil />
                     </button>
                     <button className='display-user-put' onClick={goToPutUploadeDocuments}>  עדכון פרטי משכנתא
+                        <HiOutlinePencil />
+                    </button>
+                    <button className='display-user-put' onClick={goToViewInChat}>  עדכון פרטי משכנתא
                         <HiOutlinePencil />
                     </button>
                 </div>

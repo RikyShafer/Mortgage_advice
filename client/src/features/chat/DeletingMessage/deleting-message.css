@@ -1,0 +1,17 @@
+
+
+/* Styles for the delete button */
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 20px;
+    color: rgb(79, 76, 76);
+    transition: color 0.3s;
+}
+
+.delete-button:disabled {
+    background-color: #f9f9f9;
+}
+

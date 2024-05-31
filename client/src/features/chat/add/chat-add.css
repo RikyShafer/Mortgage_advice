@@ -1,0 +1,60 @@
+.chat-add-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.chat-add-wrap {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.chat-add-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-add-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chat-add-fields {
+    margin-bottom: 20px;
+}
+
+.chat-add-field {
+    margin-bottom: 10px;
+}
+
+.chat-add-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.chat-add-field select,
+.chat-add-field input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+}

@@ -5,18 +5,16 @@ const UserRegister = require("../models/UserRegister");
 // פונקציית GET לשליפת שיחות לפי מזהי משתתפים
 const viewInChatToADMIN = async (req, res) => {
     try {
-        // בדיקה אם למשתמש אין את תפקיד ה-ADMIN
         if (!req.user.roles.includes("ADMIN")) {
-            return res.status(403).json({ message: 'המשלוח אינו מורשה' });
+            return res.status(403).json({ message: 'בשולח  אינו מורשה' });
         }
-
-        // שליפת כל השיחות
         const conversation = await Conversation.find();
-        res.status(200).json(conversation);
+        res.status(200).json({ data: conversation }); // Ensure the response has a 'data' field
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 const viewInChat = async (req, res) => {
     try {

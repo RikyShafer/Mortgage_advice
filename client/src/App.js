@@ -99,7 +99,7 @@
 // // }
 
 // // export default App;
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashLayout from "./components/layout/dash/DashLayout";
 import ContactAdd from "./features/contact/registeration/ContactAdd";
@@ -120,7 +120,8 @@ import DisplayAdmin from './features/privateArea copy/list/DisplayAdmin';
 import About from './features/about/About';
 import OurServices from './features/ourServices/OurServices';
 import Calculator from './features/calculator/Calculator';
-
+import ChatList from './features/chat/listForManager/ChatList';
+import ListForUser from './features/chat/listForUser/listForUser';
 
 function App() {
   return (
@@ -131,18 +132,19 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="our-services" element={<OurServices />} />
           <Route path="mortgage-calculator" element={<Calculator />} />
-
           <Route path="contact" element={<ContactAdd />} />
           <Route path="messageContact" element={<ContactMessage />} />
           <Route path="signup" element={<UserRegisterAdd />} />
           <Route path="/message" element={<ProcessCompletionMessage />} />
           <Route path="login" element={<LoginPage />} />
+
           <Route element={<PersistLogin />} >
             <Route element={<RequireAuth />} >
               <Route element={<RequireAuth allowRoles={["USER"]} />} >
                 <Route path="/private-area" element={<Display />} />
                 <Route path="/questionnaireuser" element={<AddQuestionnaire />} />
                 <Route path="/userPut" element={<UserRegisterPutID />} />
+                <Route path="/ViewInChat" element={<ListForUser />} />
               </Route>
               <Route element={<RequireAuth allowRoles={["ADMIN"]} />} >
                 <Route path="/aprivate-area" element={<DisplayAdmin />} />
@@ -151,6 +153,7 @@ function App() {
                 </Route>
                 <Route path="/questionnaire" element={<AddQuestionnaire />} />
                 <Route path="/questionnaireList" element={<QuestionnaireList />} />
+                <Route path="/ChatList" element={<ChatList />} />
               </Route>
             </Route>
           </Route>
