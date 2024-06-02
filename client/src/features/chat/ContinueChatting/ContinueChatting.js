@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
-// import { selectToken } from '../authSlice';
+
 import { useChatMutation } from '../ChatApiSlice';
 import './continue-chatting.css';
 import SendIcon from '@mui/icons-material/Send';
 
-const ContinueChatting = ({ conversationId, onMessageSent }) => {
+const ContinueChatting = ({ conversationId, onMessageSent, className }) => {
     const [text, setText] = useState('');
-    const [addMessage, { isError, error, isSuccess, isLoading }] = useChatMutation();
-    // const token = useSelector(selectToken); // Get token from Redux store
+    const [addMessage, { isError, error, isLoading }] = useChatMutation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,7 +15,6 @@ const ContinueChatting = ({ conversationId, onMessageSent }) => {
                 await addMessage({ ConversationId: conversationId, text }).unwrap();
                 setText('');
                 if (onMessageSent) onMessageSent();
-                // window.location.reload()
 
             } catch (err) {
                 console.error('Failed to send the message: ', err);
@@ -25,14 +22,12 @@ const ContinueChatting = ({ conversationId, onMessageSent }) => {
         }
     };
 
-    // if (!token) {
-    //     return <h2>You are not authorized to view this page. Please log in.</h2>;
-    // }
+   
 
     return (
-        <form onSubmit={handleSubmit} className='continue-chatting-form'>
-            <div className='continue-chatting-field'>
-                <input className='continue-chatting-input'
+        <form onSubmit={handleSubmit}  className={`continue-chatting-form-${className}`}>
+            <div className={`continue-chatting-field-${className}`}>
+                <input className={`continue-chatting-input-${className}`}
                     type='text'
                     value={text}
                     onChange={(e) => setText(e.target.value)}
@@ -48,7 +43,6 @@ const ContinueChatting = ({ conversationId, onMessageSent }) => {
             </div>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error: {error.message}</p>}
-            {/* {isSuccess && <p>Message sent successfully!</p>} */}
         </form>
     );
 };

@@ -65,22 +65,33 @@
     border: 1px solid rgb(44, 43, 43); 
     padding: 10px; 
     border-radius: 10px;
-    width: 30vw;
+    max-width: 30vw;
+    width: max-content;
     margin-bottom: 10px;
-
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
+}
+.directorDiv :hover{
+    background-color: var(--button);
 }
 .client{
     border: 1px solid rgb(189, 189, 189); 
     padding: 10px; 
     border-radius: 10px;
-    width: 30vw; 
     margin-bottom: 10px;
-
+  max-width: 30vw;
+  width: max-content;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
 }
-.directorDiv{
+.clientDiv :hover{
+    background-color: var(--button);
+}
+/* .directorDiv{
     margin-right: 3.5vw; 
-
-}
+} */
 .correspondence-button{
     width: 13vw; 
     height: 5vh;
@@ -96,4 +107,31 @@
     margin-top: 15px;
     margin-right: 9.5vw;
     text-align: center;
+}
+.timestamp{
+    font-size: 6px;
+}
+
+
+.message-sending-container {
+    display: flex;
+    align-items: center;
+}
+
+.continue-chatting-button {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.side-bar-logout{
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+   border: none;
+    background: none;
+    color: var(--text);
+        width: 100%;
+    margin-right: 85vw;
+    font-size: 14px;
 }

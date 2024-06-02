@@ -65,7 +65,8 @@
     border: 1px solid rgb(44, 43, 43); 
     padding: 10px; 
     border-radius: 10px;
-    width: 30vw;
+    max-width: 30vw;
+    width: max-content;
     margin-bottom: 10px;
 
 }
@@ -73,7 +74,8 @@
     border: 1px solid rgb(189, 189, 189); 
     padding: 10px; 
     border-radius: 10px;
-    width: 30vw; 
+    max-width: 30vw;
+    width: max-content;
     margin-bottom: 10px;
 
 }

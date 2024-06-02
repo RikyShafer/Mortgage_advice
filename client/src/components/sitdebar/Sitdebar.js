@@ -4,7 +4,7 @@ import NenuLink from "./NenuLink"
 import {
   // MdOutlineSettings,
   // MdHelpCenter,
-  MdLogout
+  // MdLogout///היאקון של היציאה 
 } from "react-icons/md"
 //האיקונים שבתפריט
 // import { RiHomeWifiLine } from "react-icons/ri";
@@ -21,13 +21,13 @@ import {
 // import { AiOutlineLogin } from "react-icons/ai";
 // import { PiUserCirclePlusDuotone } from "react-icons/pi";
 
-import { useSendLogoutMutation } from "../../features/auth/authApiSlice"
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+// import { useSendLogoutMutation } from "../../features/auth/authApiSlice"
+// import { useEffect } from "react"
+// import { useNavigate } from "react-router-dom"
 import useAuth from "../../hooks/useAuth";
 const SitdeBar = () => {
-  const [logout, { isSuccess }] = useSendLogoutMutation();
-  const navigate = useNavigate();
+  // const [logout, { isSuccess }] = useSendLogoutMutation();//ליציאה 
+  // const navigate = useNavigate();
   const { firstName, email, roles, isAdmin, isUser } = useAuth();
   console.log(firstName, email, roles, isAdmin, isUser);
   const notMenuItems = [
@@ -255,14 +255,14 @@ const SitdeBar = () => {
   menuItems = notMenuItems;
   console.log(menuItems, "menuItems");
 
-  useEffect(() => {
-    if (isSuccess) {
-      navigate("/")
-    }
-  }, [isSuccess, navigate])
-  const logOutClick = () => {
-    logout()
-  }
+  // useEffect(() => {//בשביל זהיציאה מכל הפרטים באמת תקרה ביציאה 
+  //   if (isSuccess) {
+  //     navigate("/")
+  //   }
+  // }, [isSuccess, navigate])
+  // const logOutClick = () => {//פונציקה כדי להפעיל את היציאה 
+  //   logout()
+  // }
   return (
     <div className="side-bar">
       <div className="side-bar-user">
@@ -289,10 +289,10 @@ const SitdeBar = () => {
         ))}
       </ul>
       </div>
-      <button onClick={logOutClick} className="side-bar-logout">
+      {/* <button onClick={logOutClick} className="side-bar-logout">
         <MdLogout />
         יציאה
-      </button>
+      </button> */}
     </div>
   )
 }

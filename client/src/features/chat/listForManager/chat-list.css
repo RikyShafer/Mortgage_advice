@@ -42,7 +42,7 @@
 }
 
 .sender-message {
-    background-color: #EAEAEA;
+    background-color:  #f0ba1865;
     padding: 10px;
     border-radius: 50px;
     margin-bottom: 5px;
@@ -53,7 +53,7 @@
 }
 
 .receiver-message {
-    background-color: #e4f2f7;
+    background-color: #a2a6a65d;
     padding: 10px;
     border-radius: 50px;
     margin-bottom: 5px;

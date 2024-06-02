@@ -8,8 +8,7 @@ import './chat-add.css';
 const ChatAdd = () => {
     const [recipient, setRecipient] = useState('');
     const [text, setText] = useState('');
-    const [addNewChat, { isError, error, isSuccess, isLoading }] = useContinueChattingMutation();
-    // const token = useSelector(selectToken); // Get token from Redux store
+    const [addNewChat, { isError, error, isLoading }] = useContinueChattingMutation();
     const { data: users, isLoading: isUserLoading, isError: isUserError, error: userError } = useGetAllUsersQuery();
 
     const formSubmit = async (e) => {
@@ -26,9 +25,7 @@ const ChatAdd = () => {
         }
     };
 
-    // if (!token) {
-    //     return <h2>You are not authorized to view this page. Please log in.</h2>;
-    // }
+ 
 
     if (isUserLoading) {
         return <h1>Loading...</h1>;
@@ -73,7 +70,6 @@ const ChatAdd = () => {
                     <button type='submit' disabled={isLoading}>Send Message</button>
                     {isLoading && <p>Loading...</p>}
                     {isError && <p>Error: {error.message}</p>}
-                    {/* {isSuccess && <p>Message sent successfully!</p>} */}
                 </form>
             </div>
         </div>

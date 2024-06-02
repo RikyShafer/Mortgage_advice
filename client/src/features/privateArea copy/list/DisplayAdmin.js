@@ -3,14 +3,16 @@ import useAuth from "../../../hooks//useAuth";
 import { HiOutlinePencil } from "react-icons/hi2";
 import './display.css'
 import { useNavigate } from 'react-router-dom';
-
+import { TbLogout } from "react-icons/tb";
 import { BsEnvelope } from "react-icons/bs";
+import { useSendLogoutMutation } from '../../auth/authApiSlice';
 
 const DisplayAdmin = () => {
     // const { _id, firstName, email, roles, isAdmin, isUser, image } = useAuth();
 
     const { firstName, email, roles, isAdmin, isUser, image } = useAuth();
     console.log("Display", firstName, email, roles, isAdmin, isUser, image);
+    const [logout] = useSendLogoutMutation();
 
     const navigate = useNavigate();
 
@@ -41,8 +43,16 @@ const DisplayAdmin = () => {
         navigate(`/ChatList`);
 
     }
+    const logOutClick = async () => {
+        await logout();
+        navigate("/");
+    }
     return (
         <div className="display-user">
+        <button onClick={logOutClick} className="side-bar-logout">
+             התנתקות       
+            <TbLogout />
+            </button>
             <div className="display-user-details">
 
                 <img

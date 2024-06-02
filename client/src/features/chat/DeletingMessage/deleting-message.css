@@ -1,12 +1,33 @@
+.message-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.sender-messageU,
+.receiver-messageU {
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 30vw;
+    width: max-content;
+    word-wrap: break-word;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-/* Styles for the delete button */
+.receiver-messageU {
+    background-color: #e1bee7;
+}
+
 .delete-button {
     background: none;
     border: none;
     cursor: pointer;
     padding: 8px;
-    font-size: 20px;
+    font-size: 16px;
     color: rgb(79, 76, 76);
     transition: color 0.3s;
 }
@@ -14,4 +35,3 @@
 .delete-button:disabled {
     background-color: #f9f9f9;
 }
-

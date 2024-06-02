@@ -1,105 +1,132 @@
-/* General container styling */
-.chat-container {
+
+.chat-containerU {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+
+
 }
 
-.messages-list-title {
-    font-size: 24px;
+.messages-list-titleU {
+    font-size: 28px;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.messages-list {
-    width: 100%;
-    max-width: 800px;
+
+
+.messagesMapU {
+
+    margin-bottom: 20px;
+    padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70vw;
+}
+
+
+
+.sender-messageU {
+    background-color: #a2a6a65d;
     padding: 10px;
-    background-color: #f9f9f9;
-}
-
-.messagesMap {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
-.messagesMap h1 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.messagesMap p {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-/* Sender and receiver message styling */
-.sender-message, .receiver-message {
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px 0;
-    max-width: 60%;
-    word-wrap: break-word;
-}
-
-.sender-message {
-    background-color: #0db96c;
+    border-radius: 20px;
     align-self: flex-end;
-    color: #155724; /* Green text for sender */
-}
-
-.receiver-message {
-    background-color: #f8d7da;
-    align-self: flex-start;
-    color: #721c24; /* Red text for receiver */
-}
-
-/* Timestamp styling */
-.sender-Timestamp, .receiver-Timestamp {
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 2px;
-}
-
-.sender-Timestamp {
     text-align: right;
+    margin-left: auto;
+
+    max-width: 30vw;
+    width: max-content;
 }
 
-.receiver-Timestamp {
+.receiver-messageU {
+    background-color:  #f0ba1865;
+    padding: 10px;
+    border-radius: 20px;
+    align-self: flex-start;
     text-align: left;
+    margin-right: auto;
+    max-width:30vw;
+    width: max-content;
 }
 
-/* Pagination styling */
-.pagination {
+.sender-TimestampU,
+.receiver-TimestampU {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.sender-TimestampU {
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.receiver-TimestampU {
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.paginationU {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.pagination button {
-    padding: 8px 12px;
-    margin: 0 5px;
-    font-size: 16px;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-
-.pagination button:disabled {
-    background-color: #ccc;
-    border-color: #ccc;
-    cursor: not-allowed;
-}
-
-.pagination span {
-    font-size: 16px;
+.paginationU button {
+    padding: 10px 20px;
     margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.paginationU button:disabled {
+    background-color: #ccc;
+}
+
+.paginationU span {
+    margin: 0 10px;
+}
+
+.message-input-containerU {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+}
+
+.message-inputU {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    
+}
+
+.message-input-buttonU {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.message-input-button:hoverU {
+    background-color: #0056b3;
 }

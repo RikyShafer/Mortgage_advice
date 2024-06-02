@@ -1,4 +1,5 @@
-.continue-chatting-container {
+/* עיצוב למנהל  */
+.continue-chatting-container-Manager {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,41 +7,41 @@
     background-color: #f9f9f9; /* Optional: to distinguish the background */
 }
 
-.continue-chatting-wrap {
+.continue-chatting-wrap-Manager {
     background-color: white; /* Changed to white for better contrast */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.continue-chatting-form {
+.continue-chatting-form-Manager {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the elements inside the form */
 }
 
-.continue-chatting-title {
+.continue-chatting-title-Manager {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.continue-chatting-fields {
+.continue-chatting-fields-Manager {
     margin-bottom: 20px;
 }
 
-.continue-chatting-field {
+.continue-chatting-field-Manager {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     width: 100%; /* Ensure the field takes full width of the form */
 }
 
-.continue-chatting-field label {
+.continue-chatting-field-Manager label {
     display: block;
     margin-bottom: 5px;
 }
 
-.continue-chatting-input {
+.continue-chatting-input-Manager {
     width: 30vw;
     padding: 8px;
     border: 1px solid #ccc;
@@ -48,11 +49,12 @@
     margin-right: 2vw;
 }
 
+
 .button {
     padding: 10px 20px;
-    color: rgba(45, 70, 196, 0.808);
+    color: rgba(113, 114, 119, 0.808);
 
-    background-color: #f9f9f9;
+    background-color: var(--bg);
         border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -61,12 +63,117 @@
 }
 
 .button.disabled {
-    background-color: #f9f9f9;
+    background-color: var(--bg);
     color: gray; /* Disabled text/icon color */
     cursor: not-allowed;
 }
 
 button:disabled {
-    background-color: #f9f9f9;
+    background-color: var(--bg);
     color: gray;
+}
+
+
+/* עיצוב ללקוח */
+
+.continue-chatting-container-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the container takes full viewport height */
+    background-color: #f9f9f9; /* Optional: to distinguish the background */
+}
+
+.continue-chatting-wrap-user {
+    background-color: white; /* Changed to white for better contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.continue-chatting-form-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the elements inside the form */
+}
+
+.continue-chatting-title-user {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.continue-chatting-fields-user {
+    margin-bottom: 20px;
+}
+
+.continue-chatting-field-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure the field takes full width of the form */
+}
+
+.continue-chatting-field-user label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.continue-chatting-input-user {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-right: 10vw;
+}
+
+
+/* עיצוב עבור האזור האישי */
+
+.continue-chatting-container-userC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the container takes full viewport height */
+    background-color: #f9f9f9; /* Optional: to distinguish the background */
+}
+
+.continue-chatting-wrap-userC {
+    background-color: white; /* Changed to white for better contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.continue-chatting-form-userC {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the elements inside the form */
+}
+
+.continue-chatting-title-userC {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.continue-chatting-fields-userC {
+    margin-bottom: 20px;
+}
+
+.continue-chatting-field-userC {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure the field takes full width of the form */
+}
+
+.continue-chatting-field-userC label {
+    display: block;
+    margin-bottom: 5px;
+}
+.continue-chatting-input-userC {
+    width: 65%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin-right: 5vw;
 }

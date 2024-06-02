@@ -6,17 +6,24 @@ import { useNavigate } from 'react-router-dom';
 
 import { BsEnvelope } from "react-icons/bs";
 import { useUpdateUserMutation } from '../../userRegister/UserRegisterApiSlice';
+import { useViewInChatQuery } from '../../chat/ChatApiSlice';
+import ContinueChatting from '../../chat/ContinueChatting/ContinueChatting';
+import { TbLogout } from "react-icons/tb";
+import { useSendLogoutMutation } from '../../auth/authApiSlice';
 
 const Display = () => {
     // const { _id, firstName, email, roles, isAdmin, isUser, image } = useAuth();
 
-    const { firstName, email, roles, isAdmin, isUser, image ,_id} = useAuth();
+    const { firstName, email, roles, isAdmin, isUser, image, _id } = useAuth();
     console.log("Display", firstName, email, roles, isAdmin, isUser, image);
     const [putUser, { isError: putIsError, error: putError, isSuccess: putIsSuccess, isLoading: putIsLoading }] = useUpdateUserMutation();
+    const page = 1;
+    const limit = 4;
+    const { data: chat, isLoading, isError, error } = useViewInChatQuery({ page, limit });
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
-    const [imgBuffer, setImageBuffer]  = useState(null)
-
+    const [imgBuffer, setImageBuffer] = useState(null)
+    const [logout] = useSendLogoutMutation();
     useEffect(() => {
         if (putIsSuccess) {
             navigate("/private-area");
@@ -27,10 +34,10 @@ const Display = () => {
             setImageBuffer(e.target.files[0]);
         else
             setImageBuffer(null);
-    
+
         formSubmit(e); // Pass the event object to formSubmit
     };
-    
+
 
     const handleEditImage = () => {
         fileInputRef.current.click();
@@ -61,16 +68,42 @@ const Display = () => {
 
     }
     const goToViewInChat = () => {
-        ///צפייה ועדכון 
+        ///התכתבות ן 
         navigate(`/ViewInChat`);
 
     }
-    if ( putIsLoading)
+
+    const logOutClick = async () => {
+        await logout();
+        navigate("/");
+    }
+    const formatTimestamp = (timestamp) => {
+        const date = new Date(timestamp);
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
+        const year = date.getFullYear().toString().slice(2);
+
+        return `${day}.${month}.${year}`;
+    };
+    if (putIsLoading)
         return <h1>Loading...</h1>;
-    if ( putIsError)
-            return <h1>Error put : {JSON.stringify(putError)}</h1>;
+    if (putIsError)
+        return <h1>Error put : {JSON.stringify(putError)}</h1>;
+    if (isLoading) {
+        return <h1>Loading...</h1>;
+    }
+
+    if (isError) {
+        return <h2>Error: {error.message}</h2>;
+    }
+
+    let chatsData = chat || [];
     return (
         <div className="display-user">
+            <button onClick={logOutClick} className="side-bar-logout">
+             התנתקות       
+            <TbLogout />
+            </button>
             <div className="display-user-details">
 
                 <img
@@ -78,6 +111,7 @@ const Display = () => {
                     alt=''
                     className='display-imag'
                 />
+
                 <button className='display-user-put-details' onClick={handleEditImage}>
                     <HiOutlinePencil />
                 </button>
@@ -96,27 +130,42 @@ const Display = () => {
                     <button className='display-user-put' onClick={goToPutUploadeDocuments}>  עדכון פרטי משכנתא
                         <HiOutlinePencil />
                     </button>
-                    <button className='display-user-put' onClick={goToViewInChat}>  עדכון פרטי משכנתא
+                    {/* <button className='display-user-put' onClick={goToViewInChat}>  עדכון פרטי משכנתא
                         <HiOutlinePencil />
-                    </button>
+                    </button> */}
                 </div>
                 <div className='correspondence'>   {/* התכתבות  */}
-                    <div className='directorDiv'>
-                        <p className='director'> לקוח יקר, אנא וודא שיש בידך את כל הטפסים...              <BsEnvelope className='iconBsEnvelope' BsEnvelope /></p>
-                    </div>
-                    <div className='clientDiv'>
-                        <p className='client'>שלחתי את הכל אשמח שתעבור על זה  <BsEnvelope className='iconBsEnvelope' BsEnvelope /></p>
-                    </div>
-                    <div className='directorDiv'>
 
-                        <p className='director'> קבלתי... <BsEnvelope className='iconBsEnvelope' BsEnvelope /> </p>
-                    </div>
-                    <button className='correspondence-button' >  הצג הודעות ישנות יותר 
-              
-                    </button>
+                    {chatsData.map((chat) => {
+                        const lastFourMessages = chat.messages.slice(-4);
+                        return (
+                            lastFourMessages.map((m, index) => (
+                                <div key={index} className={m.sender._id === chat.user2._id ? 'directorDiv' : 'clientDiv'}>
+                                    <p className={m.sender._id === chat.user2._id ? 'director' : 'client'}>
+                                        <p>  {m.text}  <BsEnvelope className='iconBsEnvelope' BsEnvelope /> </p>
 
+                                        <p className='timestamp'>   {formatTimestamp(m.timestamp)}</p>
+
+                                    </p>
+
+                                </div>
+                            ))
+                        );
+
+                    }
+                    )}
+                    <div className='Chatting&ViewChat'>
+                        <div>
+                            <ContinueChatting conversationId={chatsData[0]._id} className={"userC"} onMessageSent={() => console.log('Message sent!')} />
+                        </div>
+                        <div>
+                            <button className='correspondence-button' onClick={goToViewInChat}> הצג הודעות ישנות</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
         </div>
 
     )

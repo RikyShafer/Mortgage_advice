@@ -18,13 +18,6 @@ const UsersApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags: (result, error, userId) => [{ type: 'UserRegister', _id: userId }], // Tag with specific ID
         }),
-        getUserByIdInBody: build.query({
-            query: (userId) => ({
-                url: `api/UserRegister/id/${userId}`, // Use the provided ID in the URL
-                method: "GET",
-            }),
-            providesTags: (result, error, userId) => [{ type: 'UserRegister', _id: userId }], // Tag with specific ID
-        }),
         addUser: build.mutation({
             query: (userRegister) => ({
                 url: "api/UserRegister",
@@ -67,5 +60,5 @@ const UsersApiSlice = apiSlice.injectEndpoints({
 })
 export const {
     useGetAllUsersQuery, useGetUserByIdQuery, useAddUserMutation,
-    useUpdateUserMutation, useDeleteUserMutation, useGetUserByIdInBodyQuery } = UsersApiSlice;
+    useUpdateUserMutation, useDeleteUserMutation } = UsersApiSlice;
 
