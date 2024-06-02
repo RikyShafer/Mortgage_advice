@@ -189,6 +189,38 @@ const getUserRegisterById = async (req, res) => {
         }
     })
 }
+
+// פונקציית אסינכרון כדי לאחזר משתמש לפי מזהה
+const getUserRegisterByIdInBody = async (req, res) => {
+    // חלץ מזהה משתמש מפרמטרי הבקשה
+    const { id } = req.params;
+
+    /// מצא משתמש לפי מזהה והמר לאובייקט JavaScript רגיל
+    const userRegister = await UserRegister.findById(id).lean()
+
+    // בדוק אם המשתמש קיים; אם לא, החזר תגובת שגיאה
+    if (!userRegister) {
+        return res.status(400).json({
+            error: true,
+            message: 'No userRegister found',
+            data: null
+        })
+    }
+
+    // החזר תגובת הצלחה עם פרטי המשתמש
+    res.status(201).json({
+        error: false,
+        message: "",
+        data: {
+            _id: userRegister._id,
+            firstName: userRegister.firstName,
+            lastName: userRegister.lastName,
+            email: userRegister.email,
+            active:userRegister.active,
+            phone:userRegister.phone
+        }
+    })
+}
 // פונקציית אסינכרון לעדכון משתמש
 const updateUserRegister = async (req, res) => {
     // נתח מחרוזת תאריך לאובייקט Date
@@ -309,4 +341,11 @@ const deleteUserRegister = async (req, res) => {
 };
 
 // ייצא את הפונקציות המוגדרות לשימוש בקבצים אחרים
-module.exports = { getAllUserRegister, addUserRegister, getUserRegisterById, updateUserRegister, deleteUserRegister }
+module.exports = { 
+    getAllUserRegister, 
+    addUserRegister, 
+    getUserRegisterById, 
+    updateUserRegister, 
+    deleteUserRegister, 
+    getUserRegisterByIdInBody
+};

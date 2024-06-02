@@ -28,6 +28,7 @@ router.get("/:id", verifyJWT,verifyAdmin,userRegisterController.getUserRegisterB
 router.post("/" , upload.single('image') , userRegisterController.addUserRegister);
 router.put("/" , [verifyJWT, upload.single('image')], userRegisterController.updateUserRegister);
 router.delete("/",verifyJWT,verifyAdmin, userRegisterController.deleteUserRegister);
+router.get("/id/:idddd", verifyJWT, userRegisterController.getUserRegisterByIdInBody); // Corrected line
 
 // Export the router
 module.exports = router;

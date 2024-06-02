@@ -1,0 +1,105 @@
+/* General container styling */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.messages-list-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.messages-list {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.messagesMap {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.messagesMap h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.messagesMap p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Sender and receiver message styling */
+.sender-message, .receiver-message {
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.sender-message {
+    background-color: #0db96c;
+    align-self: flex-end;
+    color: #155724; /* Green text for sender */
+}
+
+.receiver-message {
+    background-color: #f8d7da;
+    align-self: flex-start;
+    color: #721c24; /* Red text for receiver */
+}
+
+/* Timestamp styling */
+.sender-Timestamp, .receiver-Timestamp {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.sender-Timestamp {
+    text-align: right;
+}
+
+.receiver-Timestamp {
+    text-align: left;
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+}
