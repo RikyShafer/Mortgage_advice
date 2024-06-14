@@ -1,3 +1,4 @@
+
 require("dotenv").config() // משמש להגדרת קונפיגורציה עבור משתני סביבה מתוך קובץ .env
 const express = require("express") // יבוא של ספריית ה-Express, ספריית פריימוורק ליצירת אפליקציות ווב ב-Node.js
 const cors = require("cors") // יבוא של ספריית ה-CORS, המאפשרת שימוש בפוליסות CORS באפליקציה
@@ -32,8 +33,7 @@ app.use("/api/auth", require("./route/authRouter"))
  app.use("/api/Questionnaire", require("./route/routeQuestionnaire"));
  app.use("/api/contact", require("./route/routeContact"))
  app.use("/api/Conversation", require("./route/routeConversation"))
-
-
+ app.use("/api", require("./route/fileRoutes")); // Use the file routes
 //  app.use("/api/login", require("./route/jsonwebtoken"));
 
 

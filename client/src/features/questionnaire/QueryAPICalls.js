@@ -16,9 +16,23 @@ const QueryAPICalls = apiSlice.injectEndpoints({
                 body: formData // Sending formData object directly
             }),
             invalidatesTags: ['questionnaires']
+        }),
+        addFile: builder.mutation({
+            query: (formData) => ({
+                url: 'api/upload',
+                method: 'POST',
+                body: formData // Sending formData object directly
+            }),
+            invalidatesTags: ['fileSchema']
+        }),
+        getFile: builder.mutation({
+            query: (formData) => ({
+                url: `api/Questionnaire/${formData}`
+            }),
+            invalidatesTags: ['fileSchema']
         })
     }),
 });
 
-export const { useGetQueryQuery, useAddQueryMutation } = QueryAPICalls;
+export const { useGetQueryQuery, useAddQueryMutation, useAddFileMutation,useGetFileMutation } = QueryAPICalls;
 

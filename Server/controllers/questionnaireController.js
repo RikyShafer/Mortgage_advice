@@ -36,13 +36,20 @@ const createQuestionnaire = async (req, res) => {
 
 
         // Extract file names from uploaded files
-   const cpaApprovalForCurrentSub = (req.files && req.files.cpaApprovalForCurrentSub && req.files.cpaApprovalForCurrentSub[0]?.filename) ? req.files.cpaApprovalForCurrentSub[0].filename : "";
-   const antecedentModifierMole = (req.files.antecedentModifierMole && req.files.antecedentModifierMole[0]?.filename) ? req.files.antecedentModifierMole[0].filename : "";
-   const adiposityPreviousVariables1 = (req.files.adiposityPreviousVariables1 && req.files.adiposityPreviousVariables1[0]?.filename) ? req.files.adiposityPreviousVariables1[0].filename : "";
-   const adiposityPreviousVariables2 = (req.files.adiposityPreviousVariables2 && req.files.adiposityPreviousVariables2[0]?.filename) ? req.files.adiposityPreviousVariables2[0].filename : "";
-   const firstNetSlip = (req.files.firstNetSlip && req.files.firstNetSlip[0]?.filename) ? req.files.firstNetSlip[0].filename : "";
-   const secondNetSlip = (req.files.secondNetSlip && req.files.secondNetSlip[0]?.filename) ? req.files.secondNetSlip[0].filename : "";
-   const thirdNetSlip = (req.files.thirdNetSlip && req.files.thirdNetSlip[0]?.filename) ? req.files.thirdNetSlip[0].filename : "";
+        const cpaApprovalForCurrentSub = req.files?.cpaApprovalForCurrentSub?.[0]?.filename || req.body.cpaApprovalForCurrentSub;
+        const antecedentModifierMole = req.files?.antecedentModifierMole?.[0]?.filename || req.body.antecedentModifierMole;
+        const adiposityPreviousVariables1 = req.files?.adiposityPreviousVariables1?.[0]?.filename || req.body.adiposityPreviousVariables1;
+        const adiposityPreviousVariables2 = req.files?.adiposityPreviousVariables2?.[0]?.filename || req.body.adiposityPreviousVariables2;
+        const firstNetSlip = req.files?.firstNetSlip?.[0]?.filename || req.body.firstNetSlip;
+        const secondNetSlip = req.files?.secondNetSlip?.[0]?.filename || req.body.secondNetSlip;
+        const thirdNetSlip = req.files?.thirdNetSlip?.[0]?.filename || req.body.thirdNetSlip;
+
+        // const antecedentModifierMole = (req.files.antecedentModifierMole && req.files.antecedentModifierMole[0]?.filename) ? req.files.antecedentModifierMole[0].filename : "";
+//    const adiposityPreviousVariables1 = (req.files.adiposityPreviousVariables1 && req.files.adiposityPreviousVariables1[0]?.filename) ? req.files.adiposityPreviousVariables1[0].filename : "";
+//    const adiposityPreviousVariables2 = (req.files.adiposityPreviousVariables2 && req.files.adiposityPreviousVariables2[0]?.filename) ? req.files.adiposityPreviousVariables2[0].filename : "";
+//    const firstNetSlip = (req.files.firstNetSlip && req.files.firstNetSlip[0]?.filename) ? req.files.firstNetSlip[0].filename : "";
+//    const secondNetSlip = (req.files.secondNetSlip && req.files.secondNetSlip[0]?.filename) ? req.files.secondNetSlip[0].filename : "";
+//    const thirdNetSlip = (req.files.thirdNetSlip && req.files.thirdNetSlip[0]?.filename) ? req.files.thirdNetSlip[0].filename : "";
  console.log(req.files);
 
     // // Check if the parsed date is valid
@@ -87,7 +94,7 @@ const createQuestionnaire = async (req, res) => {
         // החזר תגובת הצלחה עם פרטי המשתמש שנוצרו
         return res.status(201).json({ message: 'New questionnaire created', questionnaire });
     } catch (error) {
-        console.log(error);
+        console.log(error+"!!!!");
         // החזר תגובת שגיאה אם יצירת המשתמש נכשלת
         return res.status(400).json({ message: 'Invalid post', error });
     }
