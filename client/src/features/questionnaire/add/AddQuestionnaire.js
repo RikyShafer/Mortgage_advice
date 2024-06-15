@@ -844,7 +844,7 @@ console.log(fileLink);
 
                         </div>
                         <div className='Registration-for-the-process-title'>
-                            <h3 className='Registration-for-the-process-form-h3' > מקום עובדה </h3>
+                            <h3 className='Registration-for-the-process-form-h3' > מקום עבודה </h3>
                             <input
                                 type="text"
                                 value={formData.job}
