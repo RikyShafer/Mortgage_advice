@@ -1,0 +1,58 @@
+.They-tell-us-title{
+
+font-weight: 700;
+font-size: 36px;
+line-height: 38px;
+margin-right: 5vw;
+text-align: right;
+color: #000000;
+}
+.They-tell-us-buttons{
+    display: flex;
+    margin-top: 8vh;
+
+}
+.They-tell-us-button-w{
+    background: #FFFFFF;
+    box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    color: #000;
+    width: 40vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 8vw;
+    margin-bottom: 4vh;
+}
+.They-tell-us-button-b{
+    background: #F0B918;
+    box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    color: #000;
+    width: 40vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 8vw;
+    margin-bottom: 4vh;
+
+}
+.svg-container {
+    display: flex;
+    margin-top: -1vh;
+}
+.They-tell-us-Caption{
+font-weight: 400;
+font-size: 16px;
+line-height: 16px;
+text-align: right;
+width: 25vw;
+color: #000000;
+margin-right: 10vw;
+margin-bottom: 4vh;
+
+}
+
+

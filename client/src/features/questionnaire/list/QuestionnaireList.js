@@ -83,18 +83,26 @@ const QuestionnaireList = () => {
         if (fileUrl) {
             // Construct the complete URL by appending the fileUrl to the base URL
             const fullUrl = `${baseUrl}/${fileUrl}`;
-
-            return (
-                <div>
-                    לחץ בשביל לראות או להוריד
-                    <a href={fullUrl} target="_blank" rel="noopener noreferrer">  <HiOutlineDownload style={{ color: '#1A7D99' }} /> </a>
-                </div>
-            );
-        } else {
-            // If file URL is empty, display a placeholder or nothing
-            return null;
-        }
-    };
+            console.log(fileName);
+            const fixedFileName = fileName
+                return (
+                    <div>
+                        לחץ בשביל לראות או להוריד
+                        <a 
+                            href={fullUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            download={fixedFileName} // This suggests a fixed file name for download
+                        >  
+                            <HiOutlineDownload style={{ color: '#1A7D99' }} /> 
+                        </a>
+                    </div>
+                );
+            } else {
+                return null;
+            }
+        };
+        
     // const goToPut = (userId) => {
     //     console.log("User ID:", userId);
     //     navigate(`/registerList/${userId}`);
@@ -155,14 +163,14 @@ const QuestionnaireList = () => {
                         <p className='details'>וותק -  {questionnaire.seniority}</p>
                         <p className='details'>מקום עבודה קודם -  {questionnaire.previousWorkplace}</p>
                         <p className='details'>תוקף האישור -  {format(questionnaire.validityOfApprovalOfCPAFromPreviousYear)}</p>
-                        <p className='details'>אישור רו"ח משנה נוכחית -  {renderDocumentField(questionnaire.cpaApprovalForCurrentSub)}</p>
-                        <p className='details'>תוקף האישור - {format(questionnaire.validityOfApprovalOfCPAFromPreviousYear)}</p>
-                        <p className='details'>אישור רו"ח משנה קודמת -  {renderDocumentField(questionnaire.antecedentModifierMole)}</p>
-                        <p className='details'>שומה משנה קודמת -  {renderDocumentField(questionnaire.adiposityPreviousVariables1)}</p>
-                        <p className='details'>שומה משתנים קודמות -  {renderDocumentField(questionnaire.adiposityPreviousVariables2)}</p>
-                        <p className='details'>תלוש נטו ראשון - {renderDocumentField(questionnaire.firstNetSlip)}</p>
-                        <p className='details'>תלוש נטו שני -  {renderDocumentField(questionnaire.secondNetSlip)}</p>
-                        <p className='details'>תלוש נטו שלישי -  {renderDocumentField(questionnaire.thirdNetSlip)}</p>
+                        <p className='details'> אישור רו"ח משנה נוכחית -  {renderDocumentField(questionnaire.cpaApprovalForCurrentSub, 'אישור רו"ח משנה נוכחית ')}</p>
+                        <p className='details'> תוקף האישור - {format(questionnaire.validityOfApprovalOfCPAFromPreviousYear)}</p>
+                        <p className='details'> אישור רו"ח משנה קודמת -  {renderDocumentField(questionnaire.antecedentModifierMole,'אישור רו"ח משנה קודמת ' )}</p>
+                        <p className='details'> שומה משנה קודמת -  {renderDocumentField(questionnaire.adiposityPreviousVariables1,'שומה משנה קודמת ')}</p>
+                        <p className='details'> שומה משתנים קודמות -  {renderDocumentField(questionnaire.adiposityPreviousVariables2,'שומה משתנים קודמות ')}</p>
+                        <p className='details'> תלוש נטו ראשון - {renderDocumentField(questionnaire.firstNetSlip,'תלוש נטו ראשון ')}</p>
+                        <p className='details'> תלוש נטו שני -  {renderDocumentField(questionnaire.secondNetSlip,'תלוש נטו שני ')}</p>
+                        <p className='details'> תלוש נטו שלישי -  {renderDocumentField(questionnaire.thirdNetSlip,' תלוש נטו שלישי‪.docx')}</p>
                         <p className='details'>הכנסה ממוצעת -  {questionnaire.averageIncome}</p>
                     </div>
                 ))}
