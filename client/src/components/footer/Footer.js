@@ -9,8 +9,8 @@ import {
 import "./footer.css"
 import { NavLink } from 'react-router-dom';
 const Footer = () => {
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=7673297@gmail.com&su=Contact%20Us&body=Hello,%20I%20would%20like%20to%20inquire%20about...`;
-  const phoneNumber = '0522279392'; // Replace with your phone number
+  const gmailUrl = process.env.GMAILURL;
+  const phoneNumber = process.env.PHONENUMBER; // Replace with your phone number
   const message = 'Hello, I would like to inquire about...'; // Replace with your message
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
