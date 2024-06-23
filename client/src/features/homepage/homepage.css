@@ -351,11 +351,11 @@
 
 .overture-white {
   font-size: 36px;
-  line-height: 38px;
+  /* line-height: normal; */
   text-align: right;
   color: #000000;
   margin-right: 7vw;
-
+  padding-top: 30px;   /* מרווח עליון */
 }
 
 .Homepage-button-mumble-White {
@@ -593,9 +593,9 @@
 
 }
 
-.read-more {
+.read-more-Homepage {
   width: 38vw;
-  margin-top: 5vh;
+  margin-top: 7vh;
   text-align: right;
   color: #000000;
   text-align: left;
@@ -603,4 +603,5 @@
   border: none;
   cursor: pointer;
   margin-bottom: 5vh;
+  margin-right: 7vw;
 }

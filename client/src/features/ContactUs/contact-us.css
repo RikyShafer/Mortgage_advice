@@ -1,0 +1,170 @@
+.contact-us-img{
+    width: 100%;
+    height: 50vh;
+
+}
+
+.contact-us-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-size: 53px;
+    line-height: 21px;
+    text-align: right;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+
+
+  }
+  .contact-us-text-page{
+    margin-right: 7vw;
+    width: 40vw;
+  }
+  .contact-us-title{
+    margin-bottom: 2vh;
+  }
+  .contact-us-title1{
+    margin-right: 3vw;
+    margin-bottom: 3vh;
+  }
+.contact-us-address{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: right;
+    font-weight: bold;
+    margin-right:5vw;
+
+}
+.contact-us-contactus1{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 2vw;
+
+}
+.contact-us-contactus-mail{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: bold;
+    margin-right: 5vw;
+    justify-content: center; /* מוודא שהפריטים מתחילים בקצה השמאלי */
+    text-align: center;
+}
+.contact-info-row {
+    display: grid;
+    grid-template-columns: auto auto ; /* קובע שלוש עמודות שמתאימות לתוכן */
+    justify-content: start; /* מוודא שהפריטים מתחילים בקצה השמאלי */
+    text-align: center;
+}
+.contact-us2{
+    display: flex;
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+}
+.contact-us-text-contact{
+    margin-top: -15vh;
+    width: 50vw;
+    height: 70vh;
+    box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+margin-left: 7vw;
+background-color: white;
+}
+.contact-us-register-h2{
+    margin-top: 5vh;
+}
+.contact-us-register-form{
+    margin-right: 5vw;
+}
+.div-register-contact-us{
+    margin-right: 2vw;
+}
+.contact-us-register-form-input{
+    width: 32vw;
+    height: 5vh;
+    margin-bottom: 1vh;
+}
+.contact-us-register-form-input-anotherQuestion{
+    width: 32vw;
+    height: 10vh;
+}
+/* סגנון לפלאס-הולדר של input */
+.contact-us-register-form-input::placeholder {
+    font-family: "Noto Sans Hebrew", sans-serif;
+    font-size: 14px;
+    color: #888;
+    font-weight: normal;
+}
+
+/* סגנון לפלאס-הולדר של textarea */
+.contact-us-register-form-input-anotherQuestion::placeholder {
+    font-family: "Noto Sans Hebrew", sans-serif;
+    font-size: 14px;
+    color: #888;
+    font-weight: normal;
+}
+.contact-us-button{
+    width: 32vw; 
+    padding: 5px;
+    background-color:var(--button);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto; 
+    margin-top: 15px;
+    margin-right: 2vw;
+}
+.div-register-contact-us{
+    margin-top: 2vh;
+}
+
+
+
+/* מיכל ההורים */
+.contact-info-row1 {
+    display: flex;
+    justify-content: center; /* מרכז את כל המיכל */
+    margin-top: 20px; /* מרווח מעל למיכל */
+}
+
+/* מעטפת המיכלים */
+.contact-info-wrapper1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* מיכל השורות העליונות */
+.contact-info1 {
+    display: flex;
+    width: 100%; 
+    margin-bottom: 10px; 
+}
+
+.contact-us-address1,
+.contact-us-contactus11 {
+    flex: 1; 
+    text-align: center; 
+    margin: 0 -5px; 
+    font-family: "Noto Sans Hebrew", sans-serif;
+    font-size: 14px;
+    width: 16vw;   
+
+}
+
+.contact-us-contactus-mail1 {
+    text-align: center; 
+    margin-top: 10px; 
+    font-family: "Noto Sans Hebrew", sans-serif;
+    font-size: 14px;
+}

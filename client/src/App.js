@@ -122,6 +122,8 @@ import OurServices from './features/ourServices/OurServices';
 import Calculator from './features/calculator/Calculator';
 import ChatList from './features/chat/listForManager/ChatList';
 import ListForUser from './features/chat/listForUser/listForUser';
+import TheyTellUs from './features/TheyTellUs/TheyTellUs';
+import ContactUs from './features/ContactUs/ContactUs';
 
 function App() {
   return (
@@ -133,6 +135,8 @@ function App() {
           <Route path="our-services" element={<OurServices />} />
           <Route path="mortgage-calculator" element={<Calculator />} />
           <Route path="contact" element={<ContactAdd />} />
+          <Route path="they-tell-us" element={<TheyTellUs />} />
+          <Route path="contact-us" element={<ContactUs />} />
           <Route path="messageContact" element={<ContactMessage />} />
           <Route path="signup" element={<UserRegisterAdd />} />
           <Route path="/message" element={<ProcessCompletionMessage />} />
