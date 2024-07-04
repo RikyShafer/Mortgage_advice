@@ -10,38 +10,38 @@ const authApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: userData,
       }),
-    //   async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-    //     try {
-    //       const { data } = await queryFulfilled;
-    //       console.log("login:", data);
-         
-    //       if (data) {
-    //         // Dispatch the setToken action with the received token
-    //         dispatch(setToken({ accessToken: data })); // Pass the accessToken directly to setToken
-    //         console.log("loginsetToken:", data);
+      //   async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+      //     try {
+      //       const { data } = await queryFulfilled;
+      //       console.log("login:", data);
 
-    //       }
-    //     } catch (err) {
-    //       console.error('Error during login:', err);
-    //     }
-    //   },
-    // }),
+      //       if (data) {
+      //         // Dispatch the setToken action with the received token
+      //         dispatch(setToken({ accessToken: data })); // Pass the accessToken directly to setToken
+      //         console.log("loginsetToken:", data);
 
-    async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-      try {
-        const { data } = await queryFulfilled;
-        console.log("login:", data);
-       
-        if (data?.accessToken) { // Check if accessToken exists in the response
-          dispatch(setToken({ accessToken: data.accessToken })); // Pass accessToken to setToken
-          console.log("loginsetToken:", data.accessToken);
+      //       }
+      //     } catch (err) {
+      //       console.error('Error during login:', err);
+      //     }
+      //   },
+      // }),
+
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          console.log("login:", data);
+
+          if (data?.accessToken) { // Check if accessToken exists in the response
+            dispatch(setToken({ accessToken: data.accessToken })); // Pass accessToken to setToken
+            console.log("loginsetToken:", data.accessToken);
+          }
+        } catch (err) {
+          console.error('Error during login:', err);
         }
-      } catch (err) {
-        console.error('Error during login:', err);
-      }
-    },
-  }),
-  
+      },
+    }),
+
     sendLogout: build.mutation({
       query: () => ({
         url: 'api/auth/logout',
@@ -61,50 +61,69 @@ const authApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
-    addUser:build.mutation({
+    addUser: build.mutation({
       query: (userRegister) => ({
-          url: "api/auth/registeration",
-          method:"POST",
-          body:userRegister
+        url: "api/auth/registeration",
+        method: "POST",
+        body: userRegister
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-          try {
-            const { data } = await queryFulfilled;
-            console.log("registeration:", data);
-            // Check if the accessToken is available in the response
-            if (data) {
-              // Dispatch the setToken action with the received token
-              dispatch(setToken({accessToken: data})); // Pass the accessToken directly to setToken
-            }
-          } catch (err) {
-            console.error('Error during registeration:', err);
+        try {
+          const { data } = await queryFulfilled;
+          console.log("registeration:", data);
+          // Check if the accessToken is available in the response
+          if (data) {
+            // Dispatch the setToken action with the received token
+            dispatch(setToken({ accessToken: data })); // Pass the accessToken directly to setToken
           }
-        },
-      invalidatesTags:["UserRegister"]
-  }),
+        } catch (err) {
+          console.error('Error during registeration:', err);
+        }
+      },
+      invalidatesTags: ["UserRegister"]
+    }),
 
-  refresh: build.mutation({
-    query: () =>({
+
+    refresh: build.mutation({
+      query: () => ({
         url: "/api/auth/refresh",
         method: "GET"
-    }),
-    async onQueryStarted( arg,  { dispatch,   queryFulfilled }) {
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-            const { data } =  await queryFulfilled
-            if(data.accessToken){
-                dispatch(setToken({accessToken: data.accessToken}))
-            }
+          const { data } = await queryFulfilled
+          console.log(data.accessToken);
+          if (data.accessToken) {
+            dispatch(setToken({ accessToken: data.accessToken }))
+          }
         } catch (err) {
-            console.log(err)
+          console.log(err)
         }
-    },
+      },
 
-}),
-
+    }),
+    withGoogle: build.mutation({
+      query: () => ({
+        url: "/",
+        method: "GET"
+      }),
+      // async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+      //   try {
+      //     const { data } = await queryFulfilled;
+      //     console.log("Google Auth Response:", data);
+      //     // טיפול בתשובה מהשרת
+      //     if (data?.accessToken) {
+      //       dispatch(setToken({ accessToken: data.accessToken }));
+      //     }
+      //   } catch (err) {
+      //     console.error('Error during Google auth:', err);
+      //   }
+      // },
+    }),
+  })
 })
-})
 
 
 
-export const { useLoginMutation, useSendLogoutMutation, useRefreshMutation, useAddUserMutation } = authApiSlice;
+export const { useLoginMutation, useSendLogoutMutation, useRefreshMutation, useAddUserMutation, useWithGoogleMutation } = authApiSlice;
 
