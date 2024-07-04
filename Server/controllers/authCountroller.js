@@ -104,6 +104,9 @@ const login = async (req, res) => {
 
 const refresh = async (req, res) => {
     const cookies = req.cookies
+    console.log(cookies);
+    console.log(cookies.jwt+"dddd");
+
     if (!cookies?.jwt) {
         return res.status(401).json({
             error: true,
@@ -112,7 +115,7 @@ const refresh = async (req, res) => {
         })
     }
     const refreshToken = cookies.jwt
-
+console.log(refreshToken);
     jwt.verify(refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
         async (err, decode) => {
@@ -124,7 +127,7 @@ const refresh = async (req, res) => {
                 })
             }
 
-
+console.log(decode.email);
 
             const foundUser = await User.findOne({ email: decode.email, deleted: false } ).lean(); // Find user by email
 

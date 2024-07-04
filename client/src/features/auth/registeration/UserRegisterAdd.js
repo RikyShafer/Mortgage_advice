@@ -21,13 +21,20 @@ const UserRegisterAdd = () => {
         console.log(userObject);
         addUser(userObject);
     };
+    const handleGoogleAuth =  () => {
+        window.location.href = "http://localhost:3297/auth/google";
+      };
+    
     if (isLoading)
         return <h1>Loading...</h1>;
     if (isError)
         return <h1>Error: {JSON.stringify(error)}</h1>;
     return (
         <div className='add-user-register'>
+             <button onClick={handleGoogleAuth} >
+    </button>
             <div className='add-user-register-wraps'> 
+              
             <form onSubmit={formSubmit} className='add-user-register-form'>
                
                 <h2 className='add-user-register-h2'> בשביל להרשם לאתר נשמח שתענו על כמה שאלות ממש קצרות...</h2>

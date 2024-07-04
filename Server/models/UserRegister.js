@@ -55,15 +55,19 @@ const mongoose = require('mongoose');
 const UserRegisterSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true,
+        // required: true,
     },
     lastName: {
         type: String,
-        required: true,
+        // required: true,
+    },
+    googleId:{
+        type: String,
+        required: false,
     },
     password: {
         type: String,
-        required: true,
+        // required: true,
     },
     roles: {
         type: [String],
@@ -79,7 +83,7 @@ const UserRegisterSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
     anotherQuestion: {

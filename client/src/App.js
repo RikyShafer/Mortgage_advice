@@ -124,6 +124,7 @@ import ChatList from './features/chat/listForManager/ChatList';
 import ListForUser from './features/chat/listForUser/listForUser';
 import TheyTellUs from './features/TheyTellUs/TheyTellUs';
 import ContactUs from './features/ContactUs/ContactUs';
+import SsGoogle from './features/auth/registeration/SsGoogle';
 
 function App() {
   return (
@@ -141,6 +142,7 @@ function App() {
           <Route path="signup" element={<UserRegisterAdd />} />
           <Route path="/message" element={<ProcessCompletionMessage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="/ss" element={<SsGoogle />} />
 
           <Route element={<PersistLogin />} >
             <Route element={<RequireAuth />} >
