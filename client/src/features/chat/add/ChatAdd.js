@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useContinueChattingMutation } from '../ChatApiSlice';
-// import { useSelector } from 'react-redux';
-// import { selectToken } from '../authSlice';
 import { useGetAllUsersQuery } from '../../userRegister/UserRegisterApiSlice';
 import './chat-add.css';
 
-const ChatAdd = () => {
+const ChatAdd = ({ onClose, existingChats }) => {
     const [recipient, setRecipient] = useState('');
     const [text, setText] = useState('');
     const [addNewChat, { isError, error, isLoading }] = useContinueChattingMutation();
@@ -18,14 +16,12 @@ const ChatAdd = () => {
                 await addNewChat({ recipient, text }).unwrap();
                 setRecipient('');
                 setText('');
-                // window.location.reload()
+                onClose(); // Close the ChatAdd component
             } catch (err) {
                 console.error('Failed to send the message: ', err);
             }
         }
     };
-
- 
 
     if (isUserLoading) {
         return <h1>Loading...</h1>;
@@ -34,6 +30,11 @@ const ChatAdd = () => {
     if (isUserError) {
         return <h1>Error: {userError.message}</h1>;
     }
+
+    // Filter out users who already have an open conversation
+    const availableUsers = users.data.filter(user => 
+        !existingChats.some(chat => chat.user2 === user._id)
+    );
 
     return (
         <div className='chat-add-container'>
@@ -49,7 +50,7 @@ const ChatAdd = () => {
                                 onChange={(e) => setRecipient(e.target.value)}
                             >
                                 <option value='' disabled>Select a recipient</option>
-                                {users.data.map(user => (
+                                {availableUsers.map(user => (
                                     <option key={user._id} value={user._id}>
                                         {user.firstName} {user.lastName}
                                     </option>
