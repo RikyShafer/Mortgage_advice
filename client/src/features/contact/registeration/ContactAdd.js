@@ -4,7 +4,7 @@ import { useContactMutation } from '../contactApiSlice';
 import { useNavigate } from 'react-router-dom';
 import { WiDirectionLeft } from "react-icons/wi";
 
-const ContactAdd = () => {
+const ContactAdd = ({ onClose } ) => {
     const [addUser, { isError, error, isSuccess, isLoading }] = useContactMutation();
     const navigate = useNavigate();
 
@@ -66,6 +66,7 @@ const ContactAdd = () => {
             <button type='submit'>אני רוצה ליצור קשר <WiDirectionLeft /></button>
         </form>
         <img className='add-user-register-form-img' src='./user.png' alt='' />
+        <button onClick={onClose}>סגור</button>
     </div>
 </div>)
 

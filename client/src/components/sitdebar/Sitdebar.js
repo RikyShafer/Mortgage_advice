@@ -70,199 +70,27 @@ const SitdeBar = () => {
       title: "משתמש",
       list: [
         {
-          title:  "אזור אישי" ,
-          path: isUser ? "private-area" : isAdmin ? "aprivate-area" : "login",
-          // icon: <RiAccountPinCircleLine />
+          title: isUser || isAdmin ? "אזור אישי" : "התחברות",
+          path: isUser ? "/private-area" : isAdmin ? "/aprivate-area" : "/login",
         },
-      ],
+        !isUser && !isAdmin && { // Show registration link if neither user nor admin
+          title: "הרשמה",
+          path: "/signup",
+        },
+      ].filter(Boolean), // Filter out undefined (when isUser or isAdmin is true)
     },
   ];
 
-//   const adminMenuItems = [
-//     {
-//       title: "דפים",
-//       list: [
-//         {
-//           title: "עמוד הבית",
-//           path: "/",
-//           // icon: <RiHomeWifiLine />
-//         },
-//         {
-//           title: "קצת עלינו",
-//           path: "/about",
-//           // icon: <HiOutlineInformationCircle />
-//         },
-//         {
-//           title: "השירותים שלנו",
-//           path: "/our-services",
-//           // icon: <FaHandsHelping />
-//         },
-//         {
-//           title: "מספרים עלינו ",
-//           path: "/they-tell-us",
-//           // icon: <HiOutlineChatBubbleOvalLeftEllipsis />
-//         },
-//         {
-//           title: "מחשבון משכנתא ",
-//           path: "/mortgagecalculator",
-//           // icon: <CiCalculator2 />
-//         },
-//         {
-//           title: "צור קשר ",
-//           path: "/contact-us",
-//           // icon: <SiWhatsapp />
-//         },
-//         {
-//           title: "העלת מסמכים ",
-//           path: "questionnaire",
-//           // icon: <GiFiles />
-//         },
-//         {
-//           title: "צפייה מסמכים ",
-//           path: "questionnaireList",
-//           // icon: <GiFiles />
-//         },
-//         {
-//           title: "צפייה בנרשמים  ",
-//           path: "registerList",
-//           // icon: <FaUsers />
-//         },
-//       ],
-//     },
-//     // {
-//     //   title: "משתמש",
-//     //   list: [
-//         // {
-//         //   title: "הגדרות",
-//         //   path: "/settings",
-//         //   icon: <MdOutlineSettings />
-//         // },
-//         // {
-//         //   title: "עזרה",
-//         //   path: "/help",
-//         //   icon: <MdHelpCenter />
-//         // },
-//         // {
-//         //   title: "התחברות",
-//         //   path: "login",
-//         //   icon: <AiOutlineLogin />
-//         // },
-//         // {
-//         //   title: "הרשמה",
-//         //   path: "signup",
-//         //   icon: <PiUserCirclePlusDuotone />
-//         // },
-//         {
-//           title: "משתמש",
-//           list: [
-//             {
-//               title:  "אזור אישי" ,
-//               path: isUser || isAdmin ? "aprivate-area" : "login",
-//               // icon: <RiAccountPinCircleLine />
-//             },
-//           ],
-//         },
-//       ];
-//   const userMenuItems = [
-//     {
-//       title: "דפים",
-//       list: [
-//         {
-//           title: "עמוד הבית",
-//           path: "/",
-//           // icon: <RiHomeWifiLine />
-//         },
-//         {
-//           title: "קצת עלינו",
-//           path: "/about",
-//           // icon: <HiOutlineInformationCircle />
-//         },
-//         {
-//           title: "השירותים שלנו",
-//           path: "/our-services",
-//           // icon: <FaHandsHelping />
-//         },
-//         {
-//           title: "מספרים עלינו ",
-//           path: "/they-tell-us",
-//           // icon: <HiOutlineChatBubbleOvalLeftEllipsis />
-//         },
-//         {
-//           title: "מחשבון משכנתא ",
-//           path: "/mortgagecalculator",
-//           // icon: <CiCalculator2 />
-//         },
-//         {
-//           title: "צור קשר ",
-//           path: "/contact-us",
-//           // icon: <SiWhatsapp />
-//         },
-//         {
-//           title: "העלת מסמכים ",
-//           path: "questionnaireuser",
-//           // icon: <GiFiles />
-//         },
 
-//       ],
-//     },
-//   //   {
-//   //     title: "משתמש",
-//   //     list: [
-//   //       {
-//   //         title: "הגדרות",
-//   //         path: "settings",
-//   //         icon: <MdOutlineSettings />
-//   //       },
-//   //       {
-//   //         title: "עזרה",
-//   //         path: "help",
-//   //         icon: <MdHelpCenter />
-//   //       },
-//   //       {
-//   //         title: "התחברות",
-//   //         path: "login",
-//   //         icon: <AiOutlineLogin />
-//   //       },
-//   //       {
-//   //         title: "הרשמה",
-//   //         path: "signup",
-//   //         icon: <PiUserCirclePlusDuotone />
-//   //       },
-//   //     ],
-//   //   },
-//   // ];
-//   {
-//     title: "משתמש",
-//     list: [
-//       {
-//         title:  "אזור אישי" ,
-//         path: isUser || isAdmin ? "private-area" : "login",
-//         // icon: <RiAccountPinCircleLine />
-//       },
-//     ],
-//   },
-// ];
+
 
   let menuItems;
 
-  // if (isAdmin) {
-  //   menuItems = adminMenuItems;
-  // } else if (isUser) {
-  //   menuItems = userMenuItems;
-  // } else {
-  //   menuItems = notMenuItems;
-  // }
+
   menuItems = notMenuItems;
   console.log(menuItems, "menuItems");
 
-  // useEffect(() => {//בשביל זהיציאה מכל הפרטים באמת תקרה ביציאה 
-  //   if (isSuccess) {
-  //     navigate("/")
-  //   }
-  // }, [isSuccess, navigate])
-  // const logOutClick = () => {//פונציקה כדי להפעיל את היציאה 
-  //   logout()
-  // }
+
   return (
     <div className="side-bar">
       <div className="side-bar-user">
@@ -289,10 +117,6 @@ const SitdeBar = () => {
         ))}
       </ul>
       </div>
-      {/* <button onClick={logOutClick} className="side-bar-logout">
-        <MdLogout />
-        יציאה
-      </button> */}
     </div>
   )
 }

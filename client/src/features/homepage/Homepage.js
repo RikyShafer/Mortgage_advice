@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import './homepage.css';
 import { useNavigate } from 'react-router-dom';
+import ContactAdd from '../contact/registeration/ContactAdd';
 
 
 const Homepage = () => {
     const navigate = useNavigate();
     const [expanded, setExpanded] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
+    const openModal = () => {
+      setShowModal(true);
+    };
+  
+    const closeModal = () => {
+      setShowModal(false);
+    };
     const toggleExpand = () => {
         setExpanded(!expanded);
     };
@@ -30,8 +39,9 @@ const Homepage = () => {
                         <h3 className='mumble-of-the-opening2'>   אנחנו כאן כדי לעזור לכם להבין את האפשרויות, להתמקד בצרכים שלכם, ולמצוא את המשכנתא המתאימה ביותר. </h3>
                     </div>
                     <h4 className='Homepage-button-mumble'> אל תתלבט! לחץ עכשו על הכפתור הייעוץ ואנו נחזור אליך .</h4>
-                    <button className='Homepage-button' onClick={goToYouMadeContact}> חזרו אליי
+                    <button className='Homepage-button' onClick={openModal}> חזרו אליי
                     </button>
+                    {showModal && <ContactAdd onClose={closeModal} />}
                 </div>
 
                 <div className='Vector'>
