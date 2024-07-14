@@ -21,7 +21,9 @@ const UserRegisterAdd = () => {
         console.log(userObject);
         addUser(userObject);
     };
-
+    const goToLogin = () => {
+        navigate(`/login`);
+    }
     if (isLoading) return <h1>Loading...</h1>;
     if (isError) return <h1>Error: {JSON.stringify(error)}</h1>;
 
@@ -92,8 +94,11 @@ const UserRegisterAdd = () => {
                             />
                         </div>
                     </div>
-
-                    <button type='submit'>אני רוצה להירשם <WiDirectionLeft /></button>
+                    <div className="button-container">
+                    <button type='submit'>אני רוצה להירשם {<WiDirectionLeft />}</button>
+                    <button className="singUp-page-form-button" onClick={goToLogin}>נרשמת כבר?
+                    כניסה לשירות  </button>
+                    </div>
                 </form>
                 <img className='add-user-register-form-img' src='./user.png' alt='' />
             </div>

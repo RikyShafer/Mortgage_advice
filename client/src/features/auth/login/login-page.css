@@ -58,21 +58,25 @@
 
 .login-page-form button,
 .login-page-form-button {
-    width: 12vw; 
+    width: 15vw; 
+    height: 5vh;
     padding: 5px;
     background-color:var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
+
+    margin: 0 10px; /* כדי ליצור רווח בין הכפתורים */
     margin-top: 15px;
-    margin-right: 5.5vw;
   
 } 
-
+.button-container-Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+}
 .login-page-img {
     height:80vh; 
     border-radius: 10px;

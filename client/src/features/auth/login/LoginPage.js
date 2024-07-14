@@ -1,7 +1,7 @@
 import "./login-page.css";
 import { useLoginMutation } from '../authApiSlice';
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { WiDirectionLeft } from "react-icons/wi";
 import useAuth from "../../../hooks/useAuth";
 
@@ -21,6 +21,10 @@ const LoginPage = () => {
       }
     }
   }, [isSuccess,data, isAdmin, isUser, navigate]);
+
+  const goToSignup = () => {
+    navigate(`/signup`);
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,14 +61,17 @@ const LoginPage = () => {
               name='password'
               placeholder='הקלידו כאן...' />
           </div>
+          <div className="button-container-Login ">
           <button type='submit'>  אני רוצה להיכנס {<WiDirectionLeft />}</button>
-          <Link to="/signup" className="login-page-form-button">
-            אין לך חשבון {<WiDirectionLeft />}
-          </Link>
+          <button className="login-page-form-button" onClick={goToSignup}> עוד לא נרשמתם? הכנסו עכשיו  </button>
+          </div>
+  
           {error && error.data?.message}
         </form>
         <img className='login-page-img' src='./user.png' alt='' />
+
       </div>
+      
     </div>
   );
 };
