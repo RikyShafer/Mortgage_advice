@@ -151,9 +151,11 @@ function App() {
               </Route>
               <Route element={<RequireAuth allowRoles={["ADMIN"]} />} >
                 <Route path="/aprivate-area" element={<DisplayAdmin />} />
-                <Route path="/registerList" element={<UserRegisterList />}>
+                {/* <Route path="/registerList" element={<UserRegisterList />}>
+                  <Route path="/registerList/:userId" element={<UserRegisterPut />} /> */}
+                  <Route path="/registerList" element={<UserRegisterList />} />
                   <Route path="/registerList/:userId" element={<UserRegisterPut />} />
-                </Route>
+                {/* </Route> */}
                 <Route path="/questionnaire" element={<AddQuestionnaire />} />
                 <Route path="/questionnaireList" element={<QuestionnaireList />} />
                 <Route path="/ChatList" element={<ChatList />} />

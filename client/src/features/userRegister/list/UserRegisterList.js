@@ -1,29 +1,26 @@
+
 import React, { useEffect } from 'react';
 import { useGetAllUsersQuery } from '../UserRegisterApiSlice';
 import { useSelector } from 'react-redux';
-import { HiOutlineUser } from "react-icons/hi";
 import { useNavigate } from 'react-router-dom';
-
 import "./user-register-list.css";
 
 const UserRegisterList = () => {
     const { data: users, isLoading, isError, error, isSuccess } = useGetAllUsersQuery();
-    const token = useSelector((state) => state.auth.token); // Get token from Redux store
-    const navigate = useNavigate()
+    const token = useSelector((state) => state.auth.token);
+    const navigate = useNavigate();
+
     useEffect(() => {
         if (token) {
             console.log("Fetching users...");
         }
     }, [token]);
-// const goToPut = async (e) => {
-//     const id = e.target instanceof HTMLButtonElement ? e.target.id : e.target.parentElement instanceof HTMLButtonElement ? e.target.parentElement.id : e.target.parentElement.parentElement.id
-//     console.log("User ID:", id);
-//     navigate( `/registerList/${id}`);
-// }
-const goToPut = (userId) => {
-    console.log("User ID:", userId);
-    navigate(`/registerList/${userId}`);
-};
+
+    const goToPut = (userId) => {
+        console.log("User ID:", userId);
+        navigate(`/registerList/${userId}`);
+    };
+
     if (isLoading || !isSuccess) {
         return <h1>Loading...</h1>;
     }
@@ -32,25 +29,34 @@ const goToPut = (userId) => {
         return <h2>Error: {error.message}</h2>;
     }
 
-    console.log("Users:", users); // Debugging statement to see what data is received
+    console.log("Users:", users);
 
     let usersData = users?.data || [];
 
     return (
-        <div  >
-            <div className="register-list-title" >תצוגה איזה אנשים שלחו שאלון ליצרת קשר</div>
+        <div>
+            <div className="register-list-title">תצוגה איזה אנשים נרשמו לאתר</div>
             <div className="register-list">
                 {usersData.map((user) => (
-                    <div className="registerMap" key={user._id} >
-                     
-                        <h1> <HiOutlineUser /> שם פרטי -{user.firstName}</h1>
-                        <p>  שם משפחה-{user.lastName} </p>
-                        <p> דוא"ל-<a href={`mailto:${user.email}`} className="google-link">{user.email}</a></p>
-                        <p> טלפון -<a href={`tel:${user.phone}`} className="google-link">{user.phone}</a></p>
-                        <p>  שאלה נוספת -{user.anotherQuestion}</p>
-                        <p>  פעיל?- {user.active ? "פעיל" : "לא פעיל"} </p>
-                        {/* <button onClick={goToPut}  id={user._id}> לעדכון פרטים </button> */}
-                        <button onClick={() => goToPut(user._id)} id={user._id}> לעדכון פרטים </button>
+                    <div className="register-list-Map" key={user._id}>
+                        <img
+                            src={
+                                user.image
+                                    ? user.image.startsWith('https')
+                                        ? user.image
+                                        : "http://localhost:3297/image/" + user.image
+                                    : "/noavatar.png"
+                            }
+                            alt={` `}
+                            className="user-image"
+                        />
+                        <p >שם פרטי - {user.firstName}</p>
+                        <p>שם משפחה - {user.lastName}</p>
+                        <p>דוא"ל - <a href={`mailto:${user.email}`} className="google-link">{user.email}</a></p>
+                        <p>טלפון - <a href={`tel:${user.phone}`} className="google-link">{user.phone}</a></p>
+                        <p>שאלה נוספת - {user.anotherQuestion}</p>
+                        <p>פעיל? - {user.active ? "פעיל" : "לא פעיל"}</p>
+                        <button className='update-details' onClick={() => goToPut(user._id)}>לעדכון פרטים</button>
                     </div>
                 ))}
             </div>
@@ -59,4 +65,3 @@ const goToPut = (userId) => {
 };
 
 export default UserRegisterList;
-

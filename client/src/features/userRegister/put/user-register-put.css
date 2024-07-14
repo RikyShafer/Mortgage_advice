@@ -1,9 +1,9 @@
-.put-user-register {
+.put-user-registerID {
     background-color: rgba(0, 0, 0, 0.509); 
  
     /* margin-top: 10px; */
     width: 100%;
-    height: 80vh; 
+    height: 90vh; 
     font-size: 12px;
     display: flex; 
     justify-content: center; 
@@ -11,8 +11,8 @@
     flex: 3;
 }
 
-.put-user-register-form {
-    height:70vh; 
+.put-user-registerID-form {
+    height:80vh; 
     background-color: white;
     padding: 20px; 
     border-radius: 10px;
@@ -26,15 +26,13 @@
 .div-register{
     flex-direction: row;
     display: flex;
+    margin-top: 2vh;
 }
 
 
-.dd-user-register-form-active {
-    flex: 1; 
 
-}
 
-.put-user-register-form input {
+.put-user-registerID-form input {
     padding: 10px; 
     margin-bottom: 20px; 
     width: calc(100% - 20px); 
@@ -46,7 +44,7 @@
     outline: none;
     transition: border-bottom-color 0.3s;
 }
-.put-user-register-form select {
+.put-user-registerID-form select {
     padding: 10px; 
     margin-bottom: 20px; 
     width: calc(100% - 110px); 
@@ -58,16 +56,17 @@
     outline: none;
     transition: border-bottom-color 0.3s;
 }
-.put-user-register-form input:focus {
+.put-user-registerID-form input:focus {
     border-bottom-color:  rgba(31, 30, 30, 0.7);
 }
-.put-user-register-h2 {
+.put-user-registerID-h2 {
     color: black;
     margin-bottom: 40px;
     margin-top: 40px;
+    font-size: 28px;
 }
 
-.put-user-register-h3 {
+.put-user-registerID-h3 {
     color: black;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -75,7 +74,7 @@
 
 
 
-.put-user-register-form button {
+.put-user-registerID-form button {
     width: 12vw; 
     padding: 5px;
     background-color:var(--button);
@@ -87,6 +86,15 @@
     justify-content: center; 
     margin: 0 auto; 
     margin-top: 15px;
-    margin-right: 5.5vw;
+    margin-right: 18vw;
+    margin-top: 2vh;
   
 } 
+.add-user-register-option-active{
+    width: 30vw;
+    margin-left: 20vw;
+}
+.dd-user-register-form-active{
+    margin-right: 5vw;
+    /* margin-top: 2vh; */
+}

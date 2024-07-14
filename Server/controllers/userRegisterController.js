@@ -230,14 +230,14 @@ console.log(req.file,);
     }
 
 
-    // אימות: בדיקה אם המייל  כבר קיים במערכת
+    // אימות: בדיקה אם המייל כבר קיים במערכת
     const existingUseremail = await UserRegister.findOne({ email: email });
-    if (existingUseremail) {
+    if (existingUseremail && existingUseremail._id.toString() !== _id) {
         return res.status(400).json({
             error: true,
-            message: ' email must be unique',
+            message: 'email must be unique',
             data: null
-        })
+        });
     }
     if (password) {
         const hashpwd = await bcrypt.hash(password, 10)
