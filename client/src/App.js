@@ -123,6 +123,7 @@ import ChatList from './features/chat/listForManager/ChatList';
 import ListForUser from './features/chat/listForUser/listForUser';
 import TheyTellUs from './features/TheyTellUs/TheyTellUs';
 import ContactUs from './features/ContactUs/ContactUs';
+import NotFoundPage404 from './features/NotFoundPage404';
 
 function App() {
   return (
@@ -160,6 +161,7 @@ function App() {
             </Route>
           </Route>
         </Route>
+        <Route path="*" element={<NotFoundPage404/>} />
       </Routes>
     </Router>
   );
