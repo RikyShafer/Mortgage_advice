@@ -109,7 +109,6 @@ margin-bottom: 40px;
     width: 50px;
     height: 50px;
 } */
-
 .add-user-register {
     background-color: rgba(0, 0, 0, 0.509);
     padding: 20px;
@@ -119,56 +118,48 @@ margin-bottom: 40px;
     font-size: 12px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    flex: 3;
+    align-items: center;
 }
 
 .add-user-register-form {
-    height: 30vw;
+    height: auto;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.div-register {
-    flex-direction: row;
-    display: flex;
 }
 
 .add-user-register-wraps {
-
-
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     background-color: white;
     border-radius: 10px;
-    height: 67vh;
+    height: auto;
     margin-bottom: 25vh;
- position: relative;
- 
+    position: relative;
+}
 
+.add-user-register-form .input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 
+.add-user-register-form .input-group > div {
+    width: 48%;
 }
 
 .add-user-register-form input {
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* grid-column-gap: ; Add space between columns */
-    width: calc(100% - 20px);
+    width: 100%;
     border: none;
     background-color: transparent;
     border-bottom: 2px solid rgba(31, 30, 30, 0.7);
     color: rgba(0, 0, 0, 0.7);
-    margin: 4px;
     outline: none;
     transition: border-bottom-color 0.3s;
-    padding: 5px; 
-    margin-bottom: 10px; 
+    padding: 5px;
 }
 
 .add-user-register-form input:focus {
@@ -178,21 +169,18 @@ margin-bottom: 40px;
 .add-user-register-h2 {
     color: black;
     margin-bottom: 40px;
-    margin-top: 40px;
+    text-align: center;
 }
 
 .add-user-register-h3 {
     color: black;
-    margin-right: 10px;
     margin-bottom: 10px;
 }
-
-
 
 .add-user-register-form button {
     width: 12vw;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
@@ -201,8 +189,6 @@ margin-bottom: 40px;
     justify-content: center;
     margin: 0 auto;
     margin-top: 4vh;
-    margin-right: 5.5vw;
-
 }
 
 .add-user-register-form-img {

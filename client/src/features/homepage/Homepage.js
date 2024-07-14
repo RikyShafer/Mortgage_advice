@@ -20,9 +20,7 @@ const Homepage = () => {
         setExpanded(!expanded);
     };
 
-    const goToYouMadeContact = () => {
-        navigate(`/contact`);
-    };
+   
     const goToTheyTellUs = () => {
         navigate(`/they-tell-us`);
     }
@@ -68,8 +66,9 @@ const Homepage = () => {
                         ממממ מממממממ מממממ מממממממממממ מממממממ מממממממ ממממממ ממממממ מממממממ מממממממממ מממממממממ מממממממממ מממ ממממממ ממממממממממכ גכגגגגגגגגגג גגגגגגגג גגגגגגגגגג  גגגגג גגגגגג גגג גגגגגגג גגגגגגגג גגגגגגגגג גגג גגגגגגגגגג גגגגגגגגגגג גגגגגגג לללללללל לללל לללל לללללל ללללללל לללללללל ללללללללל לללללללללל לללל ללללללל ללללל לללל לל  </h3>
                     <h3 className='Who-we-are-Melal3'>אני כאן איתכם ובשבילכם!</h3>
 
-                    <button className='Who-we-are-Homepage-button' onClick={goToYouMadeContact}> חזרו אליי
+                    <button className='Homepage-button' onClick={openModal}> חזרו אליי
                     </button>
+                    {showModal && <ContactAdd onClose={closeModal} />}
                 </div>
 
             </div>
@@ -116,8 +115,10 @@ const Homepage = () => {
                                 לאחר הבהרת כל הסעיפים אנו נמליץ לכם על תוכנית המשכנתא המשתלמת ביותר עבורכם, לאחר הבחירה הסופית אתם תחתמו על הסכם משכנתא עם הבנק.
                                 כמובן שנלווה אתכם לאורך כל התהליך. </h5>
                         </div>
-                        <button className='Homepage-button-White' onClick={goToYouMadeContact}> אני רוצה ליצור קשר
-                        </button>
+
+                        <button className='Homepage-button-White' onClick={openModal}> אני רוצה ליצור קשר 
+                    </button>
+                    {showModal && <ContactAdd onClose={closeModal} />}
                     </div>
                 </div>
                 <div className='Why-important-hire-consultant'>
@@ -264,8 +265,10 @@ const Homepage = () => {
                     </div>
 
                 </div>
-                <button className='Homepage-button-squares1' onClick={goToYouMadeContact}> אני רוצה ליצור קשר
-                </button>
+
+                <button className='Homepage-button-squares1' onClick={openModal}> אני רוצה ליצור קשר 
+                    </button>
+                    {showModal && <ContactAdd onClose={closeModal} />}
             </div>
 
             <div className='White-background3'>

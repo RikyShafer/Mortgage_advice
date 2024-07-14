@@ -102,7 +102,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashLayout from "./components/layout/dash/DashLayout";
-import ContactAdd from "./features/contact/registeration/ContactAdd";
 import ContactMessage from "./features/contact/registeration/ContactMessage";
 import LoginPage from "./features/auth/login/LoginPage";
 import UserRegisterList from "./features/userRegister/list/UserRegisterList";
@@ -134,7 +133,6 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="our-services" element={<OurServices />} />
           <Route path="mortgage-calculator" element={<Calculator />} />
-          <Route path="contact" element={<ContactAdd />} />
           <Route path="they-tell-us" element={<TheyTellUs />} />
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="messageContact" element={<ContactMessage />} />
