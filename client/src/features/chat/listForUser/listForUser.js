@@ -9,15 +9,19 @@ import DeletingMessage from '../DeletingMessage/DeletingMessage';
 import ContinueChatting from '../ContinueChatting/ContinueChatting';
 import { formatDistanceToNow } from 'date-fns';
 import { he } from 'date-fns/locale';
+import { useSendLogoutMutation } from '../../auth/authApiSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ListForUser = () => {
+    const [logout] = useSendLogoutMutation();
+    const navigate = useNavigate();
     // const [page, setPage] = useState(1);
     const page = 1;
     const limit = 4;
     // const { data: chat, isLoading, isError, error, refetch } = useViewInChatQuery({ page, limit });
     const { data: chat, isLoading, isError, error } = useViewInChatQuery({ page, limit });
 
-    const { firstName,lastName } = useAuth(); 
+    const { firstName,lastName,active } = useAuth(); 
     const token = useSelector((state) => state.auth.token);
 
 
@@ -26,7 +30,16 @@ const ListForUser = () => {
         if (token) {
             console.log("Fetching users...");
         }
-    }, [token]);
+        const handleLogout = async () => {
+            if (!active) {
+                // If active is false, navigate away from personal area
+                await logout();
+                // After logout, navigate away from personal area
+                navigate("/inactive-account");
+            }
+        };
+        handleLogout();
+    }, [token,active,logout,navigate]);
 
     if (isLoading) {
         return <h1>Loading...</h1>;

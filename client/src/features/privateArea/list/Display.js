@@ -14,8 +14,8 @@ import { useSendLogoutMutation } from '../../auth/authApiSlice';
 const Display = () => {
     // const { _id, firstName, email, roles, isAdmin, isUser, image } = useAuth();
 
-    const { firstName, email, roles, isAdmin, isUser, image, _id } = useAuth();
-    console.log("Display", firstName, email, roles, isAdmin, isUser, image);
+    const { firstName, email, roles, isAdmin, isUser, image, _id ,active} = useAuth();
+    console.log("Display", firstName, email, roles, isAdmin, isUser, image, "dfg",active,"dfg");
     const [putUser, { isError: putIsError, error: putError, isSuccess: putIsSuccess, isLoading: putIsLoading }] = useUpdateUserMutation();
     const page = 1;
     const limit = 4;
@@ -28,7 +28,18 @@ const Display = () => {
         if (putIsSuccess) {
             navigate("/private-area");
         }
-    }, [putIsSuccess, navigate]);
+        const handleLogout = async () => {
+            if (!active) {
+                // If active is false, navigate away from personal area
+                await logout();
+                // After logout, navigate away from personal area
+                navigate("/inactive-account");
+            }
+        };
+        handleLogout();
+    }, [putIsSuccess, navigate, active, logout]);
+
+
     const handleImageChange = (e) => {
         if (e.target.files)
             setImageBuffer(e.target.files[0]);

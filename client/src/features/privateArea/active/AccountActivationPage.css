@@ -1,0 +1,52 @@
+.activation-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Adjust background color as per your site theme */
+}
+
+.activation-content {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+.activation-content h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.activation-content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+.not-found-link {
+    text-decoration: none;
+}
+
+.not-found-button {
+    background-color: var(--button);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.3s ease;
+    margin-top: 4vh
+}
+
+.not-found-button:hover {
+    background-color: var(--button);
+}

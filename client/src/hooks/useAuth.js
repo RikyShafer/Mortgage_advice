@@ -79,16 +79,16 @@ const useAuth = () => {
     if (typeof token === 'string' && token.trim() !== '') {
         try {
             decodedToken = jwtDecode(token);
-            const { _id, firstName, email, roles, image, lastName, phone } = decodedToken;
+            const { _id, firstName, email, roles, image, lastName, phone ,active} = decodedToken;
             isAdmin = roles.includes("ADMIN");
             isUser = roles.includes("USER");
-            return { _id, firstName, email, roles, isAdmin, isUser, image, lastName, phone };
+            return { _id, firstName, email, roles, isAdmin, isUser, image, lastName, phone ,active};
         } catch (error) {
             console.error("Error decoding token:", error);
         }
     }
 
-    return { _id: "", email: "", isAdmin, isUser, firstName: "", roles: "", image: "", lastName: "", phone: "" };
+    return { _id: "", email: "", isAdmin, isUser, firstName: "", roles: "", image: "", lastName: "", phone: "" ,active:""};
 };
 
 export default useAuth;

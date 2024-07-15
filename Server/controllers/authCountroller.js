@@ -88,7 +88,8 @@ const login = async (req, res) => {
         email: foundUser.email,
         phone: foundUser.phone,
         roles: foundUser.roles,
-        image: foundUser.image
+        image: foundUser.image,
+        active: foundUser.active
     }
     console.log(userInfo);
     const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
@@ -142,8 +143,8 @@ const refresh = async (req, res) => {
                 email: foundUser.email,
                 phone: foundUser.phone,
                 roles: foundUser.roles,
-                image: foundUser.image
-
+                image: foundUser.image,
+                active:foundUser.active
             };
 
 
@@ -271,8 +272,9 @@ const registeration = async (req, res) => {
                 lastName: user.lastName,
                 email: user.email,
                 phone: user.phone,
-                image: user.image
-            },
+                image: user.image,
+                active:user.active
+              },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: '15m' }
         );

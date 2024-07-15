@@ -5,10 +5,11 @@ import { useUpdateUserMutation } from '../../userRegister/UserRegisterApiSlice';
 import { useNavigate } from 'react-router-dom';
 import { WiDirectionLeft } from 'react-icons/wi';
 import "./user-register-put.css";
+import { useSendLogoutMutation } from '../../auth/authApiSlice';
 const UserRegisterPutID = () => {
-   const { _id, firstName, email ,phone,lastName } = useAuth();
+   const { _id, firstName, email ,phone,lastName ,active} = useAuth();
     const [imgBuffer, setImageBuffer]  = useState(null)
-    
+    const [logout] = useSendLogoutMutation();
     const [putUser, { isError: putIsError, error: putError, isSuccess: putIsSuccess, isLoading: putIsLoading }] = useUpdateUserMutation();
 
     const navigate = useNavigate();
@@ -16,7 +17,16 @@ const UserRegisterPutID = () => {
         if (putIsSuccess) {
             navigate("/private-area");
         }
-    }, [putIsSuccess, navigate]);
+        const handleLogout = async () => {
+            if (!active) {
+                // If active is false, navigate away from personal area
+                await logout();
+                // After logout, navigate away from personal area
+                navigate("/inactive-account");
+            }
+        };
+        handleLogout();
+    }, [putIsSuccess, navigate,logout,active]);
     const updateImage = (e)=>{
         if(e.target.files)
             setImageBuffer(e.target.files[0])

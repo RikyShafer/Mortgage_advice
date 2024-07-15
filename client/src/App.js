@@ -124,6 +124,7 @@ import ListForUser from './features/chat/listForUser/listForUser';
 import TheyTellUs from './features/TheyTellUs/TheyTellUs';
 import ContactUs from './features/ContactUs/ContactUs';
 import NotFoundPage404 from './features/NotFoundPage404';
+import AccountActivationPage from './features/privateArea/active/AccountActivationPage';
 
 function App() {
   return (
@@ -140,6 +141,7 @@ function App() {
           <Route path="signup" element={<UserRegisterAdd />} />
           <Route path="/message" element={<ProcessCompletionMessage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="inactive-account" element={<AccountActivationPage />} />
 
           <Route element={<PersistLogin />} >
             <Route element={<RequireAuth />} >
