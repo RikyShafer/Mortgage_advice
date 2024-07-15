@@ -1,9 +1,9 @@
-.put-user-register {
+.put-admin-register {
     background-color: rgba(0, 0, 0, 0.509); 
  
     /* margin-top: 10px; */
     width: 100%;
-    height: 80vh; 
+    height: 100vh; 
     font-size: 12px;
     display: flex; 
     justify-content: center; 
@@ -11,8 +11,8 @@
     flex: 3;
 }
 
-.put-user-register-form {
-    height:70vh; 
+.put-admin-register-form {
+    height:90vh; 
     background-color: white;
     padding: 20px; 
     border-radius: 10px;
@@ -29,12 +29,12 @@
 }
 
 
-.dd-user-register-form-active {
+.dd-admin-register-form-active {
     flex: 1; 
 
 }
 
-.put-user-register-form input {
+.put-admin-register-form input {
     padding: 10px; 
     margin-bottom: 20px; 
     width: calc(100% - 20px); 
@@ -46,7 +46,7 @@
     outline: none;
     transition: border-bottom-color 0.3s;
 }
-.put-user-register-form select {
+.put-admin-register-form select {
     padding: 10px; 
     margin-bottom: 20px; 
     width: calc(100% - 110px); 
@@ -58,16 +58,16 @@
     outline: none;
     transition: border-bottom-color 0.3s;
 }
-.put-user-register-form input:focus {
+.put-admin-register-form input:focus {
     border-bottom-color:  rgba(31, 30, 30, 0.7);
 }
-.put-user-register-h2 {
+.put-admin-register-h2 {
     color: black;
     margin-bottom: 40px;
     margin-top: 40px;
 }
 
-.put-user-register-h3 {
+.put-admin-register-h3 {
     color: black;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -75,7 +75,7 @@
 
 
 
-.put-user-register-form button {
+.put-admin-register-form button {
     width: 12vw; 
     padding: 5px;
     background-color:var(--button);
@@ -87,6 +87,35 @@
     justify-content: center; 
     margin: 0 auto; 
     margin-top: 15px;
-    margin-right: 5.5vw;
+    margin-right: 25vw;
+
   
 } 
+
+
+.dd-admin-register-form-image{
+    /* margin-top: 2vh; */
+    width: 14vw;
+    margin-top: 3vh;
+    grid-gap: 10px;
+    /* Adjust gap between inputs */
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(31, 30, 30, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+    margin: 8px;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+    padding-bottom: 15px;
+}
+
+.file-upload-span {
+    margin-right: 10vw;
+    cursor: pointer;
+}
+#file-upload{
+    margin-top: 3vh;
+    color: black;
+    font-size: 1.17em;
+   
+}

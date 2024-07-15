@@ -125,6 +125,7 @@ import TheyTellUs from './features/TheyTellUs/TheyTellUs';
 import ContactUs from './features/ContactUs/ContactUs';
 import NotFoundPage404 from './features/NotFoundPage404';
 import AccountActivationPage from './features/privateArea/active/AccountActivationPage';
+import AdminRegisterPutID from './features/privateArea copy/putUser/AdminRegisterPutID';
 
 function App() {
   return (
@@ -158,6 +159,7 @@ function App() {
                   <Route path="/registerList" element={<UserRegisterList />} />
                   <Route path="/registerList/:userId" element={<UserRegisterPut />} />
                 {/* </Route> */}
+                <Route path="/update-details" element={<AdminRegisterPutID />} />
                 <Route path="/questionnaire" element={<AddQuestionnaire />} />
                 <Route path="/questionnaireList" element={<QuestionnaireList />} />
                 <Route path="/ChatList" element={<ChatList />} />

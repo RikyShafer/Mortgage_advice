@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useUpdateUserMutation, useGetUserByIdQuery } from '../UserRegisterApiSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { WiDirectionLeft } from 'react-icons/wi';
@@ -13,6 +12,15 @@ const UserRegisterPut = () => {
     const { data, isLoading, isError, error } = useGetUserByIdQuery(userId);
     const navigate = useNavigate();
 
+    const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        if (data) {
+            setIsActive(data.data.active);
+            console.log("User data:", data);
+        }
+    }, [data]);
+
     useEffect(() => {
         if (putIsSuccess) {
             navigate("/registerList");
@@ -20,18 +28,16 @@ const UserRegisterPut = () => {
         console.log("User ID from params:", userId);
     }, [putIsSuccess, navigate, userId]);
 
-    useEffect(() => {
-        if (data) {
-            console.log("User data:", data);
-        }
-    }, [data]);
+    const handleToggleChange = () => {
+        setIsActive(!isActive);
+    };
 
     const formSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const userObject = Object.fromEntries(formData.entries());
         console.log(userObject);
-        putUser({ _id: userId, ...userObject });
+        putUser({ _id: userId, ...userObject, active: isActive });
     };
 
     if (isLoading || putIsLoading) return <h1>Loading...</h1>;
@@ -63,14 +69,16 @@ const UserRegisterPut = () => {
                         </div>
                     </div>
                     <div className='div-register'>
-                       
                         <div className='dd-user-register-form-active'>
                             <h3 className='put-user-registerID-h3'>לעדכון כמשתמש פעיל</h3>
-                            <select  className='add-user-register-option-active' name='active' id='active'>
-                                <option value={true}>פעיל?</option>
-                                <option value={false}>לא פעיל</option>
-                                <option value={true}>פעיל</option>
-                            </select>
+                            <label className="user-register-toggle-switch">
+                                <input
+                                    type="checkbox"
+                                    checked={isActive}
+                                    onChange={handleToggleChange}
+                                />
+                                <span className="user-register-slider"></span>
+                            </label>
                         </div>
                     </div>
                     <button type='submit'>אני רוצה לעדכן <WiDirectionLeft /></button>

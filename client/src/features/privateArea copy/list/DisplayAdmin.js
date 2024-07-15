@@ -18,7 +18,7 @@ const DisplayAdmin = () => {
 
     const goToPutUserRegister = () => {
         // navigate(`/userPut/${_id}`);
-        navigate(`/userPut`);
+        navigate(`/update-details`);
 
     }
 

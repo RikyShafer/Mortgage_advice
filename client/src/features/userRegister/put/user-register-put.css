@@ -1,29 +1,29 @@
 .put-user-registerID {
-    background-color: rgba(0, 0, 0, 0.509); 
- 
+    background-color: rgba(0, 0, 0, 0.509);
+
     /* margin-top: 10px; */
     width: 100%;
-    height: 90vh; 
+    height: 90vh;
     font-size: 12px;
-    display: flex; 
-    justify-content: center; 
-    align-items: flex-end; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     flex: 3;
 }
 
 .put-user-registerID-form {
-    height:80vh; 
+    height: 80vh;
     background-color: white;
-    padding: 20px; 
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 10px;
 }
 
-.div-register{
+.div-register {
     flex-direction: row;
     display: flex;
     margin-top: 2vh;
@@ -33,32 +33,35 @@
 
 
 .put-user-registerID-form input {
-    padding: 10px; 
-    margin-bottom: 20px; 
-    width: calc(100% - 20px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(100% - 20px);
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid rgba(31, 30, 30, 0.7); 
-    color: rgba(0, 0, 0, 0.7); 
+    border-bottom: 2px solid rgba(31, 30, 30, 0.7);
+    color: rgba(0, 0, 0, 0.7);
     margin: 4px;
     outline: none;
     transition: border-bottom-color 0.3s;
 }
+
 .put-user-registerID-form select {
-    padding: 10px; 
-    margin-bottom: 20px; 
-    width: calc(100% - 110px); 
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(100% - 110px);
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid rgba(31, 30, 30, 0.7); 
-    color: rgba(0, 0, 0, 0.7); 
+    border-bottom: 2px solid rgba(31, 30, 30, 0.7);
+    color: rgba(0, 0, 0, 0.7);
     margin: 4px;
     outline: none;
     transition: border-bottom-color 0.3s;
 }
+
 .put-user-registerID-form input:focus {
-    border-bottom-color:  rgba(31, 30, 30, 0.7);
+    border-bottom-color: rgba(31, 30, 30, 0.7);
 }
+
 .put-user-registerID-h2 {
     color: black;
     margin-bottom: 40px;
@@ -75,26 +78,91 @@
 
 
 .put-user-registerID-form button {
-    width: 12vw; 
+    width: 12vw;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     margin-top: 15px;
     margin-right: 18vw;
     margin-top: 2vh;
-  
-} 
-.add-user-register-option-active{
+
+}
+
+.add-user-register-option-active {
     width: 30vw;
     margin-left: 20vw;
 }
-.dd-user-register-form-active{
+
+.dd-user-register-form-active {
+    display: flex;
+    align-items: center;
+    /* Align items vertically centered */
     margin-right: 5vw;
-    /* margin-top: 2vh; */
+
+}
+
+
+.dd-user-register-form-active .user-register-toggle-switch {
+    margin-right: 10px; /* Add space between the toggle and the title */
+}
+
+.user-register-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+    margin-top: -1vh;
+}
+.user-register-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+}
+
+.user-register-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.user-register-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.user-register-slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    /* Adjust this value to center the knob */
+    bottom: 3px;
+    /* Adjust this value to center the knob */
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.user-register-slider {
+    background-color: var(--button);
+}
+
+input:checked+.user-register-slider:before {
+    transform: translateX(19px);
+    /* Adjust this value based on the width of the slider */
 }

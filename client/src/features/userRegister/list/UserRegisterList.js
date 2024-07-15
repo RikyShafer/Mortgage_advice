@@ -1,26 +1,34 @@
 
-import React, { useEffect } from 'react';
-import { useGetAllUsersQuery } from '../UserRegisterApiSlice';
+import React, { useEffect, useState } from 'react';
+import { useGetAllUsersQuery, useUpdateUserMutation } from '../UserRegisterApiSlice';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "./user-register-list.css";
 
 const UserRegisterList = () => {
     const { data: users, isLoading, isError, error, isSuccess } = useGetAllUsersQuery();
+    const [putUser, { isError: putIsError, error: putError, isSuccess: putIsSuccess, isLoading: putIsLoading }] = useUpdateUserMutation();
+
     const token = useSelector((state) => state.auth.token);
     const navigate = useNavigate();
-
+    const [isActive, setIsActive] = useState(false);
     useEffect(() => {
         if (token) {
             console.log("Fetching users...");
         }
-    }, [token]);
+        if (putIsSuccess) {
+            navigate("/registerList");
+        }
+    }, [token,putIsSuccess, navigate]);
 
     const goToPut = (userId) => {
         console.log("User ID:", userId);
         navigate(`/registerList/${userId}`);
     };
-
+    const handleToggleChange = (userId) => {
+        setIsActive(!isActive);
+        putUser({ _id: userId, active: !isActive });
+    };
     if (isLoading || !isSuccess) {
         return <h1>Loading...</h1>;
     }
@@ -28,7 +36,8 @@ const UserRegisterList = () => {
     if (isError) {
         return <h2>Error: {error.message}</h2>;
     }
-
+    if ( putIsLoading) return <h1>Loading...</h1>;
+    if ( putIsError) return <h1>Error: {JSON.stringify(putError)}</h1>;
     console.log("Users:", users);
 
     let usersData = users?.data || [];
@@ -55,7 +64,16 @@ const UserRegisterList = () => {
                         <p>דוא"ל - <a href={`mailto:${user.email}`} className="google-link">{user.email}</a></p>
                         <p>טלפון - <a href={`tel:${user.phone}`} className="google-link">{user.phone}</a></p>
                         <p>שאלה נוספת - {user.anotherQuestion}</p>
-                        <p>פעיל? - {user.active ? "פעיל" : "לא פעיל"}</p>
+                        <p>פעיל -
+                            <label className="toggle-switch">
+                                <input
+                                    type="checkbox"
+                                    checked={user.active}
+                                    onChange={(e) => handleToggleChange(user._id, e.target.checked)}
+                                />
+                                <span className="slider"></span>
+                            </label>
+                        </p>
                         <button className='update-details' onClick={() => goToPut(user._id)}>לעדכון פרטים</button>
                     </div>
                 ))}

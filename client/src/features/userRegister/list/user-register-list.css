@@ -67,3 +67,52 @@
     object-fit: cover;
     margin-bottom: 10px; /* Space below image */
 }
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px; /* Adjust this value to center the knob */
+    bottom: 3px; /* Adjust this value to center the knob */
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--button);
+}
+
+input:checked + .slider:before {
+    transform: translateX(19px); /* Adjust this value based on the width of the slider */
+}
+
+.register-list-Map .toggle-switch {
+    margin-right: 10px; /* Add space between the toggle and the title */
+}
