@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './about.css';
-import { useNavigate } from 'react-router-dom';
+import ContactAdd from '../contact/registeration/ContactAdd';
 
 const About = () => {
     const [satisfiedCustomers, setSatisfiedCustomers] = useState(0);
-    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
 
+    const openModal = () => {
+      setShowModal(true);
+    };
+  
+    const closeModal = () => {
+      setShowModal(false);
+    };
     useEffect(() => {
         const interval = setInterval(() => {
             // Update the state by calling setSatisfiedCustomers with the new value
@@ -23,9 +30,7 @@ const About = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const goToYouMadeContact = () => {
-        navigate(`/contact`);
-    };
+    
     const scrollToOurStory = () => {
         const ourStoryDiv = document.querySelector('.Our-story');
         ourStoryDiv.scrollIntoView({ behavior: 'smooth' });
@@ -105,9 +110,10 @@ const About = () => {
                 <img className='we-are-workingImg' src='./Rectangle 113.png' alt='' />
                 <img className='we-are-workingImg' src='./Rectangle 114.png' alt='' />
 
-                <button className='Homepage-button-White' onClick={goToYouMadeContact}> אני רוצה ליצור קשר
+                <button className='Homepage-button-White' onClick={openModal}> אני רוצה ליצור קשר
                 </button>
-
+            
+                    {showModal && <ContactAdd onClose={closeModal} />}
             </div>
         </div>
     );

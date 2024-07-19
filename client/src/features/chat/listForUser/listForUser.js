@@ -1,5 +1,3 @@
-
-// import React, { useEffect, useState } from 'react';
 import React, { useEffect } from 'react';
 import './list-for-user.css';
 import { useViewInChatQuery } from '../ChatApiSlice';
@@ -15,16 +13,12 @@ import { useNavigate } from 'react-router-dom';
 const ListForUser = () => {
     const [logout] = useSendLogoutMutation();
     const navigate = useNavigate();
-    // const [page, setPage] = useState(1);
     const page = 1;
     const limit = 4;
-    // const { data: chat, isLoading, isError, error, refetch } = useViewInChatQuery({ page, limit });
     const { data: chat, isLoading, isError, error } = useViewInChatQuery({ page, limit });
 
-    const { firstName,lastName,active } = useAuth(); 
+    const { firstName, lastName, active } = useAuth(); 
     const token = useSelector((state) => state.auth.token);
-
-
 
     useEffect(() => {
         if (token) {
@@ -32,22 +26,24 @@ const ListForUser = () => {
         }
         const handleLogout = async () => {
             if (!active) {
-                // If active is false, navigate away from personal area
                 await logout();
-                // After logout, navigate away from personal area
                 navigate("/inactive-account");
             }
         };
         handleLogout();
-    }, [token,active,logout,navigate]);
+    }, [token, active, logout, navigate]);
 
-    if (isLoading) {
-        return <h1>Loading...</h1>;
-    }
+    let chatsData = chat || [];
 
-    if (isError) {
-        return <h2>Error: {error.message}</h2>;
-    }
+    useEffect(() => {
+        if (!chatsData.length) {
+            const timer = setTimeout(() => {
+                navigate("/");
+            }, 1 * 30 * 1000); // 2 minutes in milliseconds
+
+            return () => clearTimeout(timer); // Clear timeout if component unmounts
+        }
+    }, [chatsData.length, navigate]);
 
     const formatTimestamp = (timestamp) => {
         const messageDate = new Date(timestamp);
@@ -66,52 +62,45 @@ const ListForUser = () => {
         }
     };
 
-    // const handlePageChange = (newPage) => {
-    //     setPage(newPage);
-    //     refetch();
-    // };
-
-    let chatsData = chat || [];
-
-    if (!chatsData.length) {
-        return <h2>No conversations found.</h2>;
+    if (isLoading) {
+        return <h1>Loading...</h1>;
     }
 
-    console.log(chatsData);
+    if (isError) {
+        return <h2>Error: {error.message}</h2>;
+    }
+
+    if (!chatsData.length) {
+        return <h2>הצאט לא פעיל </h2>;
+    }
 
     return (
         <div className="chat-containerU">
-            <div className="messages-list-titleU">ההתכתבות שלך עם שפר יועץ משכנאות      </div>
+            <div className="messages-list-titleU">ההתכתבות שלך עם שפר יועץ משכנאות</div>
             <div className="messages-listU">
-                {chatsData.map((chat) => {
-                    return (
-                        <div className="messagesMapU" key={chat._id}>
-                            <h1>השולח- {firstName } {lastName}</h1>
-                            <p> המקבל - {'שפר יעוץ משכנאות'}</p>
-
-                            <div>
-                                {chat.messages.map((m, index) => (
-                                    <div key={index}>
-                                        <h5 className={m.sender._id === chat.user2._id ? ' receiver-TimestampU' : 'sender-TimestampU'}>{formatTimestamp(m.timestamp)}</h5>
-                                        <p className={m.sender._id === chat.user2._id ? 'receiver-messageU' : 'sender-messageU'}>
+                {chatsData.map((chat) => (
+                    <div className="messagesMapU" key={chat._id}>
+                        <h1>השולח- {firstName} {lastName}</h1>
+                        <p> המקבל - {'שפר יעוץ משכנאות'}</p>
+                        <div>
+                            {chat.messages.map((m, index) => (
+                                <div key={index}>
+                                    <h5 className={m.sender._id === chat.user2._id ? 'receiver-TimestampU' : 'sender-TimestampU'}>
+                                        {formatTimestamp(m.timestamp)}
+                                    </h5>
+                                    <p className={m.sender._id === chat.user2._id ? 'receiver-messageU' : 'sender-messageU'}>
                                         {m.text}
                                         {m.sender._id === chat.user2._id && (
                                             <DeletingMessage conversationId={chat._id} messageId={m._id} />
                                         )}
                                     </p>
-                                    </div>
-                                ))}
-                            </div> 
-                            <ContinueChatting conversationId={chat._id} className={"user"} onMessageSent={() => console.log('Message sent!')} />
+                                </div>
+                            ))}
                         </div>
-                    );
-                })}
+                        <ContinueChatting conversationId={chat._id} className={"user"} onMessageSent={() => console.log('Message sent!')} />
+                    </div>
+                ))}
             </div>
-            {/* <div className="paginationU">
-                <button onClick={() => handlePageChange(page - 1)} disabled={page === 1}>Previous</button>
-                <span>Page {page}</span>
-                <button onClick={() => handlePageChange(page + 1)}>Next</button>
-            </div> */}
         </div>
     );
 };

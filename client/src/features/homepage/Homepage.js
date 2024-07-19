@@ -118,7 +118,7 @@ const Homepage = () => {
 
                         <button className='Homepage-button-White' onClick={openModal}> אני רוצה ליצור קשר 
                     </button>
-                    {showModal && <ContactAdd onClose={closeModal} />}
+                    {/* {showModal && <ContactAdd onClose={closeModal} />} */}
                     </div>
                 </div>
                 <div className='Why-important-hire-consultant'>
