@@ -78,7 +78,7 @@ const Homepage = () => {
             <img className={expanded ? 'Wrapping-squareImg' : 'Wrapping-squareImg1'} src='./businessman.jpg' alt='' />
             <div className={expanded ? 'Wrapping-square1' : 'Wrapping-square'} >
 
-                <div className='White-background'>
+                <div className={expanded ? 'White-background1' : 'White-background'} > 
                     <h2 className='overture-white'> מהו תהליך ייעוץ משכנתא?  </h2>
                     <div className='from-white-moment'>
                         <div className='mumble-White-1'>

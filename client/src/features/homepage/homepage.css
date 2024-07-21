@@ -355,6 +355,10 @@
   margin-top: 5vh;
   margin-bottom: -12vh;
 }
+.White-background1 {
+  margin-top: 5vh;
+  margin-bottom: -12vh;
+}
 
 .from-white-moment {
   margin-right: -10vw;
@@ -771,17 +775,62 @@ margin-top: 1vh;
   text-align: center;
   align-items: center;
 }
+.overture-white {
 
+  font-size: 14px;
+  line-height: 15px;
+  text-align: right;
+  margin-right: -6vw;
+  color: #000000;
+  
+  }
 .Wrapping-squareImg,.Wrapping-squareImg1 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   opacity: 0.3;/* Adjust this value to make the image more transparent */
   height: 480px;
   margin-top: -15vh;
 }
+.Wrapping-squareImg{
+  height: 1680px;
+}
+.Why-important-hire-consultant-overture {
+  font-size: 14px;
+        line-height: 15px;
+        text-align: right;
+        color: #000000;
+        margin-right: -4vw;
+        margin-top: 12vh;
+}
+.Homepage-button-mumble-overture {
+  width: 80vw;
+  margin-right: -6vw;
+  font-size: 15px;
+  line-height: 15px;
+  margin-top: 3vh;
+}
+.Homepage-mumble-overture{
+  width: 80vw;
+  margin-right: -6vw;
+  font-size: 13px;
+    line-height: 15px;
+}
+.Homepage-mumble-overture-h3{
+  margin-right: -6vw;
+  margin-top: -6vh;
+  font-size: 14px;
+  line-height: 15px;
+  width: 80vw;
+  margin-bottom: 3vh;
+}
+.White-background1 {
+  margin-top: 110vh;
+  margin-bottom: -12vh;
+}
 .White-background {
   margin-top: 150vh;
   margin-bottom: -12vh;
 }
+
 
 .Homepage-button-mumble-White {
 font-weight: 400;
@@ -923,15 +972,7 @@ margin-right: 25vw;
 .FaHandshakeAngle {
   margin-right: 15vw;
 }
-.overture-white {
 
-font-size: 14px;
-line-height: 15px;
-text-align: right;
-
-color: #000000;
-
-}
 
 .from-white-moment {
   margin-top: 5vh;
@@ -949,7 +990,9 @@ color: #000000;
 .Why-important-hire-consultant.expanded .from-overture-moment{
   display: block;
 }
-
+.read-more-Homepage{
+  display: none;
+}
 .read-more-Homepage-mobile{
   width: 38vw;
   margin-top: 7vh;
