@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   HiMail
 } from "react-icons/hi";
@@ -9,6 +9,16 @@ import { BiLogoFacebook, BiLogoInstagram, BiLogoWhatsapp, BiMap } from "react-ic
 import "./footer.css"
 import { NavLink } from 'react-router-dom';
 const Footer = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=7673297@gmail.com&su=Contact%20Us&body=Hello,%20I%20would%20like%20to%20inquire%20about...`
   const phoneNumber = '0522279392';
   const phoneNumber1 = '0505905078';
@@ -23,8 +33,8 @@ const Footer = () => {
       <div className='footer-text'> @ All Rikights reserved.</div> */}
 
       <h1 className='footer-address'>
-      <BiMap /> כתבתינו:
-        <NavLink to={"https://www.google.com/maps/place/%D7%9E%D7%A1%D7%99%D7%9C%D7%AA+%D7%99%D7%95%D7%A1%D7%A3+9,+%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F+%D7%A2%D7%99%D7%9C%D7%99%D7%AA%E2%80%AD/@31.9301613,35.0467891,17z/data=!3m1!4b1!4m6!3m5!1s0x1502d2a18aec3c71:0xcece53b5cc888d90!8m2!3d31.9301613!4d35.0442195!16s%2Fg%2F12hr4dw8h?hl=iw&entry=ttu"} target="_blank">  מסילת יוסף 9</NavLink>
+      <BiMap />  {isMobile ? '' :'כתבתינו:'} 
+        <NavLink to={"https://www.google.com/maps/place/%D7%9E%D7%A1%D7%99%D7%9C%D7%AA+%D7%99%D7%95%D7%A1%D7%A3+9,+%D7%9E%D7%95%D7%93%D7%99%D7%A2%D7%99%D7%9F+%D7%A2%D7%99%D7%9C%D7%99%D7%AA%E2%80%AD/@31.9301613,35.0467891,17z/data=!3m1!4b1!4m6!3m5!1s0x1502d2a18aec3c71:0xcece53b5cc888d90!8m2!3d31.9301613!4d35.0442195!16s%2Fg%2F12hr4dw8h?hl=iw&entry=ttu"} target="_blank">  {isMobile ? 'כתובת בעסק' : 'מסילת יוסף 9'}</NavLink>
       </h1>
       <h1 className='studio'>
         אפיון ועיצוב אתר |

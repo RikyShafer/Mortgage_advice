@@ -74,6 +74,22 @@
   text-align: center;
 }
 
+.Who-we-are-Melal-button {
+  width: 7vw;
+  height: 5vh;
+  padding: 5px;
+  background-color: var(--button);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-right: 18vw;
+  text-align: center;
+}
 .Vector {
   margin-top: 15vh;
   position: relative;
@@ -392,7 +408,7 @@
 
 }
 
-.Homepage-button-White {
+.Homepage-button-White-Homepage {
   width: 10vw;
   height: 5vh;
   padding: 5px;
@@ -554,7 +570,7 @@
   gap: 10px;
 }
 
-.customers-White-1 {
+.customers-White-1,.customers-White-2, .customers-White-3 {
   margin-top: -23vh;
   width: 20vw;
   margin-right: 8vw;
@@ -572,7 +588,6 @@
 
 .Homepage-customers-White-name {
   width: 20vw;
-
   margin-top: 5vh;
   font-size: 20px;
   line-height: 21px;
@@ -604,4 +619,355 @@
   cursor: pointer;
   margin-bottom: 5vh;
   margin-right: 7vw;
+}
+.read-more-Homepage-mobile{
+  display: none;
+
+}
+
+@media (max-width: 768px) {
+
+  .from-blue-moment {
+    padding-top: 10vh;
+}
+
+  .VectorImg,.Vector{
+    display: none;
+  }
+  .overture1{
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+text-align: right;
+color: #000000;
+width: 60vw;
+  }
+  .mumble-of-the-opening1,.mumble-of-the-opening2{
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: right;
+
+color: #000000;
+width: 60vw;
+  }
+.Homepage-button-mumble{
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: right;
+color: #1A7D99;
+width: 90vw;
+
+}
+.Homepage-button{
+
+align-items: center;
+margin-right: 25vw;
+width: 20vw;
+}
+
+.Who-we-are {
+ 
+  margin-top: -13vh;
+}
+.Who-we-areOrange1 {
+width: 24.64px;
+height: 23.49px;
+margin-top: -15vh;/* כתום אלמנטים */
+background: #F0B918;
+box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
+transform: rotate(-30.06deg);
+
+
+}
+
+.Who-we-areOrange2 {
+  width: 29px;
+  height: 29px;
+  position: relative;
+  background-color: #F0B918;
+  border-radius: 9px;
+  transform: rotate(-31deg);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-right: 39vw;
+  margin-top: 6vh;
+}
+
+.Who-we-are-Blue1 {
+  width: 27px;
+  height: 27px;
+  background-color: #1A7D99;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-31.36deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 37vw;
+  margin-top: -13.5vh;
+}
+
+.Who-we-are-Blue2 {
+  width: 14.61px;
+  height: 14.61px;
+  background-color: #1A7D99;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-31.36deg);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 11vw;
+  margin-top: 8vh;
+}
+
+.Who-we-areOrange3 {
+  width: 13.21px;
+  height: 13.21px;
+  position: relative;
+  background-color: #F0B918;
+  border-radius: 3px;
+  transform: rotate(-31deg);
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  margin-right: 44vw;
+  margin-top: -10vh;
+}
+.Who-we-areImg {
+  width: 210px;
+  height: 178px;
+  margin-right: 5vw;
+
+}
+
+.Who-we-are-Melal1{
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+text-align: right;
+
+color: #000000;
+
+
+}
+.Who-we-are-Melal2{
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: right;
+color: #000000;
+width: 40vw;
+
+}
+.Who-we-are-Melal3{
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: right;
+margin-top: 1vh;
+
+}
+.Who-we-are-Melal-button {
+  width: 17vw;
+  text-align: center;
+  align-items: center;
+}
+
+.Wrapping-squareImg,.Wrapping-squareImg1 {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  opacity: 0.3;/* Adjust this value to make the image more transparent */
+  height: 480px;
+  margin-top: -15vh;
+}
+.White-background {
+  margin-top: 150vh;
+  margin-bottom: -12vh;
+}
+
+.Homepage-button-mumble-White {
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: right;
+color: #000000;
+margin-right: 25vw;
+width: 60vw;
+
+}
+
+
+.mumble-of-the-openingWhite {
+font-weight: 700;
+font-size: 12px;
+line-height: 13px;
+text-align: right;
+color: #1A7D99;
+margin-top: 2vh;
+margin-right: 25vw;
+
+}
+.Wrapping-square1,.Wrapping-square {
+  background-color: rgba(255, 255, 255, 0);
+  width: 120vw;
+
+}
+.Homepage-button-White-Homepage {
+  display: none;
+
+
+}
+.overture-white-squares {
+  margin-top: 20vh;
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+/* identical to box height */
+text-align: right;
+color: #000000;
+}
+.from-white-squares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: -12vh;
+}
+.Homepage-button-squares1{
+  align-items: center;
+margin-right: 40vw;
+width: 20vw;
+margin-top: -15px;
+}
+.squares-White-1 {
+  width: 36vw;
+  height: 16vh;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-bottom: 5vh;
+  margin-right: 6.5vw;
+}
+.Homepage-squares-White {
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+text-align: center;
+color: #000000;
+margin-right: 6vw;
+margin-top: 10vh;
+}
+.Iconswhite{
+  width: 35px;
+  height: 35px;
+}
+
+/* המלצות עלינו */
+.overture-white-customers {
+  margin-top: 4vh;
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+text-align: right;
+color: #000000;
+
+
+}
+
+.from-white-customers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.customers-White-1 {
+  margin-top: -57vh;
+  width: 60vw;
+  margin-right: 21vw;
+}
+.customers-White-2 {
+  margin-top: -38vh;
+  width: 60vw;
+  margin-right: 21vw;
+}
+.customers-White-3 {
+  margin-top: -16vh;
+  width: 60vw;
+  margin-right: 21vw;
+}
+.Homepage-customers-White {
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+text-align: right;
+color: #000000;
+margin-top: -1vh;
+}
+
+.Homepage-customers-White-name {
+  width: 40vw;
+  margin-top: 3vh;
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+text-align: right;
+color: #000000;
+margin-right: 25vw;
+  text-align: left;
+}
+
+.Homepage-button-squares2 {
+  align-items: center;
+  margin-right: 30vw;
+  width: 40vw;
+  margin-top: -25px;
+  height: 4vh;
+}
+.FaHandshakeAngle {
+  margin-right: 15vw;
+}
+.overture-white {
+
+font-size: 14px;
+line-height: 15px;
+text-align: right;
+
+color: #000000;
+
+}
+
+.from-white-moment {
+  margin-top: 5vh;
+
+}
+
+
+
+.Why-important-hire-consultant-overture,
+.from-overture-moment {
+  display: none;
+}
+
+.Why-important-hire-consultant.expanded .Why-important-hire-consultant-overture,
+.Why-important-hire-consultant.expanded .from-overture-moment{
+  display: block;
+}
+
+.read-more-Homepage-mobile{
+  width: 38vw;
+  margin-top: 7vh;
+  text-align: right;
+  color: #000000;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5vh;
+  margin-right: 37vw;
+  display: block;
+}
+.homepage {
+  overflow: hidden;
+}
+.homepage {
+  margin-top: 0; /* או ערך קטן יותר */
+}
+
 }
