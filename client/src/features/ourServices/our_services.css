@@ -1,4 +1,4 @@
-.They-tell-us-title{
+.They-tell-us-titleS{
 
 font-weight: 700;
 font-size: 36px;
@@ -57,3 +57,26 @@ margin-bottom: 4vh;
 }
 
 
+
+@media (max-width: 768px) {
+
+    .They-tell-us-titleS{
+        margin-top: 15vh;
+        margin-right: 6vw;
+font-weight: 700;
+font-size: 14px;
+line-height: 15px;
+margin-top: 10vh;
+
+    }
+    .They-tell-us-button-w,.They-tell-us-button-b{
+        width: 80vw;
+        height: 6vh;
+        margin-bottom: 2vh;
+
+    }
+    .They-tell-us-Caption{
+        width: 60vw;
+        margin-right: 15vw;
+    }
+}

@@ -24,6 +24,7 @@
     padding-top: 20px;
 }
 
+
 .businesspersonImg {
     width: 100%;
     filter: blur(1px);
@@ -35,14 +36,15 @@
     margin-right: 13.5vw;
     margin-top: 41vh;
     width: 38vw;
-  text-align: right;
-  color: #000000;
-  text-align: left;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 5vh;
+    text-align: right;
+    color: #000000;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5vh;
 }
+
 
 .Our-story {
     display: flex;
@@ -173,4 +175,141 @@
     margin-top: 15vh;
     margin-right: 45vw;
     text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .businesspersonImg {
+        height: 25vh;
+    }
+
+    .businesspersonImgContainer {
+
+        margin-top: -9vh;
+        height: 80vh;
+        margin-bottom: -10vh;
+
+    }
+
+    .triangleMask {
+        font-size: 14px;
+        line-height: 15px;
+        color: #000000;
+        margin-top: 1vh;
+    }
+
+    .read-more {
+        margin-right: 32.5vw;
+        margin-top: 1vh;
+        width: 24vw;
+    }
+
+    .mobile-button svg {
+        width: 10px;
+        /* Adjust size as needed */
+        height: 10px;
+        /* Adjust size as needed */
+    }
+
+    .Our-story {
+        display: block;
+        /* Switch to block layout */
+        gap: 0;
+        /* Remove the gap */
+        margin-right: 0;
+        /* Remove the right margin */
+        margin-top: 5vh;
+        /* Adjust the top margin for better spacing */
+    }
+
+    .Our-story1 {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 15px;
+        text-align: right;
+        color: #000000;
+        margin-right: 6vw;
+        margin-bottom: 4vh;
+margin-top: -3vh;
+    }
+
+    .Our-story2,
+    .Our-story3 {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: right;
+        width: 70vw;
+        margin-right: 12vw;
+
+
+    }
+
+    .Why-choose-us {
+        display: block;
+        /* Switch to block layout */
+        gap: 0;
+        /* Remove the gap */
+        margin-right: 0;
+        /* Remove the right margin */
+        margin-top: 5vh;
+        /* Adjust the top margin for better spacing */
+    }
+
+    .Why-choose-us1 {
+        font-size: 14px;
+        line-height: 15px;
+        margin-right: 6vw;
+    }
+    .Why-choose-us2{
+        width: 70vw;
+font-weight: 400;
+font-size: 12px;
+line-height: 12px;
+margin-right: 12vw;
+    }
+.Why-choose-us2 h1 {
+    width: 70vw;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+}
+.Satisfied-customers {
+    height: auto; /* Adjust height for better fit */
+    font-size: 24px; /* Smaller font size for mobile */
+    line-height: 28px; /* Adjust line height */
+    margin-top: 5vh; /* Adjust margin */
+    height: 12vh;
+}
+
+.we-are-working {
+    margin-top: 5vh; /* Adjust top margin */
+    margin-bottom: 0; /* Remove negative bottom margin */
+}
+
+.we-are-working h1 {
+font-size: 14px;
+line-height: 15px;
+}
+
+.we-are-workingImg {
+    width: 12vw; /* Adjust width */
+    margin-top: 3vh; /* Adjust top margin */
+    margin-right: 2vw; /* Adjust right margin */
+    margin-left: 2vw;
+    height: 3vh;
+}
+
+.Homepage-button-White {
+    width: 40vw; /* Adjust width for mobile */
+    height: 4vh; /* Adjust height for mobile */
+    margin-top: 5vh; /* Adjust top margin */
+    align-items: center;
+    margin-right: 30vw;
+}
+    .about {
+        overflow: hidden;
+        margin-bottom: 5vh;
+        margin-top: 0;
+    }
 }
