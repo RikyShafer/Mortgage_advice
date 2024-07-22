@@ -5,39 +5,31 @@
     display: flex; 
     justify-content: center; 
     align-items: flex-end; 
-
 }
 .login-page-form {
-    height:80vh; 
+    height: 80vh; 
     background-color: white;
     padding: 20px; 
     border-radius: 10px;
-
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
-    /* display: flex;
-    flex-direction: column; 
-    flex-wrap: wrap; */
-
 }
 
-.div-register{
+.div-register {
     flex-direction: row;
     display: flex;
 }
 
-.login-page-form-img{
+.login-page-form-img {
     display: flex;
     flex-direction: row; 
     background-color: white;
     border-radius: 10px;
-    height:80vh; 
-
+    height: 80vh; 
     margin-bottom: 15vh;
- position: relative;
- margin-top: 50vh;
- 
-
+    position: relative;
+    margin-top: 50vh;
 }
+
 .login-page-form input {
     padding: 10px; 
     margin-bottom: 20px; 
@@ -49,11 +41,10 @@
     margin: 4px;
     outline: none;
     transition: border-bottom-color 0.3s;
-
 }
 
 .login-page-form input:focus {
-    border-bottom-color:  rgba(31, 30, 30, 0.7);
+    border-bottom-color: rgba(31, 30, 30, 0.7);
 }
 
 .login-page-form button,
@@ -61,27 +52,26 @@
     width: 15vw; 
     height: 5vh;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-
     margin: 0 10px; /* כדי ליצור רווח בין הכפתורים */
     margin-top: 15px;
-  
 } 
+
 .button-container-Login {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 4vh;
 }
+
 .login-page-img {
-    height:80vh; 
+    height: 80vh; 
     border-radius: 10px;
 }
-
 
 .login-page-form-h2 {
     color: black;
@@ -94,4 +84,49 @@
     margin-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+@media (max-width: 768px) { 
+    .login-page-form-img, .login-page-form {
+        height: auto;
+        margin: 0;
+        flex-direction: column;
+        margin-top: 35vh;
+
+    }
+    .login-page-form-img{
+        margin-bottom: 5vh;
+    }
+    .div-register {
+        flex-direction: column;
+    }
+    .login-page-img {
+        height: 20vh;
+        width:50vw ;
+        margin-right: 15vw;
+    }
+    .login-page-form-h2 {
+        margin-top: -25vh;
+
+    }
+    .login-page {
+        margin-top: -10vh;
+        background-color: rgba(0, 0, 0, 0.523); 
+        overflow: hidden;
+        margin-top: 0;
+    }
+
+    .button-container-Login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-page-form button, .login-page-form-button {
+        width: 50vw;
+        margin-top: 10px; /* Adjust this value as needed */
+        height: 4vh;
+        display: block;
+    }
+
 }

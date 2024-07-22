@@ -1,4 +1,4 @@
-.contact-us-img{
+.contact-us-img {
     width: 100%;
     height: 50vh;
 
@@ -15,31 +15,36 @@
     text-align: right;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 
-  }
-  .contact-us-text-page{
+}
+
+.contact-us-text-page {
     margin-right: 7vw;
     width: 40vw;
-  }
-  .contact-us-title{
+}
+
+.contact-us-title {
     margin-bottom: 2vh;
-  }
-  .contact-us-title1{
+}
+
+.contact-us-title1 {
     margin-right: 3vw;
     margin-bottom: 3vh;
-  }
-.contact-us-address{
+}
+
+.contact-us-address {
     font-weight: 400;
     font-size: 12px;
     line-height: 21px;
     text-align: right;
     font-weight: bold;
-    margin-right:5vw;
+    margin-right: 5vw;
 
 }
-.contact-us-contactus1{
+
+.contact-us-contactus1 {
     font-weight: 400;
     font-size: 12px;
     line-height: 21px;
@@ -48,53 +53,66 @@
     margin-right: 2vw;
 
 }
-.contact-us-contactus-mail{
+
+.contact-us-contactus-mail {
     font-weight: 400;
     font-size: 12px;
     line-height: 21px;
     font-weight: bold;
     margin-right: 5vw;
-    justify-content: center; /* מוודא שהפריטים מתחילים בקצה השמאלי */
+    justify-content: center;
+    /* מוודא שהפריטים מתחילים בקצה השמאלי */
     text-align: center;
 }
+
 .contact-info-row {
     display: grid;
-    grid-template-columns: auto auto ; /* קובע שלוש עמודות שמתאימות לתוכן */
-    justify-content: start; /* מוודא שהפריטים מתחילים בקצה השמאלי */
+    grid-template-columns: auto auto;
+    /* קובע שלוש עמודות שמתאימות לתוכן */
+    justify-content: start;
+    /* מוודא שהפריטים מתחילים בקצה השמאלי */
     text-align: center;
 }
-.contact-us2{
+
+.contact-us2 {
     display: flex;
     margin-top: 10vh;
     margin-bottom: 20vh;
 }
-.contact-us-text-contact{
+
+.contact-us-text-contact {
     margin-top: -15vh;
     width: 50vw;
     height: 70vh;
     box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
-margin-left: 7vw;
-background-color: white;
+    margin-left: 7vw;
+    background-color: white;
 }
-.contact-us-register-h2{
+
+.contact-us-register-h2 {
     margin-top: 5vh;
 }
-.contact-us-register-form{
+
+.contact-us-register-form {
     margin-right: 5vw;
 }
-.div-register-contact-us{
+
+.div-register-contact-us {
     margin-right: 2vw;
 }
-.contact-us-register-form-input{
+
+.contact-us-register-form-input {
     width: 32vw;
     height: 5vh;
     margin-bottom: 1vh;
 }
-.contact-us-register-form-input-anotherQuestion{
+
+.contact-us-register-form-input-anotherQuestion {
     width: 32vw;
     height: 10vh;
 }
+
 /* סגנון לפלאס-הולדר של input */
 .contact-us-register-form-input::placeholder {
     font-family: "Noto Sans Hebrew", sans-serif;
@@ -110,21 +128,23 @@ background-color: white;
     color: #888;
     font-weight: normal;
 }
-.contact-us-button{
-    width: 32vw; 
+
+.contact-us-button {
+    width: 32vw;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     margin-top: 15px;
     margin-right: 2vw;
 }
-.div-register-contact-us{
+
+.div-register-contact-us {
     margin-top: 2vh;
 }
 
@@ -133,38 +153,172 @@ background-color: white;
 /* מיכל ההורים */
 .contact-info-row1 {
     display: flex;
-    justify-content: center; /* מרכז את כל המיכל */
-    margin-top: 20px; /* מרווח מעל למיכל */
+    justify-content: center;
+    /* מרכז את כל המיכל */
+    margin-top: 20px;
+    /* מרווח מעל למיכל */
 }
 
 /* מעטפת המיכלים */
 .contact-info-wrapper1 {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
 /* מיכל השורות העליונות */
 .contact-info1 {
     display: flex;
-    width: 100%; 
-    margin-bottom: 10px; 
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .contact-us-address1,
 .contact-us-contactus11 {
-    flex: 1; 
-    text-align: center; 
-    margin: 0 -5px; 
+    flex: 1;
+    text-align: center;
+    margin: 0 -5px;
     font-family: "Noto Sans Hebrew", sans-serif;
     font-size: 14px;
-    width: 16vw;   
+    width: 16vw;
 
 }
 
 .contact-us-contactus-mail1 {
-    text-align: center; 
-    margin-top: 10px; 
+    text-align: center;
+    margin-top: 10px;
     font-family: "Noto Sans Hebrew", sans-serif;
     font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+    /* General styles for ContactUs component */
+    .contact-us-img {
+        width: 100%;
+        height: 30vh;
+        margin-top: -5vh;
+    }
+
+    .contact-us-text {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-top: -30vh;
+    }
+
+    .contact-us2 {
+        flex-direction: column;
+        margin-top: 5vh;
+        margin-bottom: 10vh;
+    }
+
+    .contact-us-text-page {
+        margin: 0 5vw;
+        width: 90vw;
+    }
+
+    .contact-us-title,
+    .contact-us-title1 {
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 2vh;
+    }
+
+    .contact-info-row1 {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .contact-info-wrapper1 {
+        align-items: normal;
+    }
+
+    .contact-info1 {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    contact-us-address1,
+    .contact-us-contactus11 {
+        margin: 0;
+        text-align: center;
+        width: 65vw;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .contact-us-contactus-mail1 {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .contact-us-text-contact {
+        margin-top: 5vh;
+        width: 90vw;
+        height: auto;
+        box-shadow: none;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: transparent;
+    }
+
+    .contact-us-register-h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        line-height: 15px;
+        color: var(--button);
+        margin-top: 1vh;
+
+    }
+
+    .contact-us-register-form {
+        margin: 0 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-register-contact-us {
+        margin-top: 2vh;
+        width: 100%;
+    }
+
+    .contact-us-register-form-input,
+    .contact-us-register-form-input-anotherQuestion {
+        width: 80vw;
+        margin-bottom: 1vh;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: 1px solid #BFBFBF;
+        background-color: #F9F9F9;
+    }
+
+    .contact-us-register-form-input-anotherQuestion {
+        height: 100px;
+        resize: none;
+    }
+
+    .contact-us-button {
+        width: 80vw;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: var(--button);
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+    }
+
 }
