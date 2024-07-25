@@ -1,12 +1,15 @@
 /* user-register-list.css */
 
-.register-list-title {
-    color: black;
+.register-list-title-user {
     font-size: 36px;
     background-color: white;
     padding: 20px;
     border-bottom: 3px solid rgba(31, 30, 30, 0.7);
-    text-align: center; /* Center align the title */
+    text-align: center;
+    /* Center align the title */
+    color: #1A7D99;
+    font-weight: 700;
+
 }
 
 .register-list {
@@ -15,29 +18,37 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: grid;
-    grid-gap: 20px; /* Space between grid items */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
-    justify-items: center; /* Center align grid items */
+    grid-gap: 20px;
+    /* Space between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive grid layout */
+    justify-items: center;
+    /* Center align grid items */
 }
 
 .register-list-Map {
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9; /* Light gray background */
+    background-color: #f9f9f9;
+    /* Light gray background */
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
     border-radius: 10px;
-    transition: transform 0.2s ease-in-out; /* Smooth transform animation */
-    max-width: 300px; /* Limit width for responsiveness */
+    transition: transform 0.2s ease-in-out;
+    /* Smooth transform animation */
+    max-width: 300px;
+    /* Limit width for responsiveness */
     font-size: 18px;
 }
 
 .register-list-Map:hover {
-    transform: translateY(-5px); /* Lift card on hover */
+    transform: translateY(-5px);
+    /* Lift card on hover */
 }
 
 .update-details {
-    margin-top: 10px; /* Add space between details and button */
+    margin-top: 10px;
+    /* Add space between details and button */
     padding: 5px;
     background-color: var(--button);
     color: rgb(0, 0, 0);
@@ -65,7 +76,8 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px; /* Space below image */
+    margin-bottom: 10px;
+    /* Space below image */
 }
 
 .toggle-switch {
@@ -98,21 +110,48 @@
     content: "";
     height: 15px;
     width: 15px;
-    left: 3px; /* Adjust this value to center the knob */
-    bottom: 3px; /* Adjust this value to center the knob */
+    left: 3px;
+    /* Adjust this value to center the knob */
+    bottom: 3px;
+    /* Adjust this value to center the knob */
     background-color: white;
     transition: .4s;
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: var(--button);
 }
 
-input:checked + .slider:before {
-    transform: translateX(19px); /* Adjust this value based on the width of the slider */
+input:checked+.slider:before {
+    transform: translateX(19px);
+    /* Adjust this value based on the width of the slider */
 }
 
 .register-list-Map .toggle-switch {
-    margin-right: 10px; /* Add space between the toggle and the title */
+    margin-right: 10px;
+    /* Add space between the toggle and the title */
+}
+
+@media (max-width: 768px) {
+    .register-list-title-user {
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 18px;
+        text-align: right;
+    }
+
+    .update-details {
+        width: 40vw;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: var(--button);
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+    }
 }

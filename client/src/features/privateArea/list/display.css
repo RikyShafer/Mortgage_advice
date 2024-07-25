@@ -3,7 +3,7 @@
     width: 120px;
     height: 120px;
 } */
-.display-user-details{
+.display-user-details {
     padding: 5px;
     margin-right: 60px;
 }
@@ -16,54 +16,61 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    position: relative; /* Add this line */
+    position: relative;
+    /* Add this line */
 }
 
 .display-user-put-details {
-    position: absolute; /* Add this line */
-    top: 43vh; 
+    position: absolute;
+    /* Add this line */
+    top: 43vh;
     left: 86vw;
-    background-color: transparent; /* Add other styles as needed */
+    background-color: transparent;
+    /* Add other styles as needed */
     border: none;
     cursor: pointer;
 }
-.display-user-put{
-    width: 20vw; 
+
+.display-user-put {
+    width: 20vw;
     height: 5vh;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     margin-top: 15px;
     margin-right: 5.5vw;
     text-align: center;
 }
 
 
-.buttonUserCorrespondence{
+.buttonUserCorrespondence {
     display: flex;
 }
+
 .correspondence {
-    margin-right: 30vw; 
-    border: 2px solid rgb(189, 189, 189); 
-    padding: 10px; 
+    margin-right: 30vw;
+    border: 2px solid rgb(189, 189, 189);
+    padding: 10px;
     border-radius: 10px;
     width: 35vw;
     margin-top: -5vw;
 
 }
-.iconBsEnvelope{
-    margin-right: 1vw; 
+
+.iconBsEnvelope {
+    margin-right: 1vw;
 
 }
-.director{
-    border: 1px solid rgb(44, 43, 43); 
-    padding: 10px; 
+
+.director {
+    border: 1px solid rgb(44, 43, 43);
+    padding: 10px;
     border-radius: 10px;
     max-width: 30vw;
     width: max-content;
@@ -72,43 +79,51 @@
     text-align: left;
     margin-right: auto;
 }
-.directorDiv :hover{
+
+.directorDiv :hover {
     background-color: var(--button);
+    max-width: 30vw;
+    width: max-content;
+
 }
-.client{
-    border: 1px solid rgb(189, 189, 189); 
-    padding: 10px; 
+
+.client {
+    border: 1px solid rgb(189, 189, 189);
+    padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
-  max-width: 30vw;
-  width: max-content;
-  align-self: flex-end;
-  text-align: right;
-  margin-left: auto;
+    max-width: 30vw;
+    width: max-content;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
 }
-.clientDiv :hover{
+
+.clientDiv :hover {
     background-color: var(--button);
 }
+
 /* .directorDiv{
     margin-right: 3.5vw; 
 } */
-.correspondence-button{
-    width: 13vw; 
+.correspondence-button {
+    width: 13vw;
     height: 5vh;
     padding: 5px;
-    background-color:var(--button);
+    background-color: var(--button);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     margin-top: 15px;
     margin-right: 9.5vw;
     text-align: center;
 }
-.timestamp{
+
+.timestamp {
     font-size: 6px;
 }
 
@@ -119,19 +134,20 @@
 }
 
 .continue-chatting-button {
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 10px;
+    /* Adjust the margin as needed */
 }
 
-.side-bar-logout{
+.side-bar-logout {
     margin: 5px 0px;
     display: flex;
     align-items: center;
     cursor: pointer;
     border-radius: 10px;
-   border: none;
+    border: none;
     background: none;
     color: var(--text);
-        width: 100%;
+    width: 100%;
     margin-right: 85vw;
     font-size: 14px;
 }
