@@ -91,6 +91,11 @@ const UserRegisterSchema = new mongoose.Schema({
         required:true,
         default:false
     },
+    view:{//האם המנהל צפה בלקוח כבר 
+        type:Boolean,
+        required:true,
+        default:false
+    },
     image:{
         type:String,
     },

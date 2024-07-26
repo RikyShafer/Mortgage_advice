@@ -163,32 +163,50 @@ const getUserRegisterById = async (req, res) => {
     // חלץ מזהה משתמש מפרמטרי הבקשה
     const { id } = req.params;
 
-    /// מצא משתמש לפי מזהה והמר לאובייקט JavaScript רגיל
-    const userRegister = await UserRegister.findById(id).lean()
+    try {
+        // מצא משתמש לפי מזהה והמר לאובייקט JavaScript רגיל
+        const userRegister = await UserRegister.findById(id).lean();
 
-    // בדוק אם המשתמש קיים; אם לא, החזר תגובת שגיאה
-    if (!userRegister) {
-        return res.status(400).json({
-            error: true,
-            message: 'No userRegister found',
-            data: null
-        })
-    }
-
-    // החזר תגובת הצלחה עם פרטי המשתמש
-    res.status(201).json({
-        error: false,
-        message: "",
-        data: {
-            _id: userRegister._id,
-            firstName: userRegister.firstName,
-            lastName: userRegister.lastName,
-            email: userRegister.email,
-            active:userRegister.active,
-            phone:userRegister.phone
+        // בדוק אם המשתמש קיים; אם לא, החזר תגובת שגיאה
+        if (!userRegister) {
+            return res.status(404).json({
+                error: true,
+                message: 'No userRegister found',
+                data: null
+            });
         }
-    })
-}
+
+        // עדכן את הסטטוס של המשתמש ל-true
+        const updatedUserRegister = await UserRegister.findByIdAndUpdate(
+            id,
+            { $set: { view: true } },
+            { new: true } // מחזיר את המסמך המעודכן
+        ).lean();
+
+        // החזר תגובת הצלחה עם פרטי המשתמש המעודכנים
+        res.status(200).json({
+            error: false,
+            message: "",
+            data: {
+                _id: updatedUserRegister._id,
+                firstName: updatedUserRegister.firstName,
+                lastName: updatedUserRegister.lastName,
+                email: updatedUserRegister.email,
+                active: updatedUserRegister.active,
+                phone: updatedUserRegister.phone
+            }
+        });
+
+    } catch (error) {
+        // טיפול בשגיאות
+        res.status(500).json({
+            error: true,
+            message: 'Internal server error',
+            data: null
+        });
+    }
+};
+
 
 // פונקציית אסינכרון לעדכון משתמש
 const updateUserRegister = async (req, res) => {
@@ -263,6 +281,8 @@ userRegister.anotherQuestion = anotherQuestion ? anotherQuestion : userRegister.
 
 // Set active if it's provided, otherwise keep the existing value
 userRegister.active = active !== undefined ? active : userRegister.active;
+userRegister.view = true;
+
 if (image) {
     userRegister.image = image;
 }
