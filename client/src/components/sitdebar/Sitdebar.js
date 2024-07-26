@@ -192,7 +192,7 @@ const SitdeBar = () => {
                   <span className="side-bar-menu-cat">{cat.title}</span>
                 )}
                 {cat.list.map((item) => (
-                  <NenuLink itme={item} key={item.title} menuItems={isAdmin} />
+                  <NenuLink itme={item} key={item.title} menuItems={isAdmin} toggleMenu={toggleMenu} />
                 ))}
               </li>
             ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NenuLink = ({ itme, menuItems }) => {
+const NenuLink = ({ itme, menuItems, toggleMenu }) => {
   if (!itme || !itme.path) {
     console.error('Item or path is undefined:', itme);
     return null;
@@ -11,20 +11,13 @@ const NenuLink = ({ itme, menuItems }) => {
     return null;
   }
 
-  if (menuItems) {
-    return (
-      <div className="nav">
-        <NavLink to={itme.path} className="side-bar-menu-link">
-          {itme.icon}
-          {itme.title}
-        </NavLink>
-      </div>
-    );
-  }
+  const handleClick = () => {
+    toggleMenu();
+  };
 
   return (
     <div className="nav">
-      <NavLink to={itme.path} className="side-bar-menu-link">
+      <NavLink to={itme.path} className="side-bar-menu-link" onClick={handleClick}>
         {itme.icon}
         {itme.title}
       </NavLink>
