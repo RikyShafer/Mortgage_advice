@@ -4,7 +4,6 @@ import { HiOutlinePencil } from "react-icons/hi2";
 import './display-admin.css';
 import { useNavigate } from 'react-router-dom';
 import { TbLogout } from "react-icons/tb";
-// import { BsEnvelope } from "react-icons/bs";
 import { useSendLogoutMutation } from '../../auth/authApiSlice';
 import { useGetAllUsersQuery } from '../../userRegister/UserRegisterApiSlice';
 
@@ -13,7 +12,6 @@ const DisplayAdmin = () => {
     const { data: users, isLoading, isError, error, isSuccess } = useGetAllUsersQuery();
     const [logout] = useSendLogoutMutation();
     const navigate = useNavigate();
-
 
     const goToPutUserRegister = () => {
         navigate(`/update-details`);
@@ -40,8 +38,8 @@ const DisplayAdmin = () => {
         navigate("/");
     }
 
-    const handleUserClick = (index) => {
-        navigate(`/registerList/${index}`);
+    const handleUserClick = (id) => {
+        navigate(`/registerList/${id}`);
     }
 
     if (isLoading || !isSuccess) {
@@ -52,8 +50,10 @@ const DisplayAdmin = () => {
         return <h2>Error: {error.message}</h2>;
     }
 
+    // סינון המשתמשים שמצב ה-view שלהם הוא false
     let usersData = users?.data || [];
-    let lastThreeUsers = usersData.slice(-3);
+    let filteredUsers = usersData.filter(user => user.view === false ||user.view === "false" );
+    let lastThreeUsers = filteredUsers.slice(-5);
 
     return (
         <div className="display-admin">
@@ -83,12 +83,12 @@ const DisplayAdmin = () => {
                 <div className='correspondence-admin'>
                     <h1 className='correspondence-message-admin'>אנשים חדשים שהצטרפו אלינו</h1>
                     {lastThreeUsers.length > 0 ? (
-                        lastThreeUsers.map((admin, index) => (
-                            <div key={index} className={"directorDiv-admin"} onClick={() => handleUserClick(admin._id)}>
+                        lastThreeUsers.map((user, index) => (
+                            <div key={index} className={"directorDiv-admin"} onClick={() => handleUserClick(user._id)}>
                                 <p className='director-admin'>
-                                    <p>שם פרטי: {admin.firstName}</p>
-                                    <p>שם משפחה: {admin.lastName}</p>
-                                    <p>מייל: {admin.email}</p>
+                                    <p>שם פרטי: {user.firstName}</p>
+                                    <p>שם משפחה: {user.lastName}</p>
+                                    <p>מייל: {user.email}</p>
                                 </p>
                             </div>
                         ))
@@ -98,7 +98,7 @@ const DisplayAdmin = () => {
                         </div>
                     )}
 
-                    <button className='correspondence-button-admin'  onClick={goToViewingRegistrants}>צפייה בכל הלקחות    </button>
+                    <button className='correspondence-button-admin' onClick={goToViewingRegistrants}>צפייה בכל הלקוחות</button>
                 </div>
             </div>
         </div>

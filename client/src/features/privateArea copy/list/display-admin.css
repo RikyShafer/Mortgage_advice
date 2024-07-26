@@ -61,7 +61,7 @@
 
 }
 
-.director-admin {
+.directorDiv-admin {
     border: 1px solid rgb(44, 43, 43);
     padding: 10px;
     border-radius: 10px;
@@ -71,9 +71,12 @@
     align-self: flex-start;
     text-align: left;
     margin-right: auto;
-
+    position: relative;
+    transition: background-color 0.3s ease; /* הוספת אנימציה */
 }
 
+
+/* צביעת הרקע בצהוב בעת ריחוף */
 .directorDiv-admin:hover {
     background-color: var(--button);
 }
@@ -114,6 +117,7 @@
     line-height: 28px;
     text-align: right;
     color: #000000;
+    margin-bottom: 2vh;
 
 
 }
@@ -188,4 +192,8 @@
         margin-right: 2.5vw;  
         align-items: center;
       }
+      .directorDiv-admin {
+        max-width: 100%; /* מלא את הרוחב של המסך */
+        padding: 8px; /* פחות padding כדי לחסוך מקום */
+    }
 }
