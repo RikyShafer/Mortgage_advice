@@ -103,7 +103,7 @@ const ContactUs = () => {
                                 <h3 className='contact-us-register-h3'>הודעה</h3>
                                 <textarea className='contact-us-register-form-input-anotherQuestion'
                                     type='text'
-
+                                    name='message'
                                     placeholder='ההודעה שלי...' />
                             </div>
                         </div>
