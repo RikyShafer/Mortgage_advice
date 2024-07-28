@@ -1,3 +1,7 @@
+.display-admin {
+    overflow: hidden;
+    margin-top: 0;
+}
 .display-admin-details {
     padding: 5px;
     margin-right: 60px;

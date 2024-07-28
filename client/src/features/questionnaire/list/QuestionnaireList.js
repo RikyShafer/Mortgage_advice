@@ -131,7 +131,7 @@ const QuestionnaireList = () => {
     let questionnaireData = questionnaire || [];
     console.log("questionnaireData:", questionnaireData);
     return (
-        <div  >
+        <div className='register-listM' >
 
             <div className="register-list-title" >תצוגה של אנשים שלחו טפסים </div>
             <div className="register-list">

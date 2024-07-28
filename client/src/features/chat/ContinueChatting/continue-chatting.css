@@ -18,6 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the elements inside the form */
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .continue-chatting-title-Manager {
@@ -95,6 +97,8 @@ button:disabled {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the elements inside the form */
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .continue-chatting-title-user {
@@ -148,6 +152,8 @@ button:disabled {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the elements inside the form */
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .continue-chatting-title-userC {

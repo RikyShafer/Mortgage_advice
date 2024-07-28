@@ -1,19 +1,24 @@
-.They-tell-us-titleS{
-
-font-weight: 700;
-font-size: 36px;
-line-height: 38px;
-margin-right: 5vw;
-text-align: right;
-color: #000000;
-margin-top: 25vh;
+.They-tell-us{
+        overflow: hidden;
 }
-.They-tell-us-buttons{
+.They-tell-us-titleS {
+
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 38px;
+    margin-right: 5vw;
+    text-align: right;
+    color: #000000;
+    margin-top: 25vh;
+}
+
+.They-tell-us-buttons {
     display: flex;
     margin-top: 8vh;
 
 }
-.They-tell-us-button-w{
+
+.They-tell-us-button-w {
     background: #FFFFFF;
     box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
@@ -26,7 +31,8 @@ margin-top: 25vh;
     margin-right: 8vw;
     margin-bottom: 4vh;
 }
-.They-tell-us-button-b{
+
+.They-tell-us-button-b {
     background: #F0B918;
     box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
@@ -40,19 +46,21 @@ margin-top: 25vh;
     margin-bottom: 4vh;
 
 }
+
 .svg-container {
     display: flex;
     margin-top: -1vh;
 }
-.They-tell-us-Caption{
-font-weight: 400;
-font-size: 16px;
-line-height: 16px;
-text-align: right;
-width: 25vw;
-color: #000000;
-margin-right: 10vw;
-margin-bottom: 4vh;
+
+.They-tell-us-Caption {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: right;
+    width: 25vw;
+    color: #000000;
+    margin-right: 10vw;
+    margin-bottom: 4vh;
 
 }
 
@@ -60,22 +68,25 @@ margin-bottom: 4vh;
 
 @media (max-width: 768px) {
 
-    .They-tell-us-titleS{
+    .They-tell-us-titleS {
         margin-top: 15vh;
         margin-right: 6vw;
-font-weight: 700;
-font-size: 14px;
-line-height: 15px;
-margin-top: 10vh;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 15px;
+        margin-top: 10vh;
 
     }
-    .They-tell-us-button-w,.They-tell-us-button-b{
+
+    .They-tell-us-button-w,
+    .They-tell-us-button-b {
         width: 80vw;
         height: 6vh;
         margin-bottom: 2vh;
 
     }
-    .They-tell-us-Caption{
+
+    .They-tell-us-Caption {
         width: 60vw;
         margin-right: 15vw;
     }

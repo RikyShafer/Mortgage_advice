@@ -11,6 +11,8 @@
 
 .about {
     margin-bottom: 80vh;
+    overflow: hidden;
+    margin-top: 0; 
 }
 
 .triangleMask {

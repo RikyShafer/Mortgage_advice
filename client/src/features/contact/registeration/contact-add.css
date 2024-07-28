@@ -1,3 +1,7 @@
+.modal-overlay {
+    overflow: hidden;
+    margin-top: 0;
+}
 
 .modal-overlay {
     position: fixed;
@@ -8,20 +12,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* לוודא שהוא מופיע מעל כל שאר האלמנטים */
-    animation: fadeIn 1s ease-in-out; /* אנימציית דעיכה */
+    z-index: 1000;
+    /* לוודא שהוא מופיע מעל כל שאר האלמנטים */
+    animation: fadeIn 1s ease-in-out;
+    /* אנימציית דעיכה */
 }
 
 /* תוכן חלון מודאלי */
 .contemt-user-register {
-    position: relative; /* מאפשר מיקום יחסי לאלמנטים פנימיים */
+    position: relative;
+    /* מאפשר מיקום יחסי לאלמנטים פנימיים */
     background-color: rgb(248, 242, 242);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 80%;
     max-width: 600px;
-    animation: slideInWithRotation 1s ease-in-out; /* אנימציית שקופית עם סיבוב */
+    animation: slideInWithRotation 1s ease-in-out;
+    /* אנימציית שקופית עם סיבוב */
 }
 
 /* סגירת חלון מודאלי */

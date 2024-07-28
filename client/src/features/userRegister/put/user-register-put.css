@@ -1,6 +1,7 @@
 .put-user-registerID {
     background-color: rgba(0, 0, 0, 0.509);
-
+    overflow: hidden;
+    margin-top: 0; 
     /* margin-top: 10px; */
     width: 100%;
     height: 90vh;

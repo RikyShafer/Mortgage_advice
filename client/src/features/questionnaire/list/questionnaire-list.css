@@ -169,3 +169,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.register-listM{
+  overflow: hidden;
+  margin-top: 0; 
+}

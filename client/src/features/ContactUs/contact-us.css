@@ -1,7 +1,6 @@
 .contact-us-img {
     width: 100%;
     height: 50vh;
-
 }
 
 .contact-us-text {
@@ -320,5 +319,8 @@
         cursor: pointer;
         border: none;
     }
-
+    .contact-us{
+        overflow: hidden;
+        margin-top: 0;
+    }
 }

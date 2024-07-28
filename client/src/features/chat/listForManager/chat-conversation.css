@@ -6,6 +6,8 @@
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 60vw;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 

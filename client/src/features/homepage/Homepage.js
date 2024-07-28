@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './homepage.css';
 import { useNavigate } from 'react-router-dom';
 import ContactAdd from '../contact/registeration/ContactAdd';
+import { useSelector } from 'react-redux';
 
 
 const Homepage = () => {
@@ -9,7 +10,13 @@ const Homepage = () => {
     const [expanded, setExpanded] = useState(false);
 
     const [showModal, setShowModal] = useState(false);
-
+    const token = useSelector((state) => state.auth.token);
+    useEffect(() => {
+        if (token) {
+            console.log("Fetching users...");
+        }
+       
+    }, [token]);
     const openModal = () => {
       setShowModal(true);
     };

@@ -4,7 +4,9 @@
     font-size: 12px;
     display: flex; 
     justify-content: center; 
-    align-items: flex-end; 
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: 0; 
 }
 .login-page-form {
     height: 80vh; 

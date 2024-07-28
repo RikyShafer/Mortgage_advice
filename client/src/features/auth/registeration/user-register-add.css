@@ -118,6 +118,8 @@ margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .add-user-register-form {

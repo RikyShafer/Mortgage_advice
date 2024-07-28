@@ -1,6 +1,8 @@
 .Registration-for-the-process {
     background-color: white;
     padding-right: 10vw;
+    overflow: hidden;
+    margin-top: 0; 
 }
 
 .Registration-for-the-process-title {

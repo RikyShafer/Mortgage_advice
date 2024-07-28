@@ -102,6 +102,8 @@
 .chat-container {
     display: flex;
     height: 100vh;
+    overflow: hidden;
+    margin-top: 0;
 }
 
 .chat-list-container {

@@ -9,7 +9,8 @@
     /* Center align the title */
     color: #1A7D99;
     font-weight: 700;
-
+    overflow: hidden;
+    margin-top: 0; 
 }
 
 .register-list {
