@@ -126,11 +126,13 @@ import ContactUs from './features/ContactUs/ContactUs';
 import NotFoundPage404 from './features/NotFoundPage404';
 import AccountActivationPage from './features/privateArea/active/AccountActivationPage';
 import AdminRegisterPutID from './features/privateArea copy/putUser/AdminRegisterPutID';
+import CheckLoginNotRequired from './features/CheckLoginNotRequired';
 
 function App() {
   return (
     <Router>
       <Routes>
+      <Route element={<CheckLoginNotRequired />} >
         <Route path='/' element={<DashLayout />}>
           <Route index element={<Homepage />} />
           <Route path="about" element={<About />} />
@@ -166,6 +168,7 @@ function App() {
               </Route>
             </Route>
           </Route>
+        </Route>
         </Route>
         <Route path="*" element={<NotFoundPage404/>} />
       </Routes>

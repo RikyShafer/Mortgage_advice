@@ -6,7 +6,7 @@
     justify-content: center; 
     align-items: flex-end;
     overflow: hidden;
-    margin-top: 0; 
+    margin-top: 2vh;
 }
 .login-page-form {
     height: 80vh; 
@@ -97,7 +97,7 @@
 
     }
     .login-page-form-img{
-        margin-bottom: 5vh;
+        margin-bottom: 20vh;
     }
     .div-register {
         flex-direction: column;
@@ -106,6 +106,7 @@
         height: 20vh;
         width:50vw ;
         margin-right: 15vw;
+        display: none;
     }
     .login-page-form-h2 {
         margin-top: -25vh;

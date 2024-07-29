@@ -155,3 +155,71 @@
     margin-right: 85vw;
     font-size: 14px;
 }
+
+
+@media (max-width: 768px) {
+    .display-user {
+        overflow: hidden;
+        margin-top: 0;
+    }
+
+    .side-bar-logout {
+        margin-right: 77vw;
+    }
+
+    .display-imag {
+        width: 70px;
+        height: 70px;
+    }
+
+    .display-user-details {
+        margin-right: 30px;
+    }
+
+    .display-user-put {
+        width: 60vw;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+        margin-right: 20vw;
+        align-items: center;
+    }
+
+    .buttonUserCorrespondence {
+        display: block;
+    }
+
+    .correspondence {
+        margin-top: 5vh;
+        width: 70vw;
+        margin-right: 15vw;
+    }
+
+    .director {
+        max-width: 60vw;
+    }
+
+    .correspondence .client,
+    .correspondence .director {
+        max-width: 100%;
+        padding: 8px;
+        margin-bottom: 2vh;
+    }
+
+    .correspondence-button {
+        width: 60vw;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+        margin-right: 2.5vw;
+        align-items: center;
+    }
+
+    .directorDiv,
+    .clientDiv {
+        max-width: 100%;
+        padding: 8px;
+    }
+}

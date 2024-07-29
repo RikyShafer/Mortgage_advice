@@ -48,10 +48,59 @@
 //     res.json(accessToken)
 // }
 
-
 const User = require("../models/UserRegister")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const nodemailer = require('nodemailer');
+
+async function sendEmailToManager(firstName, lastName, email,phone) {
+    const websiteUrl = 'http://localhost:3000'; // Replace this with your website URL
+    console.log(firstName);
+    try {
+        // Create a Nodemailer transporter
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.USERNAME_EMAIL,
+                pass: process.env.PASSWORD_EMAIL,
+            },
+            tls: {
+                rejectUnauthorized: false 
+            }
+        });
+
+        // HTML content for the email with a button linking to your website
+        let mailOptions = {
+            from: process.env.EMAIL,
+            to:  process.env.EMAIL,
+            subject: 'לקוח חדש הצטרף לרשימת הלקחות ',
+            html: `
+                <p  style="direction: rtl; font-family: 'Arial', sans-serif; font-size: 16px; margin-bottom:100px;">
+                    שפר פרטי: ${firstName}<br>
+                    שם משפחה: ${lastName}<br>
+                    מייל : ${email}<br>
+                    טלפון : ${phone}
+                </p>
+                <p style="text-align: right;">
+                    <a href="${websiteUrl}" style="padding: 10px 20px; background-color: #000; color: #fff; text-decoration: none; border-radius: 5px; font-size: 18px;">בקר באתר</a>
+                </p>
+            `,
+        };
+
+        try {
+            await transporter.sendMail(mailOptions);
+            console.log('Email sent successfully');
+        } catch (error) {
+            console.error('Error sending email:', error);
+            // Handle authentication errors
+            if (error.code === 'EAUTH') {
+                console.error('Invalid login credentials. Please check your Gmail username and password.');
+            }
+        }
+    } catch (error) {
+        console.error('Error creating transporter:', error);
+    }
+}
 const login = async (req, res) => {
     const { firstName, password, email } = req.body
 
@@ -102,7 +151,6 @@ const login = async (req, res) => {
     res.json({ accessToken }); // wrap accessToken in an object for clarity
 }
 
-
 const refresh = async (req, res) => {
     const cookies = req.cookies
     if (!cookies?.jwt) {
@@ -126,7 +174,6 @@ const refresh = async (req, res) => {
             }
 
 
-
             const foundUser = await User.findOne({ email: decode.email, deleted: false } ).lean(); // Find user by email
 
             if (!foundUser) {
@@ -147,14 +194,12 @@ const refresh = async (req, res) => {
                 active:foundUser.active
             };
 
-
             const accessToken = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' })
 
             res.json({ accessToken })
         })
 
 }
-
 
 // const refresh = async (req, res) => {
 //     const refreshToken = req.cookies && req.cookies.jwt; // Check if req.cookies is defined before accessing jwt
@@ -263,6 +308,9 @@ const registeration = async (req, res) => {
             image,
             anotherQuestion
         });
+        await user.save();
+
+        await sendEmailToManager(firstName, lastName, email,phone);
 
         // Generate JWT tokens
         const accessToken = jwt.sign(
@@ -303,4 +351,5 @@ const registeration = async (req, res) => {
 };
 
 module.exports = { login, refresh, logout, registeration }
+
 
