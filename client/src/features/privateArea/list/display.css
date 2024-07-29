@@ -27,12 +27,15 @@
 .display-user-put-details {
     position: absolute;
     /* Add this line */
-    top: 43vh;
-    left: 86vw;
-    background-color: transparent;
+    top: 47vh;
     /* Add other styles as needed */
+    margin-right: -3vw;
     border: none;
     cursor: pointer;
+    color: black;
+    background-color: white;
+    font-size: 24px;
+
 }
 
 .display-user-put {
@@ -222,4 +225,10 @@
         max-width: 100%;
         padding: 8px;
     }
+    
+.display-user-put-details {
+    top: 19vh;
+    margin-right: -2vw;
+    font-size: 18px;
+}
 }

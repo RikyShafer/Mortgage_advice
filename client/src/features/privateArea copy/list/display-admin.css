@@ -15,15 +15,19 @@
     /* Add this line */
 }
 
+
 .display-admin-put-details {
     position: absolute;
     /* Add this line */
-    top: 43vh;
-    left: 86vw;
-    background-color: transparent;
+    top: 47vh;
     /* Add other styles as needed */
+    margin-right: -3vw;
     border: none;
     cursor: pointer;
+    color: black;
+    background-color: white;
+    font-size: 24px;
+
 }
 
 .display-admin-put {
@@ -199,5 +203,10 @@
       .directorDiv-admin {
         max-width: 100%; /* מלא את הרוחב של המסך */
         padding: 8px; /* פחות padding כדי לחסוך מקום */
+    }
+    .display-admin-put-details {
+        top: 19vh;
+        margin-right: 2vw;
+        font-size: 18px;
     }
 }
