@@ -104,13 +104,6 @@
   align-items: flex-start;
 }
 
-.side-bar.show {
-  display: block;
-  position: absolute;
-  width: 100%;
-  background-color: var(--background);
-  z-index: 9;
-}
 
 .hamburger-menu {
   display: none;

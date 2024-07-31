@@ -37,7 +37,7 @@ const LoginPage = () => {
     <div className="login-page">
       <div className="login-page-form-img">
         <form onSubmit={handleSubmit} className="login-page-form">
-          <h2 className='login-page-form-h2'> להתחברות אנה הכנס את הפרטים שלך...</h2>
+          <h2 className='login-page-form-h2'> להתחברות אנא הכנס את הפרטים שלך...</h2>
           <div className='login-page-form-firstName'>
             <h3 className='login-page-form-h3' >שם פרטי</h3>
             <input

@@ -98,7 +98,7 @@
     pointer-events: none; 
 } */
 
-
+/* 
 .chat-container {
     display: flex;
     height: 100vh;
@@ -151,4 +151,83 @@
 
 .chat-item:hover {
     background-color: #f1f1f1;
+} */
+/* Container styles */
+.chat-list-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width:30vw;
+    background-color: #ffffff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Sidebar title */
+.sidebar-title {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+/* Search box styles */
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+/* Button styles */
+.chat-button {
+    margin-top: 16px;
+    background-color: #128C7E; /* צבע הכפתור */
+    color: #ffffff; /* צבע הטקסט */
+}
+
+.chat-button:hover {
+    background-color: #128c7ecb;
+}
+
+.chat-button-centered {
+    align-self: center;
+}
+
+/* Back arrow icon styles for mobile view */
+.back-arrow {
+    position: fixed; /* Fix the position relative to the viewport */
+    bottom: 16px; /* Distance from the bottom of the viewport */
+    right: 16px; /* Distance from the right edge of the viewport */
+    z-index: 1000; /* Ensure it appears above other content */
+    margin-top: 100%;
+}
+
+/* Footer padding */
+.footer-padding {
+    padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width:100%;
+    }
+    /* Button styles */
+.chat-button {
+    margin-top: 16px;
+    background-color: #128C7E;
+}
+
+.chat-button:hover {
+    background-color: #128c7ecb;
+}
 }

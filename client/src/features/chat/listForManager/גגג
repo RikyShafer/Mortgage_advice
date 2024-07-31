@@ -1,33 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import { Box, Typography, List, ListItem, ListItemText, IconButton, Avatar, useTheme, useMediaQuery } from '@mui/material';
+import React from 'react';
+import { Box, Typography, List, ListItem, ListItemText, IconButton, Avatar } from '@mui/material';
 import { formatDistanceToNow } from 'date-fns';
 import { he } from 'date-fns/locale';
 import { useViewInChatToADMINQuery } from '../ChatApiSlice';
 import DeletingMessage from '../DeletingMessage/DeletingMessage';
 import ContinueChatting from '../ContinueChatting/ContinueChatting';
-import './chat-conversation.css'; // Import the CSS file
 
 const ChatConversation = ({ chatId, firstName, users }) => {
-
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const { data: chat } = useViewInChatToADMINQuery();
     const selectedChat = chat?.data.find(c => c._id === chatId);
-    const listRef = useRef(null);
-
-    // הקוד הזה גורם לזה שמסך רגיל הוא יתחיל להציג מלמטה 
-    useEffect(() => {
-        if (listRef.current) {
-            listRef.current.scrollTop = listRef.current.scrollHeight;
-        }
-    }, [selectedChat]);
-
-    // הקוד זה גורם שבמצב מוביל הוא יתיחל מלמטה 
-    useEffect(() => {
-        if (!isMobile && listRef.current) {
-            listRef.current.scrollTop = listRef.current.scrollHeight;
-        }
-    }, [selectedChat, isMobile]);  // Added isMobile to dependencies
 
     if (!selectedChat) {
         return <Typography>לא נמצאה שיחה.</Typography>;
@@ -43,23 +24,23 @@ const ChatConversation = ({ chatId, firstName, users }) => {
     const receiver = users?.data.find(user => user._id === selectedChat.user2);
 
     return (
-        <Box className="chat-container">
-            <Box className="chat-header">
-                <Avatar className="chat-avatar">{receiver ? receiver.firstName.charAt(0) : "?"}</Avatar>
+        <Box display="flex" flexDirection="column" height="100%" bgcolor="#e5ddd5">
+            <Box display="flex" alignItems="center" p={2} bgcolor="#e5ddd5" color="#fff">
+                <Avatar sx={{ bgcolor: "#e5ddd5", mr: 2 }}>{receiver ? receiver.firstName.charAt(0) : "?"}</Avatar>
                 <Typography variant="h6">
                     {receiver ? `${receiver.firstName} ${receiver.lastName}` : "Unknown"}
                 </Typography>
             </Box>
-            <Box ref={listRef} className="chat-messages">
+            <Box flexGrow={1} overflow="auto" p={2} sx={{ background: '#efeae2' }}>
                 <List>
                     {selectedChat.messages.map((m, index) => (
-                        <ListItem key={index} className={`chat-message ${m.sender === selectedChat.user2 ? '' : 'chat-message-reverse'}`}>
-                            <Box className={`chat-message-box ${m.sender === selectedChat.user2 ? 'chat-message-receiver' : ''}`}>
+                        <ListItem key={index} sx={{ display: 'flex', flexDirection: m.sender === selectedChat.user2 ? 'row' : 'row-reverse', mb: 1 }}>
+                            <Box maxWidth="75%" p={1} borderRadius={2} sx={{ background: m.sender === selectedChat.user2 ? '#dcf8c6' : '#ffffff', boxShadow: 1 }}>
                                 <ListItemText
                                     primary={m.text}
                                     secondary={formatTimestamp(m.timestamp)}
                                     primaryTypographyProps={{ style: { wordBreak: 'break-word' } }}
-                                    secondaryTypographyProps={{ className: "chat-message-time" }}
+                                    secondaryTypographyProps={{ style: { textAlign: m.sender === selectedChat.user2 ? 'left' : 'right', color: '#999', fontSize: '0.75rem' } }}
                                 />
                             </Box>
                             {m.sender === selectedChat.user1 && (
@@ -71,7 +52,7 @@ const ChatConversation = ({ chatId, firstName, users }) => {
                     ))}
                 </List>
             </Box>
-            <Box className="chat-footer">
+            <Box p={2} sx={{ background: '#ffffff', borderTop: '1px solid #ddd' }}>
                 <ContinueChatting conversationId={selectedChat._id} className={"Manager"} onMessageSent={() => console.log('Message sent!')} />
             </Box>
         </Box>

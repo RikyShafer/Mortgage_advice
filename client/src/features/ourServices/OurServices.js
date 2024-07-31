@@ -93,7 +93,7 @@ const OurServices = () => {
   return (
     <div className='They-tell-us'>
 
-      <hi className='They-tell-us-titleS' > כמה מושגים שחשוב שתדעו על השירותים שלנו... </hi>
+      <hi className='They-tell-us-titleS' > כמה מושגים שחשוב שתדעו...</hi>
       <div className='They-tell-us-buttons'></div>
 
       <button

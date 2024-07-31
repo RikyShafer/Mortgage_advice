@@ -10,6 +10,7 @@
 .display-user-details {
     padding: 5px;
     margin-right: 60px;
+    position: relative;
 }
 
 /* .display-user-put-details{
@@ -23,19 +24,25 @@
     position: relative;
     /* Add this line */
 }
+.display-user-username-put{
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    position: relative;
+}
+.display-user-username {
+    margin: 0; /* Remove default margin */
+    margin-right: 10px; /* Add space between text and button */
+    font-size: 24px; /* Adjust font size if needed */
+}
 
 .display-user-put-details {
-    position: absolute;
-    /* Add this line */
-    top: 47vh;
-    /* Add other styles as needed */
-    margin-right: -3vw;
     border: none;
     cursor: pointer;
     color: black;
     background-color: white;
     font-size: 24px;
-
+    display: flex; /* Ensure the icon is centered within the button */
+    align-items: center; /* Center the icon within the button */
 }
 
 .display-user-put {

@@ -182,7 +182,9 @@
     width: 16vw;
 
 }
-
+.contact-us{
+    overflow: hidden;
+}
 .contact-us-contactus-mail1 {
     text-align: center;
     margin-top: 10px;
@@ -319,8 +321,5 @@
         cursor: pointer;
         border: none;
     }
-    .contact-us{
-        overflow: hidden;
-        margin-top: 0;
-    }
+
 }

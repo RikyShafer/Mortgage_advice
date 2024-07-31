@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import './list-for-user.css';
 import { useViewInChatQuery } from '../ChatApiSlice';
 import { useSelector } from 'react-redux';
@@ -19,6 +19,8 @@ const ListForUser = () => {
 
     const { firstName, lastName, active } = useAuth(); 
     const token = useSelector((state) => state.auth.token);
+    
+    const messagesEndRef = useRef(null);
 
     useEffect(() => {
         if (token) {
@@ -33,7 +35,7 @@ const ListForUser = () => {
         handleLogout();
     }, [token, active, logout, navigate]);
 
-    let chatsData = chat || [];
+    const chatsData = useMemo(() => chat || [], [chat]);
 
     useEffect(() => {
         if (!chatsData.length) {
@@ -61,6 +63,12 @@ const ListForUser = () => {
             return `${distanceInWords} בשעה ${hours}:${minutes}`;
         }
     };
+
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [chatsData]);
 
     if (isLoading) {
         return <h1>Loading...</h1>;
@@ -100,12 +108,15 @@ const ListForUser = () => {
                         <ContinueChatting conversationId={chat._id} className={"user"} onMessageSent={() => console.log('Message sent!')} />
                     </div>
                 ))}
+                <div ref={messagesEndRef} />
             </div>
         </div>
     );
 };
 
 export default ListForUser;
+
+
 
 
 //יגרסא 1

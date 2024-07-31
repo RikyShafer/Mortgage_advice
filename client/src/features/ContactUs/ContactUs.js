@@ -17,6 +17,11 @@ const ContactUs = () => {
             navigate("/messageContact");
         }
     }, [isSuccess, navigate]);
+    // בתוך הקומפוננטה שלך
+useEffect(() => {
+    // דוגמה: התאמת עיצוב או ביצוע פעולות נוספות לאחר טעינת הדף
+    document.querySelector('.contact-us').style.opacity = 1;
+}, []);
     const formSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);

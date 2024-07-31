@@ -1,8 +1,8 @@
 .they-tell-us {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 10vh;
-
+    margin-top: 15vh;
+    overflow: hidden;
 }
 
 .they-tell-us-title-y {

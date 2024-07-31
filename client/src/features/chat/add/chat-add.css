@@ -1,62 +1,47 @@
-.chat-add-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    overflow: hidden;
-    margin-top: 0;
-}
+/* chat-add.css */
 
-.chat-add-wrap {
-    width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-}
-
-.chat-add-form {
+.chat-box {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    border-radius: 16px;
+    background-color: #f0f0f0;
 }
 
-.chat-add-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #075e54;
+    color: #ffffff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
-.chat-add-fields {
-    margin-bottom: 20px;
+.header-avatar {
+    margin-right: 16px;
 }
 
-.chat-add-field {
-    margin-bottom: 10px;
+.form-container {
+    padding: 16px;
+    flex: 1;
 }
 
-.chat-add-field label {
-    display: block;
-    margin-bottom: 5px;
+.styled-text-field {
+    flex: 1;
+    margin-right: 8px;
 }
 
-.chat-add-field select,
-.chat-add-field input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.send-button {
+    margin-top: 16px;
+    background-color: #075e54; /* צבע הירוק של וואטסאפ */
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.send-button:hover {
+    background-color: #128C7E; /* הצבע הירוק הכהה יותר של וואטסאפ */
 }
 
-button:disabled {
-    background-color: #ccc;
+.error-message {
+    color: #f44336; /* צבע אדום */
+    margin-top: 16px;
 }
