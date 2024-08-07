@@ -9,6 +9,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { he } from 'date-fns/locale';
 import { useSendLogoutMutation } from '../../auth/authApiSlice';
 import { useNavigate } from 'react-router-dom';
+import { Avatar, Box, Typography } from '@mui/material';
 
 const ListForUser = () => {
     const [logout] = useSendLogoutMutation();
@@ -17,7 +18,7 @@ const ListForUser = () => {
     const limit = 4;
     const { data: chat, isLoading, isError, error } = useViewInChatQuery({ page, limit });
 
-    const { firstName, lastName, active } = useAuth(); 
+    const { active } = useAuth(); 
     const token = useSelector((state) => state.auth.token);
     
     const messagesEndRef = useRef(null);
@@ -84,12 +85,17 @@ const ListForUser = () => {
 
     return (
         <div className="chat-containerU">
-            <div className="messages-list-titleU">ההתכתבות שלך עם שפר יועץ משכנאות</div>
+            {/* <div className="messages-list-titleU">ההתכתבות שלך עם שפר יועץ משכנאות</div> */}
             <div className="messages-listU">
                 {chatsData.map((chat) => (
                     <div className="messagesMapU" key={chat._id}>
-                        <h1>השולח- {firstName} {lastName}</h1>
-                        <p> המקבל - {'שפר יעוץ משכנאות'}</p>
+                    <Box className="chat-header-user">
+                        <Avatar className="chat-avatar-user">{"ש"}</Avatar>
+                        <Typography variant="h6">
+                            <p>{'שפר יעוץ משכנאות'}</p>
+                        </Typography>
+                    </Box>
+                       
                         <div>
                             {chat.messages.map((m, index) => (
                                 <div key={index}>

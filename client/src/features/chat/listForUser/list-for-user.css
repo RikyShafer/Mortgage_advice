@@ -23,16 +23,15 @@
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #efeae2;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 70vw;
 }
 
 
 
 .sender-messageU {
-    background-color: #a2a6a65d;
-    padding: 10px;
+    background: #dcf8c6;    padding: 10px;
     border-radius: 20px;
     align-self: flex-end;
     text-align: right;
@@ -43,14 +42,16 @@
 }
 
 .receiver-messageU {
-    background-color:  #f0ba1865;
-    padding: 10px;
-    border-radius: 20px;
     align-self: flex-start;
     text-align: left;
     margin-right: auto;
-    max-width:30vw;
     width: max-content;
+
+    max-width: 75%;
+    padding: 8px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 
 .sender-TimestampU,
@@ -130,4 +131,20 @@
 
 .message-input-button:hoverU {
     background-color: #0056b3;
+}
+.chat-header-user{
+    display: flex;
+    align-items: center;
+
+gap: 10px;
+    align-items: center;
+    padding: 16px;
+    background-color: #e5ddd5;
+    color: #fff;
+}
+
+.chat-avatar-user {
+    margin-right: 8px; /* המרווח שברצונך להוסיף, למשל 8 פיקסלים */
+    background-color: #e5ddd5;
+    margin-right: 16px;
 }
