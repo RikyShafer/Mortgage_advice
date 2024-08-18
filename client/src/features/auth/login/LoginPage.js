@@ -28,13 +28,13 @@ const LoginPage = () => {
     const userObject = Object.fromEntries(data.entries());
     login(userObject);
   };
-  const handleGoogleAuth =  () => {
-    window.location.href = "http://localhost:3297/auth/google";
+  const handleLogin = () => {
+    window.open('http://localhost:3297/auth/google', '_self'); 
+    // console.log(user);
   };
   return (
     <div className="login-page">
-        <button onClick={handleGoogleAuth} >
-        </button>
+  <button onClick={handleLogin}>Login with Google</button>
       <div className="login-page-form-img">
         <form onSubmit={handleSubmit} className="login-page-form">
           <h2 className='login-page-form-h2'> להתחברות אנה הכנס את הפרטים שלך...</h2>

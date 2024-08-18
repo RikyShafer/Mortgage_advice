@@ -79,9 +79,9 @@ const cookieParser = require("cookie-parser"); // Import cookie parser
 const corsOptions = require("./config/corsOptions"); // Import CORS options
 const connectDB = require("./config/dbConn"); // Import database connection function
 const mongoose = require("mongoose"); // Import Mongoose for MongoDB
+const jwt = require('jsonwebtoken');
 
 const cors_proxy = require('cors-anywhere'); // Import CORS-anywhere for proxy
-const googleRouter = require('./googleRouter'); // Import googleRouter for Google OAuth
 
 const PORT = process.env.PORT || 3297; // Set the port from environment variable or default to 3297
 
@@ -108,6 +108,11 @@ app.use(express.static("public")); // Serve static files from "public" directory
 // }));
 
 
+app.use(session({
+  secret: process.env.GOOGLE_CLIENT_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}));
 
 
 // הגדרת מנוע התצוגה
@@ -128,7 +133,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(googleRouter); // Use Google OAuth routes
 
 // Define other routes
 app.use("/api/UserRegister", require("./route/routeUserRegister"));
@@ -138,6 +142,8 @@ app.use("/api/Questionnaire", require("./route/routeQuestionnaire"));
 app.use("/api/contact", require("./route/routeContact"));
 app.use("/api/Conversation", require("./route/routeConversation"));
 app.use("/api", require("./route/fileRoutes"));
+require('./loginWithGoogle/middelware/Auth0');
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
 // Root route
 app.get("/good", (req, res) => {
@@ -156,4 +162,54 @@ mongoose.connection.once('open', () => {
 // Log errors if any during MongoDB connection
 mongoose.connection.on('error', err => {
   console.log(err);
+});
+//login with google
+
+app.get('/auth/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
+          // Generate JWT tokens
+          const accessToken = jwt.sign(
+            {
+                _id: req.user._id,
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
+                email: req.user.email,
+                phone: req.user.phone,
+                image: req.user.image
+            },
+
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: '15m' }
+        );
+        console.log(accessToken);
+  // לאחר שהמשתמש אוטנטיק, הוספת טוקן ל־cookies
+  const refreshToken = jwt.sign({ email: req.user.email }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '7d' });
+  console.log("  ",req.user.email);
+  res.cookie("jwt", refreshToken, {
+    httpOnly: true,
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 ימים
+  });
+  // מעבר לדף הבית או כל דף אחר
+  res.redirect('http://localhost:3000/');
+});
+app.get('/auth/logout', (req, res) => {
+  req.logout((err) => {
+      if (err) {
+          return res.status(500).json({ message: 'Logout failed', error: err });
+      }
+      req.session.destroy((err) => {
+          if (err) {
+              return res.status(500).json({ message: 'Failed to destroy session', error: err });
+          }
+          res.clearCookie('connect.sid');
+          res.json({ message: 'Logout successful' });
+      });
+  });
+});
+
+app.get('/profile', (req, res) => {
+  if (req.isAuthenticated()) {
+      res.send(req.user);
+  } else {
+      res.status(401).json({ message: 'Not authenticated' });
+  }
 });

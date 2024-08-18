@@ -3,11 +3,19 @@ import "./user-register-add.css"
 import { useAddUserMutation } from '../authApiSlice';
 import { useNavigate } from 'react-router-dom';
 import { WiDirectionLeft } from "react-icons/wi";
-
+import axios from 'axios';
 const UserRegisterAdd = () => {
     const [addUser, { isError, error, isSuccess, isLoading }] = useAddUserMutation();
     const navigate = useNavigate();
-
+    useEffect(() => {
+        axios.get('http://localhost:3297/profile', { withCredentials: true }) 
+          .then((response) => {
+           
+          })
+          .catch((error) => {
+            console.error('Error fetching profile:', error);
+          });
+      }, []);
     useEffect(() => {
         if (isSuccess) {
             navigate("/message");
@@ -21,9 +29,12 @@ const UserRegisterAdd = () => {
         console.log(userObject);
         addUser(userObject);
     };
-    const handleGoogleAuth =  () => {
-        window.location.href = "http://localhost:3297/auth/google";
-      };
+    // const handleGoogleAuth =  () => {
+    //     window.location.href = "http://localhost:3297/auth/google";
+    //   };
+    const handleLogin = () => {
+        window.location.href = 'http://localhost:3297/auth/google'; 
+    };
     
     if (isLoading)
         return <h1>Loading...</h1>;
@@ -31,8 +42,7 @@ const UserRegisterAdd = () => {
         return <h1>Error: {JSON.stringify(error)}</h1>;
     return (
         <div className='add-user-register'>
-             <button onClick={handleGoogleAuth} >
-    </button>
+            <button onClick={handleLogin}>Login with Google</button>
             <div className='add-user-register-wraps'> 
               
             <form onSubmit={formSubmit} className='add-user-register-form'>
