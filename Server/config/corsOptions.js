@@ -49,7 +49,10 @@ const whitelist = [
     "http://localhost:3002",
     "http://localhost:3003",
     "http://localhost:3297",
-    "https://mortgage-advice.onrender.com", // Add this line
+    "https://mortgage-advice.onrender.com",
+    "http://shpr-y-vts-mshkntvt.onrender.com",
+    "https://shpr-y-vts-mshkntvt.onrender.com",
+    "https://mortgage-advice-1.onrender.com/",
 ];
 
 

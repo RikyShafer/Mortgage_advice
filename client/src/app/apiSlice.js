@@ -6,7 +6,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setToken } from "../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:3297/',
+  baseUrl: 'https://mortgage-advice-1.onrender.com/',
+
+  // baseUrl: 'http://localhost:3297/',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.token;
