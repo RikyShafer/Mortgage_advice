@@ -6,7 +6,7 @@ const cookieParser=require("cookie-parser")
 const corsOptions = require("./config/corsOptions") // יבוא של קובץ ההגדרות של פוליסות ה-CORS
 const connectDB = require("./config/dbConn") // יבוא של פונקציה להתחברות למסד נתונים
 const mongoose=require("mongoose") // יבוא של ספריית Mongoose, המאפשרת פעולות עם מסד נתונים MongoDB
-
+const path = require('path');
 const cors_proxy = require('cors-anywhere'); // יבוא של ספריית ה-CORS-Anywhere, המאפשרת יצירת שרת Proxy עם פוליסת CORS
 
 const PORT = process.env.PORT || 3297 // הגדרת משתנה PORT לפי ערך מסוים או לפי ערך 7001 כברירת מחדל
@@ -44,7 +44,14 @@ res.send(`בדיקה האם השרת לאתר של אבא עובד
   בעזרת ה' יצא לי אתר מדהים
     בשם ה' נעשה ונצליח `) // מענה לבקשת GET עם מחרוזת טקסט
 })
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'build')));
 
+// The "catchall" handler: for any request that doesn't
+// match one above, send back index.html so React Router can handle the routing.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 mongoose.connection.once('open', () => { // התחברות מוצלחת למסד הנתונים
     console.log('Connected to MongoDB') // הדפסת הודעה על התחברות מוצלחת למסד הנתונים
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
