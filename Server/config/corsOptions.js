@@ -52,7 +52,9 @@ const whitelist = [
     "https://mortgage-advice.onrender.com",
     "http://shpr-y-vts-mshkntvt.onrender.com",
     "https://shpr-y-vts-mshkntvt.onrender.com",
-    "https://mortgage-advice-1.onrender.com/",
+    "https://mortgage-advice-1.onrender.com",
+    "http://mortgage-advice-1.onrender.com",
+    "http://mortgage-advice-1.onrender.com/api/auth/registeration",
 ];
 
 
