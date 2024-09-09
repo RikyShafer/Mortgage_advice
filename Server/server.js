@@ -24,7 +24,8 @@ app.use(cors(corsOptions)) // שימוש בפוליסות ה-CORS שהוגדרו
 app.use(cookieParser())
 app.use(express.json()) // השימוש ב-JSON כפורמט להעברת נתונים בבקשות
 app.use(express.static("public")) // שימוש בתיקיית הקבצים הסטטית בשם "public" לקבצי סטטיקה
-
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'app')));
 //routes 
 app.use("/api/UserRegister", require("./route/routeUserRegister"));
 app.use("/api/auth", require("./route/authRouter"))
@@ -44,13 +45,12 @@ res.send(`בדיקה האם השרת לאתר של אבא עובד
   בעזרת ה' יצא לי אתר מדהים
     בשם ה' נעשה ונצליח `) // מענה לבקשת GET עם מחרוזת טקסט
 })
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'build')));
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back index.html so React Router can handle the routing.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname+'app/index.html'));
 });
 mongoose.connection.once('open', () => { // התחברות מוצלחת למסד הנתונים
     console.log('Connected to MongoDB') // הדפסת הודעה על התחברות מוצלחת למסד הנתונים
