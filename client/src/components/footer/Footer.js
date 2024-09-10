@@ -3,7 +3,7 @@ import {
   HiMail
 } from "react-icons/hi";
 
-import { BiLogoFacebook, BiLogoInstagram, BiLogoWhatsapp, BiMap } from "react-icons/bi";
+import {  BiLogoWhatsapp, BiMap } from "react-icons/bi";
 
 
 import "./footer.css"
@@ -44,9 +44,6 @@ const Footer = () => {
         | כל הזכויות שמורות
       </h1>
 
-      <h1 className='footer-contactus'>  <BiLogoFacebook /> </h1>
-
-      <h1 className='footer-contactus'>  <BiLogoInstagram /> </h1>
       <h1 className='footer-contactus'>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
           <BiLogoWhatsapp />

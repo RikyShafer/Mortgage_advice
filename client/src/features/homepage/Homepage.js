@@ -53,22 +53,22 @@ const Homepage = () => {
                 </div>
 
                 <div className='Vector'>
-                    <div className='VectorOrange1'></div>
-                    <img className='VectorImg' src='./Vector2.png' alt='' />
-                    <div className='VectorOrange2'></div>
+                    {/* <div className='VectorOrange1'></div> */}
+                    <img className='VectorImg' src='./ABC.png' alt='' />
+                    {/* <div className='VectorOrange2'></div>
                     <div className='BlueBackground1'></div>
                     <div className='BlueBackground2'></div>
-                    <div className='VectorOrange3'></div>
+                    <div className='VectorOrange3'></div> */}
                 </div>
             </div>
             <div className='Who-we-are'>
                 <div className='Who-we-are-img'>
-                    <img className='Who-we-areImg' src='./Whoweare.png' alt='' />
-                    <div className='Who-we-areOrange1'></div>
+                    <img className='Who-we-areImg' src='./ABCD.png' alt='' />
+                    {/* <div className='Who-we-areOrange1'></div>
                     <div className='Who-we-areOrange2'></div>
                     <div className='Who-we-are-Blue1'></div>
                     <div className='Who-we-are-Blue2'></div>
-                    <div className='Who-we-areOrange3'></div>
+                    <div className='Who-we-areOrange3'></div> */}
                 </div>
                 <div className='Who-we-are-moment'>
                     <h2 className='Who-we-are-Melal1'>נעים להכיר, יהודה שפר</h2>

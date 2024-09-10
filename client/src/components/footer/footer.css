@@ -1,3 +1,4 @@
+
 /* .footer{
     display: flex;
     align-items: center;
@@ -92,9 +93,10 @@ color: #000000;
   color: #000000;
   font-size: 16px;
   margin-left: 1.55vw;
-  margin-top: -3vh;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
+  gap: 1vw;
+  display: flex;
 }
 @media (max-width: 768px) {
 

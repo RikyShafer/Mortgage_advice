@@ -99,8 +99,8 @@
 .VectorImg {
   width: 570px;
   height: 438px;
-  margin-right: -85px;
-  margin-top: -20vh;
+  margin-top: -15vh;
+  margin-right: -7vw;
 }
 
 .VectorOrange1 {
@@ -181,7 +181,7 @@
 
 .Who-we-areImg {
   width: 570px;
-  height: 438px;
+  height: 468px;
   margin-right: 5vw;
 
 }
@@ -255,6 +255,7 @@
   line-height: 38px;
   text-align: right;
   color: #000000;
+  margin-right: 3vw;
 }
 
 .Who-we-are-Melal2 {
@@ -264,7 +265,7 @@
   color: #000000;
   width: 22vw;
   margin-top: 5vh;
-
+  margin-right: 5vw;
 }
 
 .Who-we-are-Melal3 {
@@ -273,6 +274,7 @@
   text-align: right;
   color: #F0B918;
   margin-top: 5vh;
+  margin-right: 5vw;
 }
 
 .Who-we-are-Homepage-button {
@@ -1013,4 +1015,111 @@ margin-right: 25vw;
   margin-top: 0; /* או ערך קטן יותר */
 }
 
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 1447.04px) and (max-width: 2224px) {   
+  .VectorImg{
+    margin-right: 0vh;
+    width: 720px;
+    height: 538px;
+    }
+/* .VectorImg{
+margin-top: -14vh;
+}
+
+
+.VectorOrange1{
+  margin-right: 30vw;
+
+}
+.VectorOrange2{
+  margin-top:-50vh;
+  margin-right: 22vw;
+
+
+
+}
+.BlueBackground1{
+  margin-top: -51vh;
+  margin-right: 15vw;
+}
+.BlueBackground2{
+  margin-right: 27vw;
+  margin-top: -9vh;
+
+}
+.VectorOrange3{
+  margin-top: -12vh;
+  margin-right: 14vw;
+}
+.Who-we-are{
+  gap: 9vw;
+}
+.Who-we-areImg{
+  margin-right: 10vw;
+  margin-top: -8vh;
+}
+.Who-we-are-Blue1{
+  margin-top: -15vh;
+  margin-right: 29vw;
+}
+.Who-we-areOrange1{
+  margin-top: -40vh;
+}
+.Who-we-areOrange2{
+  margin-right: 32vw;
+  margin-top: -2vh;
+}
+.Who-we-are-Blue2{
+  margin-top: 18vh;
+  margin-right: 13vw;
+}
+.Who-we-areOrange3{
+  margin-top: -9vh;
+  margin-right: 30vw;
+} */
+.Who-we-are {
+  /* background-color: rgba(26, 125, 153, 0.4); */
+  width: 1920px;
+  height: 521px;
+  gap: 12vw;
+}
+.White-background{
+  margin-top: 70vh;
+  margin-bottom: -16vh;
+}
+.White-background1{
+  margin-top: 110vh;
+}
+.overture-white-squares {
+
+  margin-top: 20vh;
+}
+.Iconswhite{
+  margin-top: 60px;
+  margin-right: 12vw;
+}
+
+.Homepage-squares-White {
+  font-size: 20px;
+}
+.squares-White-1{
+  margin-right: 5vw;
+}
+.svg-overture-white-customers{
+  width: 572px;
+}
+.overture-white-customers{
+  margin-top: 20vh;
+}
+.Homepage-customers-White{
+  margin-top: 8vh;
+  margin-right: 2vw;
+  width: 16vw;
+}
+.Homepage-customers-White-name{
+  margin-right: -1vw;
+
+}
 }

@@ -105,7 +105,253 @@
 }
 
 
-.hamburger-menu {
+.hamburger-menu {/* Common Styles */
+  .side-bar {
+    position: sticky;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .side-bar-user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .side-bar-user-details {
+    display: flex;
+    flex-direction: row;
+    color: aliceblue;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--textSoft);
+  }
+  
+  .side-car-user-username {
+    font-weight: 500;
+  }
+  
+  .side-bar-menu-cat {
+    color: var(--textSoft);
+    font-weight: bold;
+    margin: 10px 0px;
+  }
+  
+  .side-bar-menu-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .side-bar-menu-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .side-bar-menu-catM {
+    text-align: left;
+    display: none;
+  }
+  
+  .side-bar-menu-link {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .side-bar-menu-link:hover {
+    color: #bad8e0;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+  }
+  
+  .nav a.active {
+    color: #1A7D99;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+  }
+  
+  .side-bar-logout {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    color: var(--text);
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .side-bar-menu-cat {
+    margin-right: 90px;
+    display: none;
+  }
+  
+  .side-bar-menu-list li {
+    display: flex;
+  }
+  
+  .side-bar-menu-img {
+    width: 70px;
+    height: 50px;
+    margin: 20px;
+  }
+  
+  .side-bar-menuItems {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+  
+  .hamburger-menu div {
+    width: 30px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+  
+  .hamburger-menu.open div:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  
+  .hamburger-menu.open div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.open div:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  
+  .left-column {
+    margin-right: 35vw;
+    margin-bottom: 5vh;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .side-bar {
+      display: none;
+  
+    }
+  
+    .hamburger-menu,
+    .hamburger-menu.open {
+      display: flex;
+      padding: 2px;
+      width: 40px;
+      height: 40px;
+    }
+  
+    .side-bar.show {
+      display: block;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--background);
+      z-index: 9;
+      margin-top: -2vh;
+      top: 0;
+      left: 0;
+    }
+  
+    .side-bar-menuItems {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 2vh;
+      background-color: white;
+      width: 100vw;
+    }
+  
+    .side-bar-menu-img {
+      display: none;
+    }
+  
+    .side-bar-menu-cat,
+    .side-bar-menu-catM,
+    .side-bar-user {
+      display: none;
+    }
+  
+    .side-bar-menu-link {
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 7vw;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 5vh;
+    }
+  
+    .side-bar-menu-list {
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100vh;
+      margin-top: 7vh;
+    }
+  
+    .side-bar-menu-list li {
+      display: block;
+      background-color: white;
+      width: 55vw;
+      height: auto;
+    }
+  
+    .left-column {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  
+  
+    .no-scroll {
+      overflow: hidden;
+      height: 100vh;
+      position: fixed;
+      width: 100%;
+    }
+  
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 1447.04px) and (max-width: 2224px) {   
+  
+  
+    .side-bar-menu-link {
+      margin: 0.6vw;
+      margin-right: 1vw;
+    }
+    .left-column {
+      margin-right: 45vw;
+      margin-bottom: 5vh;
+    }
+  }
+  
+  
   display: none;
   flex-direction: column;
   justify-content: space-around;
