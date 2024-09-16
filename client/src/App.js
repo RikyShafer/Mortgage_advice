@@ -132,7 +132,7 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route element={<CheckLoginNotRequired />} >
+      {/* <Route element={<CheckLoginNotRequired />} > */}
         <Route path='/' element={<DashLayout />}>
           <Route index element={<Homepage />} />
           <Route path="about" element={<About />} />
@@ -168,7 +168,7 @@ function App() {
               </Route>
             </Route>
           </Route>
-        </Route>
+        {/* </Route> */}
         </Route>
         <Route path="*" element={<NotFoundPage404/>} />
       </Routes>

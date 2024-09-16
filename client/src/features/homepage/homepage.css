@@ -293,7 +293,44 @@
   margin-right: 6vw;
   text-align: center;
 }
+.chat-bubble1{
+  display: flex;
+  margin-top: 15vh;
+  gap: 9vw;
+margin-bottom: 7vh;
 
+}
+
+.chat-bubble {
+  position: relative;
+  max-width: 40vw; /* Equivalent to 400px */
+  min-height: 25vh; /* Equivalent to 120px */
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-bubble-content {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  bottom: -2vw; /* Adjusted to position the arrow */
+  left: 2vw; /* Adjusted to position the arrow */
+  width: 0;
+  height: 0;
+  border-left: 2vw solid transparent; /* Increased size */
+  border-right: 2vw solid transparent; /* Increased size */
+  border-top: 2vw solid rgba(123, 121, 121, 0.1); /* Increased size */
+
+}
+
+.customers-White-1,.customers-White-2, .customers-White-3 {
+  margin-top: 3vh;
+  width: 20vw;
+}
 /* 
 .VectorOrange, .BlueBackground, .VectorImg {
   position: absolute;
@@ -576,11 +613,7 @@
   gap: 10px;
 }
 
-.customers-White-1,.customers-White-2, .customers-White-3 {
-  margin-top: -23vh;
-  width: 20vw;
-  margin-right: 8vw;
-}
+
 
 .Homepage-customers-White {
   margin-top: -2vh;
@@ -750,7 +783,7 @@ font-weight: 700;
 font-size: 14px;
 line-height: 15px;
 text-align: right;
-
+margin-right: 1vw;
 color: #000000;
 
 
@@ -762,7 +795,7 @@ line-height: 12px;
 text-align: right;
 color: #000000;
 width: 40vw;
-
+margin-right: 2vw;
 }
 .Who-we-are-Melal3{
 font-weight: 400;
@@ -770,7 +803,7 @@ font-size: 12px;
 line-height: 12px;
 text-align: right;
 margin-top: 1vh;
-
+margin-right: 2vw;
 }
 .Who-we-are-Melal-button {
   width: 17vw;
@@ -928,32 +961,41 @@ color: #000000;
   gap: 10px;
 }
 
-.customers-White-1 {
-  margin-top: -57vh;
-  width: 60vw;
-  margin-right: 21vw;
+.chat-bubble1 {
+  flex-direction: column; /* Stack chat bubbles vertically */
+  gap: 4vh; /* Reduce gap on mobile */
+  margin-top: 2vh;
+  margin-bottom: 7vh;
 }
-.customers-White-2 {
-  margin-top: -38vh;
-  width: 60vw;
-  margin-right: 21vw;
+
+.chat-bubble {
+  max-width: 50vw; /* Equivalent to 400px */
+margin-right: 17vw;
+  min-height: 10vh; /* Equivalent to 120px */
+  padding: 10px; /* Reduce padding on mobile */
 }
+
+.arrow {
+  bottom: -10px; /* Adjust arrow position for mobile */
+  left: 15px; /* Adjust arrow position for mobile */
+  border-left: 10px solid transparent; /* Adjust arrow size */
+  border-right: 10px solid transparent; /* Adjust arrow size */
+  border-top: 10px solid white; /* Adjust arrow size */
+}
+
+.customers-White-1,
+.customers-White-2,
 .customers-White-3 {
-  margin-top: -16vh;
-  width: 60vw;
-  margin-right: 21vw;
+  font-size: 14px; /* Adjust font size for mobile */
+width: 40vw;
+margin-right: 1vw;
 }
 .Homepage-customers-White {
-font-weight: 400;
-font-size: 14px;
-line-height: 16px;
-text-align: right;
-color: #000000;
+
 margin-top: -1vh;
 }
 
 .Homepage-customers-White-name {
-  width: 40vw;
   margin-top: 3vh;
 font-weight: 700;
 font-size: 14px;

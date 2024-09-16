@@ -11,9 +11,11 @@ const ContactAdd = ({ onClose }) => {
 
     useEffect(() => {
         if (isSuccess) {
-            navigate("/messageContact");
+            onClose();  // קוראים לפונקציה שסוגרת את החלונית
+            navigate("/messageContact");  // מבצעים ניתוב
         }
-    }, [isSuccess, navigate]);
+    }, [isSuccess, navigate, onClose]);
+    
 
     const formSubmit = (e) => {
         e.preventDefault();
