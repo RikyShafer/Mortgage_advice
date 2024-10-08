@@ -23,7 +23,7 @@ background: #FFFFFF;
 box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
 border-radius: 25px;
 color: #000;
-width: 40vw;
+width: 45vw;
 height: 8vh;
 display: flex;
 align-items: center;
@@ -37,7 +37,7 @@ background: #F0B918;
 box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.25);
 border-radius: 25px;
 color: #000;
-width: 40vw;
+width: 45vw;
 height: 8vh;
 display: flex;
 align-items: center;
@@ -46,15 +46,38 @@ margin-right: 8vw;
 margin-bottom: 4vh;
 
 }
-
+/* 
 .svg-container {
 display: flex;
-margin-top: -1vh;
-justify-content: space-between; /* יישר את האובייקטים בקצוות הנגדיים של ה־div */
-align-items: center; /* אפשר למרכז את האובייקטים לאורך ציר ה-Y */
+
+justify-content: space-between; 
+align-items: center; 
 
 
-}
+} */
+
+.svg-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: -1vh;
+  }
+  
+  .svg-containerP {
+    margin-left: auto; /* כדי שהטקסט יהיה בצד שמאל */
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 38px;
+    text-align: left;
+    color: #000000;
+    margin-right: 2vw;
+  }
+  
+  svg {
+    margin-right: auto; /* כדי שהאייקון יהיה בצד ימין */
+    margin-left: 2vw;
+  }
 
 .They-tell-us-Caption {
 font-weight: 400;
@@ -67,17 +90,18 @@ margin-right: 10vw;
 margin-bottom: 4vh;
 
 }
-.svg-containerP{
-
-font-weight: 700;
-font-size: 26px;
-line-height: 38px;
-text-align: right;
-margin-left: 18vw;
-margin-right: 1vw;
-/* שחור טקסט */
-color: #000000;
-}
+/* .svg-containerP {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 38px;
+    text-align: left;
+    margin-right: 1vw;
+    color: #000000;
+    direction: rtl; 
+    text-align: right; 
+    padding-right: 0; 
+    margin-left: 0; 
+} */
 
 
 

@@ -310,7 +310,7 @@ const registeration = async (req, res) => {
         });
         await user.save();
 
-        await sendEmailToManager(firstName, lastName, email,phone);
+        await sendEmailToManager(firstName, lastName, email,phone);//שליחת מייל 
 
         // Generate JWT tokens
         const accessToken = jwt.sign(

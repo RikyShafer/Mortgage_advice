@@ -34,7 +34,7 @@ const ContactAdd = ({ onClose }) => {
                 <button className="close-button" onClick={onClose}>&times;</button>
                 <div className='contemt-user-register-wraps'>
                     <form onSubmit={formSubmit} className='contemt-user-register-form'>
-                        <h2 className='contemt-user-register-h2'>ליצרת קשר...</h2>
+                        <h2 className='contemt-user-register-h2'>ליצירת קשר...</h2>
                         <div className='contemt-div-register'>
                             <div className='contemt-user-register-form-firstName'>
                                 <h3 className='contemt-user-register-h3'>שם פרטי</h3>
